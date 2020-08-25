@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:background="@mipmap/oriental_pearl_tower">
+
+        <RelativeLayout
+            style="@style/MatchWrap"
+            android:layout_marginStart="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_60">
+
+            <LinearLayout style="@style/WrapWrap.Vertical">
+
+                <TextView
+                    style="@style/MatchWrap"
+                    android:text="多云"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_18" />
+
+                <TextView
+                    style="@style/MatchWrap"
+                    android:text="20℃-23℃"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/WrapWrap.Vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/tab_dimens_20">
+
+                <TextView
+                    style="@style/MatchWrap"
+                    android:text="多云"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_18" />
+
+                <TextView
+                    style="@style/MatchWrap"
+                    android:text="20℃-23℃"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_12" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/WrapWrap"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/tab_dimens_160"
+            android:background="@mipmap/city_tour_home_bg_sh"
+            android:gravity="center"
+            android:text="走进上海"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_size_20"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/WrapWrap"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:gravity="center"
+            android:text="历史 · 人文 · 行程 · 玩乐"
+            android:textColor="@color/top_tab_bar_light"
+            android:textSize="@dimen/tv_size_16" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+
+    <LinearLayout style="@style/MatchWrap.Vertical">
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginStart="@dimen/tab_dimens_20"
+            android:layout_marginEnd="@dimen/tab_dimens_20">
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_expo"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="展览"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_spot"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="景点"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_sport"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="体育"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_art"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="文创"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginStart="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:layout_marginEnd="@dimen/tab_dimens_20">
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_lie"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="休闲"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_spot"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="活动"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_night"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="夜市"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                style="@style/AutoWrap"
+                android:drawableTop="@mipmap/city_tour_home_ic_gst"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center"
+                android:text="消费券"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

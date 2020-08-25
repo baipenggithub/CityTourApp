@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout style="@style/MatchMatch.Vertical">
+
+        <FrameLayout
+            android:id="@+id/content_frame_layout"
+            style="@style/MatchAuto" />
+
+        <include
+            android:id="@+id/home_bottom_tab_view"
+            layout="@layout/home_bottom_tab_layout"
+            app:viewModel="@{viewModel}" />
+
+    </LinearLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.MainActivityViewModel" />
+    </data>
+</layout>
