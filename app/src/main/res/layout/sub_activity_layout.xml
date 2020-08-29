@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_margin="@dimen/tab_dimens_15">
+
+        <RelativeLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_marginBottom="@dimen/tab_dimens_10">
+
+            <TextView
+                android:id="@+id/tv_home_activity_title"
+                style="@style/WrapWrap"
+                android:layout_centerVertical="true"
+                android:drawableStart="@mipmap/city_tour_home_ic_activity"
+                android:drawablePadding="@dimen/tab_dimens_10"
+                android:text="活动"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_home_activity_sum"
+                style="@style/WrapWrap"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/tv_home_activity_title"
+                android:text="(10)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_15" />
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="更多 >"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_15" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Vertical"
+            android:background="@mipmap/home_activity_small_tab">
+
+            <ImageView
+                style="@style/MatchWrap"
+                android:layout_height="@dimen/tab_dimens_200"
+                android:scaleType="fitXY"
+                android:src="@mipmap/test_pic" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:layout_marginEnd="@dimen/tab_dimens_10">
+
+                <LinearLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_marginTop="@dimen/tab_dimens_10">
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:text="千秋大业十二载,璀璨重光静安寺"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_18" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_05"
+                        android:text="穿越12个年思绪的时空隧道,回眸那四千二百个日日夜夜,真的让人感慨万千!"
+                        android:textColor="@color/light_grey"
+                        android:textSize="@dimen/tv_size_15" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

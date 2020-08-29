@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.CardsViewModel" />
+    </data>
+
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:background="@mipmap/tour_home_01_02">
+
+        <RelativeLayout
+            style="@style/MatchMatch.Horizontal"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:background="@mipmap/tour_home_02_02">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:src="@mipmap/tour_home_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="消费券"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_20" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:background="@color/white">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/subRecyclerView"
+                style="@style/MatchMatch"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            style="@style/MatchMatch"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </LinearLayout>
+</layout>

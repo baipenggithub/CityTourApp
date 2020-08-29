@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_main;
+
     }
 
     @Override
@@ -137,44 +138,44 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
     private void setTabView(boolean b, boolean b2, boolean b3, boolean b4, boolean b5) {
         mBinding.homeBottomTabView.ivHome.setSelected(b);
         mBinding.homeBottomTabView.tvHome.setSelected(b);
-        if (b){
+        if (b) {
             mBinding.homeBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
+        } else {
             mBinding.homeBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
         mBinding.homeBottomTabView.ivTravel.setSelected(b2);
         mBinding.homeBottomTabView.tvTravel.setSelected(b2);
-        if (b2){
+        if (b2) {
             mBinding.homeBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
+        } else {
             mBinding.homeBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
         mBinding.homeBottomTabView.ivAssistant.setSelected(b3);
         mBinding.homeBottomTabView.tvAssistant.setSelected(b3);
 
-        if (b3){
+        if (b3) {
             mBinding.homeBottomTabView.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
+        } else {
             mBinding.homeBottomTabView.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
         mBinding.homeBottomTabView.ivVideo.setSelected(b4);
         mBinding.homeBottomTabView.tvVideo.setSelected(b4);
 
-        if (b4){
+        if (b4) {
             mBinding.homeBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
+        } else {
             mBinding.homeBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
         mBinding.homeBottomTabView.ivMe.setSelected(b5);
         mBinding.homeBottomTabView.tvMe.setSelected(b5);
 
-        if (b5){
+        if (b5) {
             mBinding.homeBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
+        } else {
             mBinding.homeBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
     }

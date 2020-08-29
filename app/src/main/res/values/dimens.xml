@@ -18,7 +18,7 @@
     <dimen name="tv_size_40">40sp</dimen>
 
     <!--基本间距-->
-    <dimen name="tab_dimens_0">0.5dp</dimen>
+    <dimen name="tab_dimens_0">0dp</dimen>
     <dimen name="tab_dimens_1">1dp</dimen>
     <dimen name="tab_dimens_02">02dp</dimen>
     <dimen name="tab_dimens_03">03dp</dimen>
@@ -68,6 +68,9 @@
     <dimen name="tab_dimens_260">260dp</dimen>
     <dimen name="tab_dimens_300">300dp</dimen>
     <dimen name="tab_dimens_320">320dp</dimen>
+    <dimen name="tab_dimens_340">340dp</dimen>
+    <dimen name="tab_dimens_360">360dp</dimen>
+    <dimen name="tab_dimens_380">380dp</dimen>
     <dimen name="tab_dimens_400">400dp</dimen>
     <dimen name="tab_dimens_420">420dp</dimen>
     <dimen name="tab_dimens_450">450dp</dimen>
@@ -80,5 +83,6 @@
     <dimen name="tab_dimens_20_">-20dp</dimen>
     <dimen name="tab_dimens_25_">-25dp</dimen>
     <dimen name="tab_dimens_40_">-40dp</dimen>
+    <dimen name="tab_dimens_90_">-90dp</dimen>
     <dimen name="tab_dimens_100_">-100dp</dimen>
 </resources>

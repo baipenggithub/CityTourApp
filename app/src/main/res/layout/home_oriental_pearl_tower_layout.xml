@@ -21,13 +21,15 @@
 
                 <TextView
                     style="@style/MatchWrap"
-                    android:text="多云"
+                    android:gravity="center"
+                    android:text="@{viewModel.mWeatherInfo.wea}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/tv_size_18" />
 
                 <TextView
                     style="@style/MatchWrap"
-                    android:text="20℃-23℃"
+                    android:gravity="center"
+                    android:text="@{viewModel.mWeatherInfo.tem2 + '℃' + '-' + viewModel.mWeatherInfo.tem1 + '℃'}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/tv_size_12" />
 
@@ -40,29 +42,33 @@
 
                 <TextView
                     style="@style/MatchWrap"
-                    android:text="多云"
+                    android:gravity="center"
+                    android:text="AQI"
                     android:textColor="@color/black"
                     android:textSize="@dimen/tv_size_18" />
 
                 <TextView
                     style="@style/MatchWrap"
-                    android:text="20℃-23℃"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/tv_size_12" />
+                    android:background="@drawable/shape_weather_air_level"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/tab_dimens_03"
+                    android:paddingTop="@dimen/tab_dimens_1"
+                    android:paddingEnd="@dimen/tab_dimens_03"
+                    android:paddingBottom="@dimen/tab_dimens_1"
+                    android:text="@{viewModel.mWeatherInfo.air_level}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_10" />
 
             </LinearLayout>
         </RelativeLayout>
 
-        <TextView
+        <ImageView
             style="@style/WrapWrap"
+            onClickCommand="@{viewModel.intoShCommand}"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/tab_dimens_160"
-            android:background="@mipmap/city_tour_home_bg_sh"
+            android:layout_marginTop="@dimen/tab_dimens_150"
             android:gravity="center"
-            android:text="走进上海"
-            android:textColor="@color/white"
-            android:textSize="@dimen/tv_size_20"
-            android:textStyle="bold" />
+            android:src="@mipmap/home_into_sh" />
 
         <TextView
             style="@style/WrapWrap"

@@ -17,7 +17,7 @@ import io.reactivex.functions.Consumer;
 public abstract class BaseViewModel<T extends BaseRepository> extends AndroidViewModel implements IBaseViewModel,
         Consumer<Disposable> {
     private CompositeDisposable mCompositeDisposable;
-    private T mRepository;
+    protected T mRepository;
 
     /**
      * Constructor.

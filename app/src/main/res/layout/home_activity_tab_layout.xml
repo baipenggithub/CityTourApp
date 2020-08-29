@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:layout_marginTop="@dimen/tab_dimens_90_"
+        android:background="@mipmap/tour_home_01_02">
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:layout_height="@dimen/tab_dimens_400"
+            android:background="@mipmap/tour_home_01_01">
+
+            <include
+                android:id="@+id/sub_activity_view"
+                layout="@layout/sub_activity_layout"
+                app:viewModel="@{viewModel}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Vertical"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:background="@mipmap/tour_home_01_01">
+
+            <include
+                android:id="@+id/sub_video_view"
+                layout="@layout/sub_video_layout"
+                app:viewModel="@{viewModel}" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

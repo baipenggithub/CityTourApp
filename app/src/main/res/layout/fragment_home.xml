@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView style="@style/MatchMatch.Vertical">
+    <androidx.core.widget.NestedScrollView style="@style/MatchMatch.Vertical">
 
         <LinearLayout style="@style/MatchMatch.Vertical">
 
@@ -20,14 +20,13 @@
             <LinearLayout
                 style="@style/WrapWrap.Vertical"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/tab_dimens_100_"
+                android:layout_marginTop="@dimen/tab_dimens_90_"
                 android:background="@mipmap/city_tour_home_along_code"
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_70"
-                    android:layout_height="@dimen/tab_dimens_70"
-                    android:src="@mipmap/city_tour_home_tab_un_scan" />
+                    style="@style/WrapWrap"
+                    android:src="@mipmap/home_me_scan" />
 
                 <TextView
                     style="@style/WrapWrap"
@@ -61,8 +60,13 @@
                 android:id="@+id/home_oriental_pearl_tower_view"
                 layout="@layout/home_oriental_pearl_tower_layout"
                 app:viewModel="@{viewModel}" />
+
+            <include
+                android:id="@+id/home_activity_tab_view"
+                layout="@layout/home_activity_tab_layout"
+                app:viewModel="@{viewModel}" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <data>
 
