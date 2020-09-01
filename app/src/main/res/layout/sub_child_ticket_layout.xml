@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.BookViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_child_ticket_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tab_dimens_10"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:text="儿童票"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/tv_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_child_bac"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_140"
+            android:layout_marginStart="@dimen/tab_dimens_10"
+            android:layout_marginEnd="@dimen/tab_dimens_10"
+            android:background="@drawable/shape_sub_adult_ticket"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/tv_child_ticket_title">
+
+            <TextView
+                android:id="@+id/tv_child_ticket_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginTop="@dimen/tab_dimens_20"
+                android:text="儿童票"
+                android:textColor="@drawable/shape_bottom_bar_text_color"
+                android:textSize="@dimen/tv_size_16"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_child_ticket_end_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:text="限2020.9.30前使用"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                android:id="@+id/tv_child_ticket_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:text="届时请携带预约成功短信"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                android:id="@+id/tv_child_ticket_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:text="限身高1.2米(含)以下儿童使用"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_16" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_child_ticket_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_30"
+            android:layout_marginEnd="@dimen/tab_dimens_30"
+            android:text="135元"
+            android:textColor="@drawable/shape_bottom_bar_text_color"
+            android:textSize="@dimen/tv_size_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_child_bac"
+            app:layout_constraintEnd_toEndOf="@+id/ll_child_bac"
+            app:layout_constraintTop_toTopOf="@+id/ll_child_bac" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -13,14 +13,14 @@ import com.bp.hmi.citytour.bean.CardsBean;
 import com.bp.hmi.citytour.bean.SubCardsTabTitleBean;
 import com.bp.hmi.citytour.databinding.ActivityCardsBinding;
 import com.bp.hmi.citytour.ui.adapter.CardsAdapter;
-import com.bp.hmi.citytour.ui.adapter.SubCardsTabAdapter;
+import com.bp.hmi.citytour.ui.adapter.SubTabTitleAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.CardsViewModel;
 
 import java.util.List;
 
 public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewModel> {
     private CardsAdapter mCardsAdapter;
-    private SubCardsTabAdapter mSubCardsTabAdapter;
+    private SubTabTitleAdapter mSubTabTitleAdapter;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -55,14 +55,14 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
             @Override
             public void onChanged(List<SubCardsTabTitleBean> result) {
                 Log.d("mSubCardsTabTitleBean", "result:" + result.size());
-                mSubCardsTabAdapter = new SubCardsTabAdapter(R.layout.sub_cards_tab_item_layout, result);
-                mBinding.subRecyclerView.setAdapter(mSubCardsTabAdapter);
-                mSubCardsTabAdapter.setSelectedIndex(0);
+                mSubTabTitleAdapter = new SubTabTitleAdapter(R.layout.sub_cards_tab_item_layout, result);
+                mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
+                mSubTabTitleAdapter.setSelectedIndex(0);
 
-                mSubCardsTabAdapter.addOnItemClickListener(new SubCardsTabAdapter.OnItemClickListener() {
+                mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
                     @Override
                     public void onItemListener(SubCardsTabTitleBean resultBean, int position) {
-                        mSubCardsTabAdapter.setSelectedIndex(position);
+                        mSubTabTitleAdapter.setSelectedIndex(position);
                     }
                 });
             }

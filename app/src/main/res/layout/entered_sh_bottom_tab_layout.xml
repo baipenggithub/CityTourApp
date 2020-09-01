@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_dimens_80"
+        android:background="@mipmap/tour_home_03_02"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lin_home"
+            style="@style/AutoMatch.Vertical"
+            onClickCommand="@{viewModel.homeFragmentCommand}"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/shape_entered_sh_tab_way" />
+
+            <TextView
+                android:id="@+id/tv_home"
+                style="@style/WrapWrap"
+                android:layout_marginTop="@dimen/tab_dimens_03"
+                android:text="推荐路线"
+                android:textColor="@drawable/shape_bottom_bar_text_color"
+                android:textSize="@dimen/tv_size_14" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lin_travel"
+            style="@style/AutoMatch.Vertical"
+            onClickCommand="@{viewModel.travelFragmentCommand}"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_travel"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/shape_entered_sh_tab_spot" />
+
+            <TextView
+                android:id="@+id/tv_travel"
+                style="@style/WrapWrap"
+                android:layout_marginTop="@dimen/tab_dimens_03"
+                android:text="推荐景点"
+                android:textColor="@drawable/shape_bottom_bar_text_color"
+                android:textSize="@dimen/tv_size_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_video"
+            style="@style/AutoMatch.Vertical"
+            onClickCommand="@{viewModel.videoFragmentCommand}"
+            android:gravity="center"
+            android:scaleType="centerInside">
+
+            <ImageView
+                android:id="@+id/iv_video"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/shape_entered_sh_tab_map" />
+
+            <TextView
+                android:id="@+id/tv_video"
+                style="@style/WrapWrap"
+                android:layout_marginTop="@dimen/tab_dimens_03"
+                android:text="地图"
+                android:textColor="@drawable/shape_bottom_bar_text_color"
+                android:textSize="@dimen/tv_size_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_me"
+            style="@style/AutoMatch.Vertical"
+            onClickCommand="@{viewModel.meFragmentCommand}"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_me"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:scaleType="centerInside"
+                android:src="@drawable/shape_entered_sh_tab_book" />
+
+            <TextView
+                android:id="@+id/tv_me"
+                style="@style/WrapWrap"
+                android:layout_marginTop="@dimen/tab_dimens_03"
+                android:text="一键预约"
+                android:textColor="@drawable/shape_bottom_bar_text_color"
+                android:textSize="@dimen/tv_size_14" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

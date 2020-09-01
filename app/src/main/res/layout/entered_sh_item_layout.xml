@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWrap.Vertical"
+    android:layout_marginStart="@dimen/tab_dimens_10"
+    android:layout_marginEnd="@dimen/tab_dimens_10"
+    android:background="@mipmap/tour_home_03_01"
+    android:padding="@dimen/tab_dimens_15">
+
+    <TextView
+        android:id="@+id/tv_entered_sh_title"
+        android:layout_width="@dimen/tab_dimens_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_dimens_10"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心"
+        android:textColor="@color/black"
+        android:textSize="@dimen/tv_size_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_entered_sh_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_entered_sh_spot"
+        android:layout_width="@dimen/tab_dimens_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_dimens_10"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="有效时间..."
+        android:textColor="@color/top_tab_bar_light"
+        android:textSize="@dimen/tv_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_entered_sh_icon"
+        app:layout_constraintTop_toBottomOf="@+id/tv_entered_sh_title" />
+
+    <TextView
+        android:id="@+id/tv_entered_sh_time"
+        android:layout_width="@dimen/tab_dimens_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_dimens_10"
+        android:layout_marginTop="@dimen/tab_dimens_05"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="有效时间..."
+        android:textColor="@color/top_tab_bar_light"
+        android:textSize="@dimen/tv_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_entered_sh_icon"
+        app:layout_constraintTop_toBottomOf="@+id/tv_entered_sh_spot" />
+
+    <ImageView
+        android:id="@+id/iv_entered_sh_icon"
+        android:layout_width="@dimen/tab_dimens_100"
+        android:layout_height="@dimen/tab_dimens_70"
+        android:scaleType="fitXY"
+        android:src="@mipmap/test_pic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchWrap.Vertical"
-    android:layout_margin="@dimen/tab_dimens_10"
+    android:layout_marginStart="@dimen/tab_dimens_10"
+    android:layout_marginEnd="@dimen/tab_dimens_10"
     android:background="@mipmap/tour_home_02_01"
     android:padding="@dimen/tab_dimens_15">
 

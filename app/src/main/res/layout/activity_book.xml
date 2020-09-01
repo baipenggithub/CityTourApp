@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -8,9 +7,9 @@
 
         <variable
             name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel" />
-    </data>
+            type="com.bp.hmi.citytour.ui.viewmodel.BookViewModel" />
 
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,10 +17,11 @@
         android:background="@mipmap/tour_home_01_02">
 
         <RelativeLayout
-            android:id="@+id/rl_entered_sh_head"
+            android:id="@+id/rl_book_head"
             style="@style/MatchMatch.Horizontal"
             android:layout_height="@dimen/tab_dimens_70"
             android:background="@mipmap/tour_home_02_02"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -37,64 +37,65 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:text="走进上海"
+                android:text="预定详情"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_20" />
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/tab_dimens_20"
-                android:src="@mipmap/city_tour_home_ic_search" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/iv_entered_sh_adv"
+        <LinearLayout
+            android:id="@+id/ll_calendar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_200"
-            android:scaleType="fitXY"
-            android:src="@mipmap/test_pic"
+            android:layout_height="@dimen/tab_dimens_340"
+            android:background="@color/white"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_entered_sh_head" />
+            app:layout_constraintTop_toBottomOf="@+id/rl_book_head">
 
-        <LinearLayout
-            android:id="@+id/ll_sub_entered_sh"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_50"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_entered_sh_adv">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/subRecyclerView"
-                style="@style/MatchMatch"
-                android:overScrollMode="never"
-                android:scrollbars="none" />
+            <CalendarView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusedMonthDateColor="@color/color_primary"
+                android:selectedWeekBackgroundColor="@color/color_primary" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_0"
-            android:overScrollMode="never"
-            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/entered_sh_bottom_tab_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_sub_entered_sh" />
+            app:layout_constraintBottom_toTopOf="@+id/subscribe_ticket_view"
+            app:layout_constraintTop_toBottomOf="@+id/ll_calendar">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/sub_adult_ticket_view"
+                    layout="@layout/sub_adult_ticket_layout"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    android:id="@+id/sub_old_people_ticket_view"
+                    layout="@layout/sub_old_people_ticket_layout"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    android:id="@+id/sub_child_ticket_view"
+                    layout="@layout/sub_child_ticket_layout"
+                    app:viewModel="@{viewModel}" />
+
+            </LinearLayout>
+        </ScrollView>
 
         <include
-            android:id="@+id/entered_sh_bottom_tab_view"
-            layout="@layout/entered_sh_bottom_tab_layout"
+            android:id="@+id/subscribe_ticket_view"
+            layout="@layout/subscribe_ticket_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_80"
-            android:layout_margin="@dimen/tab_dimens_10"
+            android:layout_height="@dimen/tab_dimens_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:viewModel="@{viewModel}" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -22,7 +22,7 @@ import java.util.List;
  *     version: 1.0
  * </pre>
  */
-public class SubCardsTabAdapter extends BaseRecyclerAdapter<SubCardsTabTitleBean, BaseRecyclerHolder> {
+public class SubTabTitleAdapter extends BaseRecyclerAdapter<SubCardsTabTitleBean, BaseRecyclerHolder> {
     private int mSelectedIndex = 0;
 
     /**
@@ -31,7 +31,7 @@ public class SubCardsTabAdapter extends BaseRecyclerAdapter<SubCardsTabTitleBean
      * @param layoutResId
      * @param data
      */
-    public SubCardsTabAdapter(int layoutResId, @Nullable List<SubCardsTabTitleBean> data) {
+    public SubTabTitleAdapter(int layoutResId, @Nullable List<SubCardsTabTitleBean> data) {
         super(layoutResId, data);
     }
 

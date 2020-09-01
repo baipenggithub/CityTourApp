@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.JoinTripViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_entered_sh_head"
+            style="@style/MatchMatch.Horizontal"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:background="@mipmap/tour_home_02_02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:src="@mipmap/tour_home_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="走进上海"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_20" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/tab_dimens_20"
+                android:src="@mipmap/city_tour_home_ic_search" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_entered_sh_map"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_200"
+            android:scaleType="fitXY"
+            android:src="@mipmap/test_pic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_entered_sh_head" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_0"
+            android:background="@mipmap/tour_home_02_01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_entered_sh_map">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tab_dimens_0"
+                android:layout_margin="@dimen/tab_dimens_10">
+
+                <ImageView
+                    android:id="@+id/iv_join_trip_adv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_200"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/test_pic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_join_trip_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:text="中共一大会址"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_join_trip_adv" />
+
+                <TextView
+                    android:id="@+id/tv_join_trip_ranking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:text="9.6分"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_join_trip_adv" />
+
+                <LinearLayout
+                    android:id="@+id/ll_opening_hours"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_60"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:background="@mipmap/city_tour_07_01"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_join_trip_address">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tab_dimens_10"
+                        android:text="周二至周日9:00-17:00(16:00 禁止入场)" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tab_dimens_10"
+                        android:layout_marginTop="@dimen/tab_dimens_05"
+                        android:text="海兴业路76号" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_opening_hours">
+
+
+                    <ImageView
+                        android:id="@+id/iv_join_trip_like"
+                        android:layout_width="@dimen/tab_dimens_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tab_dimens_10"
+                        android:layout_weight="1"
+                        android:src="@mipmap/city_tour_07_02" />
+
+                    <ImageView
+                        android:id="@+id/iv_join_trip_favorite"
+                        android:layout_width="@dimen/tab_dimens_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tab_dimens_20"
+                        android:layout_marginTop="@dimen/tab_dimens_10"
+                        android:layout_weight="1"
+                        android:src="@mipmap/city_tour_07_03" />
+
+                    <ImageView
+                        android:id="@+id/iv_join_trip_share"
+                        android:layout_width="@dimen/tab_dimens_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tab_dimens_20"
+                        android:layout_marginTop="@dimen/tab_dimens_10"
+                        android:layout_weight="1"
+                        android:src="@mipmap/city_tour_07_04" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_join_trip_exhibition_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:text="展馆详情"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_other" />
+
+                <ImageView
+                    android:id="@+id/iv_join_trip_voice_navigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:src="@mipmap/city_tour_07_06"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_other" />
+
+                <ImageView
+                    android:id="@+id/iv_join_trip_virtual_showrooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:layout_marginEnd="@dimen/tab_dimens_10"
+                    android:src="@mipmap/city_tour_07_05"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_join_trip_voice_navigation"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_other" />
+
+                <LinearLayout
+                    android:id="@+id/ll_exhibition_introduced"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_join_trip_exhibition_details">
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_join_trip_related_activities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:text="相关活动"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_exhibition_introduced" />
+
+                <LinearLayout
+                    android:id="@+id/ll_join_trip_related_activities"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_join_trip_related_activities">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/join_trip_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_join_trip"
+                    android:layout_width="@dimen/tab_dimens_300"
+                    android:layout_height="@dimen/tab_dimens_50"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:background="@mipmap/city_tour_07_07"
+                    android:gravity="center"
+                    android:text="加入行程"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_join_trip_related_activities" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_join_trip" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

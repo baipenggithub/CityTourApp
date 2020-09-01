@@ -79,6 +79,7 @@
     <dimen name="tab_dimens_500">500dp</dimen>
     <dimen name="tab_dimens_530">530dp</dimen>
     <dimen name="tab_dimens_600">600dp</dimen>
+    <dimen name="tab_dimens_640">640dp</dimen>
 
     <dimen name="tab_dimens_20_">-20dp</dimen>
     <dimen name="tab_dimens_25_">-25dp</dimen>

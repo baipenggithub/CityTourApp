@@ -6,50 +6,24 @@
 
         <LinearLayout style="@style/MatchMatch.Vertical">
 
-            <LinearLayout
-                style="@style/MatchMatch.Vertical"
-                android:layout_height="@dimen/tab_dimens_200"
-                android:background="@mipmap/city_tour_home_up_bac">
+            <include
+                android:id="@+id/home_first_head_view"
+                layout="@layout/home_first_head_layout"
+                android:visibility="gone"
+                app:viewModel="@{viewModel}" />
 
-                <include
-                    android:id="@+id/home_top_search_view"
-                    layout="@layout/home_top_search_layout"
-                    app:viewModel="@{viewModel}" />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/WrapWrap.Vertical"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/tab_dimens_90_"
-                android:background="@mipmap/city_tour_home_along_code"
-                android:gravity="center">
+            <include
+                android:id="@+id/home_second_head_view"
+                layout="@layout/home_second_head_layout"
+                app:viewModel="@{viewModel}" />
 
-                <ImageView
-                    style="@style/WrapWrap"
-                    android:src="@mipmap/home_me_scan" />
-
-                <TextView
-                    style="@style/WrapWrap"
-                    android:layout_marginTop="@dimen/tab_dimens_10"
-                    android:text="随申码"
-                    android:textColor="@color/light_grey"
-                    android:textSize="@dimen/tv_size_16" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/MatchWrap.Vertical"
-                android:layout_marginTop="@dimen/tab_dimens_20"
-                android:layout_marginBottom="@dimen/tab_dimens_20">
-
-                <TextView
-                    style="@style/MatchWrap"
-                    android:gravity="center"
-                    android:text="12点半苏浙汇餐厅消费128元 \n 你已成功预约2020-08-30迪尼斯乐园双人门票"
-                    android:textColor="@color/color_accent"
-                    android:textSize="@dimen/tv_size_12" />
-
-            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-50dp"
+                android:src="@mipmap/city_tour_home_ic_up" />
 
             <include
                 android:id="@+id/home_centre_tab_view"

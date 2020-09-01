@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.BookViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_dimens_140"
+        android:background="@mipmap/tour_home_03_01">
+
+        <LinearLayout
+            android:id="@+id/ll_subscribe_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_subscribe_01"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:gravity="center_vertical"
+                android:text="数量"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_15" />
+
+            <TextView
+                android:id="@+id/tv_subscribe_02"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=" (每单限购3份)"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_12" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/tab_dimens_20">
+
+                <ImageView
+                    android:id="@+id/tv_subscribe_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/tour_home_04_04"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tab_dimens_08"
+                    android:src="@mipmap/tour_home_04_06"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_subscribe_03"
+                    app:layout_constraintStart_toStartOf="@+id/tv_subscribe_03"
+                    app:layout_constraintTop_toTopOf="@+id/tv_subscribe_03" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/tab_dimens_08"
+                    android:src="@mipmap/tour_home_04_05"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_subscribe_03"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_subscribe_03"
+                    app:layout_constraintTop_toTopOf="@+id/tv_subscribe_03" />
+
+                <TextView
+                    android:id="@+id/tv_subscribe_ticket_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_15"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_subscribe_03"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_subscribe_03"
+                    app:layout_constraintStart_toStartOf="@+id/tv_subscribe_03"
+                    app:layout_constraintTop_toTopOf="@+id/tv_subscribe_03" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:background="@mipmap/tour_home_04_07"
+            app:layout_constraintTop_toBottomOf="@+id/ll_subscribe_top">
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:layout_weight="2"
+                android:drawablePadding="@dimen/tab_dimens_05"
+                android:gravity="center_vertical"
+                android:text="购买旅游保险"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_15"
+                app:drawableStartCompat="@mipmap/tour_home_04_08" />
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="预约"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_18" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -27,7 +27,9 @@
         android:roundIcon="@mipmap/city_tour_home_tab_helper"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.EnteredShActivity"></activity>
+        <activity android:name=".ui.activity.JoinTripActivity"></activity>
+        <activity android:name=".ui.activity.BookActivity" />
+        <activity android:name=".ui.activity.EnteredShActivity" />
         <activity android:name=".ui.activity.CardsActivity" />
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>

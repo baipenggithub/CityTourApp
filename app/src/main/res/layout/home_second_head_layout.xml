@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_dimens_640"
+        android:background="@mipmap/city_tour_home_down_bac"
+        android:padding="@dimen/tab_dimens_10">
+
+        <TextView
+            android:id="@+id/tv_home_second_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:layout_gravity="center_vertical"
+            android:drawableEnd="@mipmap/city_tour_home_ic_down"
+            android:drawablePadding="@dimen/tab_dimens_10"
+            android:gravity="center_vertical"
+            android:text="上海"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/tv_size_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_home_second_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/tab_dimens_70"
+            android:gravity="center_vertical"
+            android:text="城市游"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_size_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_home_second_search"
+            style="@style/AutoWrap.Horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/tab_dimens_40"
+            android:layout_marginEnd="@dimen/tab_dimens_40"
+            android:background="@mipmap/city_tour_home_ic_search_box"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_second_title">
+
+            <EditText
+                android:id="@+id/ed_home_second_search"
+                style="@style/AutoMatch"
+                android:layout_marginEnd="@dimen/tab_dimens_10"
+                android:background="@null"
+                android:hint="试试输入你的兴趣"
+                android:paddingStart="@dimen/tab_dimens_10"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/iv_home_second_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/tab_dimens_10"
+                android:scaleType="centerInside"
+                android:src="@mipmap/city_tour_home_ic_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_home_second_travel_code"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_80"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_second_search">
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@mipmap/city_tour_home_ic_left" />
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="公交码"
+                android:textColor="@color/color_primary_dark"
+                android:textSize="@dimen/tv_size_20" />
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="文旅码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="地铁码"
+                android:textColor="@color/color_primary_dark"
+                android:textSize="@dimen/tv_size_20" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@mipmap/city_tour_home_icright" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_home_second_health_code"
+            android:layout_width="@dimen/tab_dimens_100"
+            android:layout_height="@dimen/tab_dimens_100"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:src="@mipmap/city_tour_home_tab_scan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_second_travel_code" />
+
+        <TextView
+            android:id="@+id/tv_home_second_health_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_weight="1"
+            android:text="绿色"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_size_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_home_second_health_code" />
+
+        <LinearLayout
+            android:id="@+id/ll_home_second_user"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_second_health_code">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/city_tour_home_ic_user" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:text="姓名"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/tv_size_30"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:src="@mipmap/city_tour_home_ic_eye" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_home_second_update_code_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:text="更新于:2020-08-31 11:02:17"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/tv_size_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_second_user" />
+
+        <TextView
+            android:id="@+id/tv_home_second_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:text="数据来源:全国一体化政务服务平台及本市公共管理机构"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/tv_size_15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_second_update_code_time" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_80"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_second_data">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableStart="@mipmap/city_tour_home_ic_card"
+                android:drawablePadding="@dimen/tab_dimens_10"
+                android:gravity="center_vertical"
+                android:text="卡包"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tab_dimens_30"
+                android:drawableStart="@mipmap/city_tour_home_ic_gift"
+                android:drawablePadding="@dimen/tab_dimens_10"
+                android:gravity="center_vertical"
+                android:text="消费券"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tab_dimens_30"
+                android:drawableStart="@mipmap/city_tour_home_ic_route"
+                android:drawablePadding="@dimen/tab_dimens_10"
+                android:gravity="center_vertical"
+                android:text="行程"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_16" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

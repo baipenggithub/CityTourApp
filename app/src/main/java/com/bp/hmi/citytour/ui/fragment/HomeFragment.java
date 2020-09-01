@@ -14,7 +14,7 @@ import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseFragment;
 import com.bp.hmi.citytour.bean.VideoBean;
 import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
-import com.bp.hmi.citytour.ui.activity.CardsActivity;
+import com.bp.hmi.citytour.ui.activity.JoinTripActivity;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
 
@@ -74,7 +74,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         mViewModel.uiChangeObservable.intoShEvent.observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
-                Intent in = new Intent(getActivity(), CardsActivity.class);
+                Intent in = new Intent(getActivity(), JoinTripActivity.class);
                 startActivity(in);
             }
         });

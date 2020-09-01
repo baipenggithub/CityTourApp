@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_200"
+            android:background="@mipmap/city_tour_home_up_bac"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_height="@dimen/tab_dimens_70"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:layout_marginEnd="@dimen/tab_dimens_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableEnd="@mipmap/city_tour_home_ic_down"
+                    android:drawablePadding="@dimen/tab_dimens_10"
+                    android:text="上海"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/tv_size_16" />
+
+                <LinearLayout
+                    style="@style/AutoWrap.Horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/tab_dimens_20"
+                    android:layout_marginEnd="@dimen/tab_dimens_20"
+                    android:background="@mipmap/city_tour_home_ic_search_box">
+
+                    <EditText
+                        android:id="@+id/et_music_search"
+                        style="@style/AutoMatch"
+                        android:layout_marginEnd="@dimen/tab_dimens_10"
+                        android:background="@null"
+                        android:hint="试试输入你的兴趣"
+                        android:paddingStart="@dimen/tab_dimens_10"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="@dimen/tab_dimens_10"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/city_tour_home_ic_search" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/city_tour_home_ic_scan" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/WrapWrap.Vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/tab_dimens_90_"
+            android:background="@mipmap/city_tour_home_along_code"
+            android:gravity="center">
+
+            <ImageView
+                style="@style/WrapWrap"
+                android:src="@mipmap/home_me_scan" />
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:text="随申码"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/tv_size_16" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Vertical"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:layout_marginBottom="@dimen/tab_dimens_20">
+
+            <TextView
+                style="@style/MatchWrap"
+                android:gravity="center"
+                android:text="12点半苏浙汇餐厅消费128元 \n 你已成功预约2020-08-30迪尼斯乐园双人门票"
+                android:textColor="@color/color_accent"
+                android:textSize="@dimen/tv_size_12" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
