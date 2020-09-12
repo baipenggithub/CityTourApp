@@ -11,12 +11,12 @@
 
     <LinearLayout
         style="@style/MatchMatch.Vertical"
-        android:layout_marginTop="@dimen/tab_dimens_90_"
+        android:layout_marginTop="-100dp"
         android:background="@mipmap/tour_home_01_02">
 
         <LinearLayout
             style="@style/MatchMatch.Vertical"
-            android:layout_height="@dimen/tab_dimens_400"
+            android:layout_height="@dimen/tab_dimens_360"
             android:background="@mipmap/tour_home_01_01">
 
             <include

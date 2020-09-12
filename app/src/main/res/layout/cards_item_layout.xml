@@ -5,6 +5,7 @@
     style="@style/MatchWrap.Vertical"
     android:layout_marginStart="@dimen/tab_dimens_10"
     android:layout_marginEnd="@dimen/tab_dimens_10"
+    android:layout_marginBottom="@dimen/tab_dimens_10"
     android:background="@mipmap/tour_home_02_01"
     android:padding="@dimen/tab_dimens_15">
 
@@ -17,7 +18,7 @@
         android:singleLine="true"
         android:text="百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心"
         android:textColor="@color/black"
-        android:textSize="@dimen/tv_size_16"
+        android:textSize="@dimen/tv_size_15"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/iv_cards_type"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +33,8 @@
         android:maxLines="1"
         android:singleLine="true"
         android:text="有效时间..."
-        android:textColor="@color/black"
-        android:textSize="@dimen/tv_size_14"
+        android:textColor="@color/home_color_06"
+        android:textSize="@dimen/tv_size_12"
         app:layout_constraintEnd_toStartOf="@+id/iv_cards_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_cards_title" />

@@ -9,10 +9,13 @@ import androidx.annotation.Nullable;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseFragment;
-import com.bp.hmi.citytour.databinding.FragmentHomeBindingImpl;
+import com.bp.hmi.citytour.databinding.FragmentTravelBinding;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
 
-public class TravelFragment extends BaseFragment<FragmentHomeBindingImpl, HomeViewModel> {
+/**
+ * 一码游
+ */
+public class TravelFragment extends BaseFragment<FragmentTravelBinding, HomeViewModel> {
     private static final String TAG = TravelFragment.class.getSimpleName();
 
     public static TravelFragment getInstance() {
@@ -27,7 +30,7 @@ public class TravelFragment extends BaseFragment<FragmentHomeBindingImpl, HomeVi
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container,
                                @Nullable Bundle savedInstanceState) {
-        return R.layout.fragment_home;
+        return R.layout.fragment_travel;
     }
 
     @Override

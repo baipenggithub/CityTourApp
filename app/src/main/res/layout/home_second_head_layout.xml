@@ -11,21 +11,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_dimens_640"
-        android:background="@mipmap/city_tour_home_down_bac"
-        android:padding="@dimen/tab_dimens_10">
+        android:layout_height="@dimen/tab_dimens_560"
+        android:background="@mipmap/city_tour_home_down_bac">
 
         <TextView
             android:id="@+id/tv_home_second_back"
+            onClickCommand="@{viewModel.tvHomeAddress}"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/tab_dimens_70"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/tab_dimens_10"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:drawableEnd="@mipmap/city_tour_home_ic_down"
             android:drawablePadding="@dimen/tab_dimens_10"
             android:gravity="center_vertical"
             android:text="上海"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/tv_size_16"
+            android:textSize="@dimen/tv_size_15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +35,7 @@
             android:id="@+id/tv_home_second_title"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/tab_dimens_70"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:gravity="center_vertical"
             android:text="城市游"
             android:textColor="@color/white"
@@ -45,6 +48,7 @@
         <LinearLayout
             android:id="@+id/ll_home_second_search"
             style="@style/AutoWrap.Horizontal"
+            android:layout_height="@dimen/tab_dimens_30"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/tab_dimens_40"
             android:layout_marginEnd="@dimen/tab_dimens_40"
@@ -62,10 +66,12 @@
                 android:paddingStart="@dimen/tab_dimens_10"
                 android:singleLine="true"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:textColorHint="@color/light_grey"
+                android:textSize="@dimen/tv_size_14" />
 
             <ImageView
                 android:id="@+id/iv_home_second_search"
+                onClickCommand="@{viewModel.tvHomeSearch}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -77,7 +83,7 @@
         <LinearLayout
             android:id="@+id/ll_home_second_travel_code"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_80"
+            android:layout_height="@dimen/tab_dimens_70"
             android:layout_marginTop="@dimen/tab_dimens_20"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +91,8 @@
             app:layout_constraintTop_toBottomOf="@+id/ll_home_second_search">
 
             <ImageView
+                android:id="@+id/iv_home_checked_left"
+                onClickCommand="@{viewModel.ivHomeCheckedLeft}"
                 android:layout_width="@dimen/tab_dimens_0"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -96,18 +104,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="公交码"
-                android:textColor="@color/color_primary_dark"
-                android:textSize="@dimen/tv_size_20" />
+                android:text="@{viewModel.mCodeTitleList.get(viewModel.mPreIndex)}"
+                android:textColor="#205460"
+                android:textSize="@dimen/tv_size_15" />
 
             <TextView
                 android:layout_width="@dimen/tab_dimens_0"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="文旅码"
+                android:text="@{viewModel.mCodeTitleList.get(viewModel.mCurrentIndex)}"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_20"
+                android:textSize="@dimen/tv_size_18"
                 android:textStyle="bold" />
 
             <TextView
@@ -115,11 +123,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="地铁码"
-                android:textColor="@color/color_primary_dark"
-                android:textSize="@dimen/tv_size_20" />
+                android:text="@{viewModel.mCodeTitleList.get(viewModel.mNexIndex)}"
+                android:textColor="#205460"
+                android:textSize="@dimen/tv_size_15" />
 
             <ImageView
+                android:id="@+id/iv_home_checked_right"
+                onClickCommand="@{viewModel.ivHomeCheckedRight}"
                 android:layout_width="@dimen/tab_dimens_0"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -127,15 +137,36 @@
                 android:src="@mipmap/city_tour_home_icright" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/iv_home_second_health_code"
-            android:layout_width="@dimen/tab_dimens_100"
+        <RelativeLayout
+            android:id="@+id/lin_home_second_health_code"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_100"
-            android:layout_marginTop="@dimen/tab_dimens_20"
-            android:src="@mipmap/city_tour_home_tab_scan"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_home_second_travel_code" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_second_travel_code">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="-20dp"
+                android:src="@mipmap/tour_home_04_11" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@mipmap/tour_home_04_09" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="-15dp"
+                android:src="@mipmap/tour_home_04_10" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_home_second_health_code"
@@ -146,17 +177,17 @@
             android:layout_weight="1"
             android:text="绿色"
             android:textColor="@color/white"
-            android:textSize="@dimen/tv_size_20"
+            android:textSize="@dimen/tv_size_18"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_home_second_health_code" />
+            app:layout_constraintTop_toBottomOf="@+id/lin_home_second_health_code" />
 
         <LinearLayout
             android:id="@+id/ll_home_second_user"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_50"
-            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_10"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,20 +195,21 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_home_second_health_code">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/tab_dimens_40"
+                android:layout_height="@dimen/tab_dimens_40"
                 android:src="@mipmap/city_tour_home_ic_user" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_20"
-                android:text="姓名"
-                android:textColor="@color/color_primary"
-                android:textSize="@dimen/tv_size_30"
+                android:text="@{viewModel.mUserName}"
+                android:textColor="@color/home_color_09"
+                android:textSize="@dimen/tv_size_23"
                 android:textStyle="bold" />
 
             <ImageView
+                onClickCommand="@{viewModel.ivHomeShowUserName}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_20"
@@ -190,8 +222,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tab_dimens_10"
             android:text="更新于:2020-08-31 11:02:17"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/tv_size_18"
+            android:textColor="@color/home_color_09"
+            android:textSize="@dimen/tv_size_14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_home_second_user" />
@@ -200,54 +232,98 @@
             android:id="@+id/tv_home_second_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_marginTop="@dimen/tab_dimens_05"
             android:text="数据来源:全国一体化政务服务平台及本市公共管理机构"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/tv_size_15"
+            android:textColor="@color/home_color_09"
+            android:textSize="@dimen/tv_size_12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_home_second_update_code_time" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_80"
+            android:layout_height="@dimen/tab_dimens_70"
             android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_home_second_data">
 
-            <TextView
+            <LinearLayout
+                onClickCommand="@{viewModel.ivHomeCardCommand}"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:drawableStart="@mipmap/city_tour_home_ic_card"
-                android:drawablePadding="@dimen/tab_dimens_10"
-                android:gravity="center_vertical"
-                android:text="卡包"
-                android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_16" />
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/tab_dimens_30"
-                android:drawableStart="@mipmap/city_tour_home_ic_gift"
-                android:drawablePadding="@dimen/tab_dimens_10"
-                android:gravity="center_vertical"
-                android:text="消费券"
-                android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_16" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="卡包"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_14"
+                    android:textStyle="bold" />
 
-            <TextView
+                <ImageView
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
+                    android:layout_marginStart="@dimen/tab_dimens_05"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/city_tour_home_ic_card" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                onClickCommand="@{viewModel.ivHomeGiftCommand}"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/tab_dimens_30"
-                android:drawableStart="@mipmap/city_tour_home_ic_route"
-                android:drawablePadding="@dimen/tab_dimens_10"
-                android:gravity="center_vertical"
-                android:text="行程"
-                android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_16" />
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="消费券"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
+                    android:layout_marginStart="@dimen/tab_dimens_05"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/city_tour_home_ic_gift" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                onClickCommand="@{viewModel.ivHomeRoundCommand}"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="行程"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
+                    android:layout_marginStart="@dimen/tab_dimens_05"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/city_tour_home_ic_route" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

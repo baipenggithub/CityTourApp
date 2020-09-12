@@ -1,8 +1,9 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,9 @@ import com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel;
 
 import java.util.List;
 
+/**
+ * 走进上海
+ */
 public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, EnteredShViewModel> {
     private SubTabTitleAdapter mSubTabTitleAdapter;
     private EnteredShAdapter mEnteredShAdapter;
@@ -42,6 +46,14 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
     @Override
     public void initLayout() {
         super.initLayout();
+
+        mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mBinding.subRecyclerView.setLayoutManager(linearLayoutManager);
@@ -58,7 +70,6 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
         mViewModel.mSubCardsTabTitleBean.observe(this, new Observer<List<SubCardsTabTitleBean>>() {
             @Override
             public void onChanged(List<SubCardsTabTitleBean> result) {
-                Log.d("mSubCardsTabTitleBean", "result:" + result.size());
                 mSubTabTitleAdapter = new SubTabTitleAdapter(R.layout.sub_cards_tab_item_layout, result);
                 mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
                 mSubTabTitleAdapter.setSelectedIndex(0);
@@ -77,6 +88,14 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
             public void onChanged(List<CardsBean> result) {
                 mEnteredShAdapter = new EnteredShAdapter(R.layout.entered_sh_item_layout, result);
                 mBinding.mRecyclerView.setAdapter(mEnteredShAdapter);
+
+                mEnteredShAdapter.addOnItemClickListener(new EnteredShAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemListener(CardsBean resultBean, int position) {
+                        Intent in = new Intent(EnteredShActivity.this, JoinTripActivity.class);
+                        startActivity(in);
+                    }
+                });
             }
         });
 
@@ -105,39 +124,38 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
     }
 
     private void setTabView(boolean b, boolean b2, boolean b4, boolean b5) {
-        mBinding.enteredShBottomTabView.ivHome.setSelected(b);
-        mBinding.enteredShBottomTabView.tvHome.setSelected(b);
+        mBinding.ivHome.setSelected(b);
+        mBinding.tvHome.setSelected(b);
         if (b) {
-            mBinding.enteredShBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.enteredShBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.enteredShBottomTabView.ivTravel.setSelected(b2);
-        mBinding.enteredShBottomTabView.tvTravel.setSelected(b2);
+        mBinding.ivTravel.setSelected(b2);
+        mBinding.tvTravel.setSelected(b2);
         if (b2) {
-            mBinding.enteredShBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.enteredShBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.enteredShBottomTabView.ivVideo.setSelected(b4);
-        mBinding.enteredShBottomTabView.tvVideo.setSelected(b4);
+        mBinding.ivVideo.setSelected(b4);
+        mBinding.tvVideo.setSelected(b4);
 
         if (b4) {
-            mBinding.enteredShBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.enteredShBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.enteredShBottomTabView.ivMe.setSelected(b5);
-        mBinding.enteredShBottomTabView.tvMe.setSelected(b5);
+        mBinding.ivMe.setSelected(b5);
+        mBinding.tvMe.setSelected(b5);
 
         if (b5) {
-            mBinding.enteredShBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.enteredShBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
     }
-
 }

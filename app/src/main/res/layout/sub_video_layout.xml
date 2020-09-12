@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -21,19 +22,20 @@
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
                 android:layout_centerVertical="true"
-                android:drawableStart="@mipmap/city_tour_home_ic_video"
                 android:drawablePadding="@dimen/tab_dimens_10"
                 android:text="视频"
-                android:textColor="@color/black"
-                android:textSize="@dimen/tv_size_20"
-                android:textStyle="bold" />
+                android:textColor="@color/home_color_05"
+                android:textSize="@dimen/tv_size_16"
+                android:textStyle="bold"
+                app:drawableStartCompat="@mipmap/city_tour_home_ic_video" />
 
             <TextView
                 style="@style/WrapWrap"
-                android:layout_alignParentRight="true"
+                onClickCommand="@{viewModel.ivgotoVideoCommand}"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:text="更多 >"
-                android:textColor="@color/light_grey"
+                android:textColor="@color/home_color_06"
                 android:textSize="@dimen/tv_size_15" />
         </RelativeLayout>
 

@@ -2,6 +2,7 @@ package com.bp.hmi.citytour.ui.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,9 @@ import com.bp.hmi.citytour.ui.viewmodel.CardsViewModel;
 
 import java.util.List;
 
+/**
+ * 消费券
+ */
 public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewModel> {
     private CardsAdapter mCardsAdapter;
     private SubTabTitleAdapter mSubTabTitleAdapter;
@@ -40,6 +44,13 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
     @Override
     public void initLayout() {
         super.initLayout();
+        mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mBinding.subRecyclerView.setLayoutManager(linearLayoutManager);

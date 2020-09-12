@@ -13,6 +13,15 @@ public class CardsBean {
     private String title;
     private String time;
     private int type;
+    private int image;
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
 
     public String getTime() {
         return time == null ? "" : time;

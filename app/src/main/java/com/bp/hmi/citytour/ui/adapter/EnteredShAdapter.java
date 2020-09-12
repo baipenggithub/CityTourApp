@@ -37,11 +37,11 @@ public class EnteredShAdapter extends BaseRecyclerAdapter<CardsBean, BaseRecycle
     @Override
     protected void convert(BaseRecyclerHolder helper, CardsBean item) {
         helper.setText(R.id.tv_entered_sh_title, item.getTitle());
-        helper.setText(R.id.tv_entered_sh_spot, "游览景点:"+item.getType());
-        helper.setText(R.id.tv_entered_sh_time,"推荐时间:"+item.getTime());
+        helper.setText(R.id.tv_entered_sh_spot, "游览景点:" + item.getType());
+        helper.setText(R.id.tv_entered_sh_time, "推荐时间:" + item.getTime());
         GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.test_pic, helper.getView(R.id.iv_entered_sh_icon));
 
-
+        helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
     }
 
     public class ClickListener implements View.OnClickListener {

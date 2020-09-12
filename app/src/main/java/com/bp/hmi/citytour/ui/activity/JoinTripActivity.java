@@ -1,13 +1,14 @@
 package com.bp.hmi.citytour.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
-import androidx.databinding.library.baseAdapters.BR;
-
+import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
 import com.bp.hmi.citytour.databinding.ActivityJoinTripBinding;
 import com.bp.hmi.citytour.ui.viewmodel.JoinTripViewModel;
+import com.bp.hmi.citytour.utils.ToastUtils;
 
 public class JoinTripActivity extends BaseActivity<ActivityJoinTripBinding, JoinTripViewModel> {
 
@@ -29,6 +30,21 @@ public class JoinTripActivity extends BaseActivity<ActivityJoinTripBinding, Join
     @Override
     public void initLayout() {
         super.initLayout();
+
+        mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        mBinding.joinTripDetailsView.tvJoinTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showLong("已加入行程");
+            }
+        });
+
     }
 
     @Override

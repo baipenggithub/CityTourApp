@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.JoinTripViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_120"
+            android:scaleType="fitXY"
+            android:src="@mipmap/test_pic" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_10">
+
+            <TextView
+                android:id="@+id/tv_join_trip_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中共一大会址"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+
+            <TextView
+                android:id="@+id/tv_join_trip_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="9.6分"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_16" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_opening_hours"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_60"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:background="@mipmap/city_tour_07_01"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:text="周二至周日9:00-17:00(16:00 禁止入场)"
+                android:textSize="@dimen/tv_size_15" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:layout_marginTop="@dimen/tab_dimens_05"
+                android:text="海兴业路76号"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/tv_size_13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_join_trip_like"
+                android:layout_width="@dimen/tab_dimens_50"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_weight="1"
+                android:src="@mipmap/city_tour_07_02" />
+
+            <ImageView
+                android:id="@+id/iv_join_trip_favorite"
+                android:layout_width="@dimen/tab_dimens_50"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_weight="1"
+                android:src="@mipmap/city_tour_07_03" />
+
+            <ImageView
+                android:id="@+id/iv_join_trip_share"
+                android:layout_width="@dimen/tab_dimens_50"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_weight="1"
+                android:src="@mipmap/city_tour_07_04" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_join_trip_exhibition_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="展馆详情"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_20" />
+
+            <ImageView
+                android:id="@+id/iv_join_trip_voice_navigation"
+                android:layout_width="@dimen/tab_dimens_100"
+                android:layout_height="@dimen/tab_dimens_70"
+                android:src="@mipmap/city_tour_07_06" />
+
+            <ImageView
+                android:id="@+id/iv_join_trip_virtual_showrooms"
+                android:layout_width="@dimen/tab_dimens_100"
+                android:layout_height="@dimen/tab_dimens_70"
+                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:src="@mipmap/city_tour_07_05" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_exhibition_introduced"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_join_trip_related_activities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:text="相关活动"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_size_16" />
+
+        <LinearLayout
+            android:id="@+id/ll_join_trip_related_activities"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_200"
+            android:layout_marginTop="@dimen/tab_dimens_10">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/join_trip_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_join_trip"
+            android:layout_width="@dimen/tab_dimens_160"
+            android:layout_height="@dimen/tab_dimens_30"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:background="@mipmap/city_tour_07_07"
+            android:gravity="center"
+            android:text="加入行程"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_size_18" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_45" />
+    </LinearLayout>
+</layout>

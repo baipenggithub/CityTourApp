@@ -15,7 +15,7 @@
         <RelativeLayout
             style="@style/MatchWrap"
             android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_60">
+            android:layout_marginTop="@dimen/tab_dimens_40">
 
             <LinearLayout style="@style/WrapWrap.Vertical">
 
@@ -23,15 +23,15 @@
                     style="@style/MatchWrap"
                     android:gravity="center"
                     android:text="@{viewModel.mWeatherInfo.wea}"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textColor="@color/home_color_02"
+                    android:textSize="@dimen/tv_size_20" />
 
                 <TextView
                     style="@style/MatchWrap"
                     android:gravity="center"
                     android:text="@{viewModel.mWeatherInfo.tem2 + '℃' + '-' + viewModel.mWeatherInfo.tem1 + '℃'}"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/tv_size_12" />
+                    android:textColor="@color/home_color_02"
+                    android:textSize="@dimen/tv_size_15" />
 
             </LinearLayout>
 
@@ -44,8 +44,8 @@
                     style="@style/MatchWrap"
                     android:gravity="center"
                     android:text="AQI"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textColor="@color/home_color_02"
+                    android:textSize="@dimen/tv_size_20" />
 
                 <TextView
                     style="@style/MatchWrap"
@@ -63,8 +63,9 @@
         </RelativeLayout>
 
         <ImageView
-            style="@style/WrapWrap"
             onClickCommand="@{viewModel.intoShCommand}"
+            android:layout_width="@dimen/tab_dimens_200"
+            android:layout_height="@dimen/tab_dimens_45"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/tab_dimens_150"
             android:gravity="center"
@@ -76,7 +77,8 @@
             android:layout_marginTop="@dimen/tab_dimens_10"
             android:gravity="center"
             android:text="历史 · 人文 · 行程 · 玩乐"
-            android:textColor="@color/top_tab_bar_light"
-            android:textSize="@dimen/tv_size_16" />
+            android:textColor="@color/home_color_04"
+            android:textSize="@dimen/tv_size_14"
+            android:textStyle="bold" />
     </LinearLayout>
 </layout>

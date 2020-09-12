@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.VideoViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/tab_dimens_40"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_home_video_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_home_video_01"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/home_video_03" />
+
+            <TextView
+                android:id="@+id/tv_home_video_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tab_dimens_02"
+                android:text="30w"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_home_video_02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_video_01">
+
+            <ImageView
+                android:id="@+id/iv_home_video_02"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/home_video_09" />
+
+            <TextView
+                android:id="@+id/tv_home_video_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tab_dimens_02"
+                android:text="30w"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_home_video_03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_video_02">
+
+            <ImageView
+                android:id="@+id/iv_home_video_03"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/home_video_05" />
+
+            <TextView
+                android:id="@+id/tv_home_video_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tab_dimens_02"
+                android:text="30w"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_15" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_home_video_04"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_home_video_03">
+
+            <ImageView
+                android:id="@+id/iv_home_video_04"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/home_video_04" />
+
+            <TextView
+                android:id="@+id/tv_home_video_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tab_dimens_02"
+                android:text="30w"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_15" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

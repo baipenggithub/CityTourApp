@@ -47,6 +47,7 @@
     <dimen name="tab_dimens_60">60dp</dimen>
     <dimen name="tab_dimens_65">65dp</dimen>
     <dimen name="tab_dimens_70">70dp</dimen>
+    <dimen name="tab_dimens_75">75dp</dimen>
     <dimen name="tab_dimens_80">80dp</dimen>
     <dimen name="tab_dimens_85">85dp</dimen>
     <dimen name="tab_dimens_90">90dp</dimen>
@@ -78,7 +79,10 @@
     <dimen name="tab_dimens_480">480dp</dimen>
     <dimen name="tab_dimens_500">500dp</dimen>
     <dimen name="tab_dimens_530">530dp</dimen>
+    <dimen name="tab_dimens_560">560dp</dimen>
     <dimen name="tab_dimens_600">600dp</dimen>
+    <dimen name="tab_dimens_610">610dp</dimen>
+    <dimen name="tab_dimens_620">620dp</dimen>
     <dimen name="tab_dimens_640">640dp</dimen>
 
     <dimen name="tab_dimens_20_">-20dp</dimen>

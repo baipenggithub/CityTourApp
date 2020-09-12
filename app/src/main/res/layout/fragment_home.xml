@@ -2,28 +2,33 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.core.widget.NestedScrollView style="@style/MatchMatch.Vertical">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_nested_scroll_view"
+        style="@style/MatchMatch.Vertical"
+        android:overScrollMode="never">
 
         <LinearLayout style="@style/MatchMatch.Vertical">
 
             <include
                 android:id="@+id/home_first_head_view"
                 layout="@layout/home_first_head_layout"
-                android:visibility="gone"
                 app:viewModel="@{viewModel}" />
-
 
             <include
                 android:id="@+id/home_second_head_view"
                 layout="@layout/home_second_head_layout"
+                android:visibility="gone"
                 app:viewModel="@{viewModel}" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/iv_show_user_info"
+                onClickCommand="@{viewModel.hideUserCommand}"
+                android:layout_width="@dimen/tab_dimens_50"
+                android:layout_height="@dimen/tab_dimens_50"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-50dp"
-                android:src="@mipmap/city_tour_home_ic_up" />
+                android:layout_marginTop="-45dp"
+                android:src="@mipmap/city_tour_home_ic_up"
+                android:visibility="gone" />
 
             <include
                 android:id="@+id/home_centre_tab_view"

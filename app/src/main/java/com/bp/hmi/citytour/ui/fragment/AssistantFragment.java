@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseFragment;
-import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
+import com.bp.hmi.citytour.databinding.FragmentAssistantBinding;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
 
-public class AssistantFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
+public class AssistantFragment extends BaseFragment<FragmentAssistantBinding, HomeViewModel> {
     private static final String TAG = AssistantFragment.class.getSimpleName();
 
     public static AssistantFragment getInstance() {
@@ -27,7 +27,7 @@ public class AssistantFragment extends BaseFragment<FragmentHomeBinding, HomeVie
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container,
                                @Nullable Bundle savedInstanceState) {
-        return R.layout.fragment_home;
+        return R.layout.fragment_assistant;
     }
 
     @Override

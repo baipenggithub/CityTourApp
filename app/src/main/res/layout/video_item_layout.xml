@@ -11,7 +11,9 @@
     <LinearLayout
         style="@style/MatchMatch.Vertical"
         android:layout_height="@dimen/tab_dimens_160"
-        android:layout_margin="@dimen/tab_dimens_15"
+        android:layout_marginStart="@dimen/tab_dimens_05"
+        android:layout_marginEnd="@dimen/tab_dimens_05"
+        android:layout_marginBottom="@dimen/tab_dimens_20"
         android:background="@mipmap/home_activity_small_tab">
 
         <ImageView
@@ -31,7 +33,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="千秋大业十二载,璀璨重光静安寺"
-            android:textColor="@color/black"
+            android:textColor="@color/home_color_07"
             android:textSize="@dimen/tv_size_16" />
 
         <LinearLayout
@@ -53,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_10"
                 android:text="20万"
-                android:textColor="@color/black"
+                android:textColor="@color/home_color_06"
                 android:textSize="@dimen/tv_size_14" />
 
 
@@ -70,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_10"
                 android:text="20万"
-                android:textColor="@color/black"
+                android:textColor="@color/home_color_06"
                 android:textSize="@dimen/tv_size_14" />
         </LinearLayout>
     </LinearLayout>
