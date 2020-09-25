@@ -9,17 +9,18 @@
     </data>
 
     <LinearLayout
-        style="@style/MatchMatch.Vertical"
-        android:layout_height="@dimen/tab_dimens_160"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/tab_dimens_05"
         android:layout_marginEnd="@dimen/tab_dimens_05"
         android:layout_marginBottom="@dimen/tab_dimens_20"
-        android:background="@mipmap/home_activity_small_tab">
+        android:background="@drawable/shape_white_10"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_video_pic"
-            style="@style/MatchMatch"
-            android:layout_height="@dimen/tab_dimens_90"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:src="@mipmap/test_pic" />
 

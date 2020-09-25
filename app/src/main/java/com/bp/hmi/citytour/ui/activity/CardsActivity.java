@@ -39,6 +39,9 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
     @Override
     public void initData() {
         super.initData();
+
+        showProgress();
+        mViewModel.requestActivityInfo();
     }
 
     @Override
@@ -79,10 +82,11 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
             }
         });
 
-        mViewModel.mCardsBeanList.observe(this, new Observer<List<CardsBean>>() {
+        mViewModel.mCardsBeanList.observe(this, new Observer<CardsBean>() {
             @Override
-            public void onChanged(List<CardsBean> result) {
-                mCardsAdapter = new CardsAdapter(R.layout.cards_item_layout, result);
+            public void onChanged(CardsBean cardsBean) {
+                hideProgress();
+                mCardsAdapter = new CardsAdapter(R.layout.cards_item_layout, cardsBean.getResult().getItems());
                 mBinding.mRecyclerView.setAdapter(mCardsAdapter);
             }
         });

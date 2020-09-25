@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch">
+
+    <RelativeLayout
+        android:layout_width="@dimen/tab_dimens_60"
+        android:layout_height="@dimen/tab_dimens_60"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_custom_dialog">
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="@style/MatchMatch"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:indeterminateDrawable="@drawable/shape_custom_loading"
+            android:padding="@dimen/tab_dimens_10" />
+    </RelativeLayout>
+
+</RelativeLayout>

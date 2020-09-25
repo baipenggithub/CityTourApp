@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_dimens_70"
+        android:background="@mipmap/tour_home_02_02"
         android:orientation="horizontal">
 
         <LinearLayout

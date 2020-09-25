@@ -9,6 +9,23 @@ public interface ApiService {
     //获取天气信息
     String HOME_WEATHER_API = "https://www.tianqiapi.com/api/";
 
-    //视频
-    String HOME_VIDEO_API = "";
+    //
+    String HOME_API = "http://www.liuliang1986.cn:8888/citywalk/";
+
+    //走进上海
+    String HOME_API_ENTER_SH = "api/zouJinSH";
+
+    //走进上海
+    String HOME_API_HOME_VIDEO = "api/video";
+
+    //活动
+    String HOME_API_HOME_ACTIVITY = "api/activity";
+
+    //购物券
+    String HOME_API_HOME_CARDS = "api/consumerVoucher";
+
+
+
+
+
 }

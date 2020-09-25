@@ -95,8 +95,23 @@ public class GlideUtils {
     public static void loadCircleImage(Context context, String url, ImageView imageView) {
         RequestOptions mRequestOptions = new RequestOptions()
                 .centerInside()
-                //.placeholder(R.drawable.wingaid)
-                //.error(R.drawable.wingaid)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+
+        Glide.with(context).load(url).apply(mRequestOptions).into(imageView);
+    }
+
+    /**
+     * 加载圆形图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void loadCircleImage_10(Context context, String url, ImageView imageView) {
+        RequestOptions mRequestOptions = new RequestOptions()
+                .centerInside()
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
 
         Glide.with(context).load(url).apply(mRequestOptions).into(imageView);

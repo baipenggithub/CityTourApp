@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.BookViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/tour_home_01_02"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_book_head"
+            style="@style/MatchMatch.Horizontal"
+            android:layout_height="@dimen/tab_dimens_90"
+            android:background="@mipmap/tour_home_02_02"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/tour_home_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:text="走进上海-已选路线"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_16" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_50"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="2020-09-14"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/tv_size_14"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/iv_open"
+                        android:layout_width="@dimen/tab_dimens_20"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_down" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <include
+                        android:id="@+id/view_month_bar"
+                        layout="@layout/view_month_bar" />
+
+                    <include
+                        android:id="@+id/view_week_bar"
+                        layout="@layout/view_week_bar" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@mipmap/book_details_03" />
+
+                        <com.necer.calendar.MonthCalendar
+                            android:id="@+id/monthCalendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            app:alphaColor="0"
+                            app:firstDayOfWeek="monday"
+                            app:hollowCircleColor="@color/home_color_10"
+                            app:isShowHoliday="true"
+                            app:isShowLunar="false"
+                            app:selectCircleColor="@color/home_color_10"
+                            app:selectCircleRadius="16dp"
+                            app:solarHolidayTextColor="@color/home_color_10"
+                            app:solarTermTextColor="@color/home_color_10"
+                            app:solarTextColor="#000"
+                            app:solarTextSize="@dimen/tv_size_14"
+                            app:todaySolarTextColor="@color/home_color_10"
+                            app:workdayColor="@color/home_color_10" />
+
+                        <ImageView
+                            android:id="@+id/iv_up"
+                            android:layout_width="24dp"
+                            android:layout_height="12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginRight="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:src="@mipmap/ic_arrow" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="成人票"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/tv_size_15" />
+
+                <com.bp.hmi.citytour.widget.TicketCardView
+                    android:id="@+id/adult_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp" />
+
+                <com.bp.hmi.citytour.widget.TicketCardView
+                    android:id="@+id/old_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="儿童票"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/tv_size_15" />
+
+                <com.bp.hmi.citytour.widget.TicketCardView
+                    android:id="@+id/children_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="关联票"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/tv_size_15" />
+
+                <com.bp.hmi.citytour.widget.TicketCardView
+                    android:id="@+id/relevance_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:background="@drawable/bottom_bg">
+
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:text="数量（每单限购 3 份）"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/tv_size_15" />
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/base_frame_1_aaa_round_0_white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_book_subtract"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="2dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/tour_home_04_06" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#aaa" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{viewModel.mBookSum}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#aaa" />
+
+                <ImageView
+                    android:id="@+id/iv_book_add"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="2dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/tour_home_04_05" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:background="@mipmap/tour_home_04_07">
+
+            <ImageView
+                android:id="@+id/ic_ok"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="60dp"
+                android:src="@mipmap/tour_home_04_08" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="60dp"
+                android:layout_toRightOf="@+id/ic_ok"
+                android:text="购买旅游保险"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_book_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="60dp"
+                android:text="预 约"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

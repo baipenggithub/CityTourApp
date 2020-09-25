@@ -1,31 +1,30 @@
 package com.bp.hmi.citytour.ui.activity;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
-import com.bp.hmi.citytour.bean.CardsBean;
-import com.bp.hmi.citytour.bean.SubCardsTabTitleBean;
 import com.bp.hmi.citytour.databinding.ActivityEnteredShBinding;
-import com.bp.hmi.citytour.ui.adapter.EnteredShAdapter;
-import com.bp.hmi.citytour.ui.adapter.SubTabTitleAdapter;
+import com.bp.hmi.citytour.ui.fragment.EnteredShBookFragment;
+import com.bp.hmi.citytour.ui.fragment.EnteredShMapFragment;
+import com.bp.hmi.citytour.ui.fragment.EnteredShRoundFragment;
+import com.bp.hmi.citytour.ui.fragment.EnteredShSpotFragment;
 import com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel;
 
-import java.util.List;
-
 /**
- * 走进上海
+ * 走进上海01
  */
 public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, EnteredShViewModel> {
-    private SubTabTitleAdapter mSubTabTitleAdapter;
-    private EnteredShAdapter mEnteredShAdapter;
+
+    private EnteredShRoundFragment mEnteredShRoundFragment;
+    private EnteredShSpotFragment mEnteredShSpotFragment;
+    private EnteredShMapFragment mEnteredShMapFragment;
+    private EnteredShBookFragment mEnteredShBookFragment;
 
 
     @Override
@@ -53,52 +52,11 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
                 finish();
             }
         });
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mBinding.subRecyclerView.setLayoutManager(linearLayoutManager);
-
-        mBinding.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        switchFragment(0);
     }
 
     @Override
     public void initViewObservable() {
         super.initViewObservable();
-
-        mViewModel.mSubCardsTabTitleBean.observe(this, new Observer<List<SubCardsTabTitleBean>>() {
-            @Override
-            public void onChanged(List<SubCardsTabTitleBean> result) {
-                mSubTabTitleAdapter = new SubTabTitleAdapter(R.layout.sub_cards_tab_item_layout, result);
-                mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
-                mSubTabTitleAdapter.setSelectedIndex(0);
-
-                mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemListener(SubCardsTabTitleBean resultBean, int position) {
-                        mSubTabTitleAdapter.setSelectedIndex(position);
-                    }
-                });
-            }
-        });
-
-        mViewModel.mCardsBeanList.observe(this, new Observer<List<CardsBean>>() {
-            @Override
-            public void onChanged(List<CardsBean> result) {
-                mEnteredShAdapter = new EnteredShAdapter(R.layout.entered_sh_item_layout, result);
-                mBinding.mRecyclerView.setAdapter(mEnteredShAdapter);
-
-                mEnteredShAdapter.addOnItemClickListener(new EnteredShAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemListener(CardsBean resultBean, int position) {
-                        Intent in = new Intent(EnteredShActivity.this, JoinTripActivity.class);
-                        startActivity(in);
-                    }
-                });
-            }
-        });
-
         mViewModel.uiChangeObservable.homeFragmentLivEvent.observe(this, o -> switchFragment(0));
         mViewModel.uiChangeObservable.travelFragmentLivEvent.observe(this, o -> switchFragment(1));
         mViewModel.uiChangeObservable.videoFragmentLivEvent.observe(this, o -> switchFragment(2));
@@ -106,21 +64,52 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
     }
 
     private void switchFragment(int position) {
+        FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+        hindFragment(transaction);
         switch (position) {
+
             case 0:
                 setTabView(true, false, false, false);
+
+                if (null == mEnteredShRoundFragment) {
+                    mEnteredShRoundFragment = EnteredShRoundFragment.getInstance();
+                    transaction.add(R.id.sh_frame_layout, mEnteredShRoundFragment);
+                } else {
+                    transaction.show(mEnteredShRoundFragment);
+                }
                 break;
             case 1:
                 setTabView(false, true, false, false);
+
+                if (null == mEnteredShSpotFragment) {
+                    mEnteredShSpotFragment = EnteredShSpotFragment.getInstance();
+                    transaction.add(R.id.sh_frame_layout, mEnteredShSpotFragment);
+                } else {
+                    transaction.show(mEnteredShSpotFragment);
+                }
                 break;
             case 2:
                 setTabView(false, false, true, false);
+
+                if (null == mEnteredShMapFragment) {
+                    mEnteredShMapFragment = EnteredShMapFragment.getInstance();
+                    transaction.add(R.id.sh_frame_layout, mEnteredShMapFragment);
+                } else {
+                    transaction.show(mEnteredShMapFragment);
+                }
                 break;
             case 3:
                 setTabView(false, false, false, true);
+
+                if (null == mEnteredShBookFragment) {
+                    mEnteredShBookFragment = EnteredShBookFragment.getInstance();
+                    transaction.add(R.id.sh_frame_layout, mEnteredShBookFragment);
+                } else {
+                    transaction.show(mEnteredShBookFragment);
+                }
                 break;
         }
-
+        transaction.commit();
     }
 
     private void setTabView(boolean b, boolean b2, boolean b4, boolean b5) {
@@ -156,6 +145,21 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
             mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
             mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        }
+    }
+
+    private void hindFragment(FragmentTransaction transaction) {
+        if (null != mEnteredShRoundFragment) {
+            transaction.hide(mEnteredShRoundFragment);
+        }
+        if (null != mEnteredShSpotFragment) {
+            transaction.hide(mEnteredShSpotFragment);
+        }
+        if (null != mEnteredShMapFragment) {
+            transaction.hide(mEnteredShMapFragment);
+        }
+        if (null != mEnteredShBookFragment) {
+            transaction.hide(mEnteredShBookFragment);
         }
     }
 }

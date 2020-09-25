@@ -9,23 +9,23 @@ import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
+import com.bp.hmi.citytour.base.BaseApplication;
 import com.bp.hmi.citytour.base.BaseFragment;
-import com.bp.hmi.citytour.bean.VideoBean;
 import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
+import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
-import com.bp.hmi.citytour.ui.activity.OtherActivity;
+import com.bp.hmi.citytour.ui.activity.HomeCentreTabActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
+import com.bp.hmi.citytour.utils.GlideUtils;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
-
-import java.util.List;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
     private static final String TAG = HomeFragment.class.getSimpleName();
@@ -55,6 +55,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     @Override
     public void initData() {
         super.initData();
+        showProgress();
+        mViewModel.requestActivityInfo();
     }
 
     @Override
@@ -62,17 +64,25 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         super.initLayout();
         mBinding.homeActivityTabView.subVideoView.mRecyclerView.setNestedScrollingEnabled(false);
         if (null != getActivity()) {
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-            mBinding.homeActivityTabView.subVideoView.mRecyclerView.setLayoutManager(gridLayoutManager);
-
+            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+            mBinding.homeActivityTabView.subVideoView.mRecyclerView.setLayoutManager(manager);
         }
 
-        mBinding.homeCentreTabView.homeFile01.setOnClickListener(new View.OnClickListener() {
+        mViewModel.uiChangeObservable.homeTabEvent.observe(this, new Observer() {
             @Override
-            public void onClick(View view) {
-                Intent in = new Intent(getActivity(), OtherActivity.class);
-                in.putExtra("other", "01");
-                startActivity(in);
+            public void onChanged(Object o) {
+                if (o.equals("消费券")) {
+                    Intent in = new Intent(getActivity(), CardsActivity.class);
+                    startActivity(in);
+                } else {
+                    Intent in = new Intent(getActivity(), HomeCentreTabActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("HOME_TYPE", (String) o);
+                    in.putExtras(b);
+                    startActivity(in);
+                }
+
             }
         });
     }
@@ -80,18 +90,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     @Override
     public void initViewObservable() {
         super.initViewObservable();
-        mViewModel.mVideoData.observe(this, new Observer<List<VideoBean>>() {
-            @Override
-            public void onChanged(List<VideoBean> videoBeans) {
-                mVideoAdapter = new VideoAdapter(R.layout.video_item_layout, videoBeans);
-                mBinding.homeActivityTabView.subVideoView.mRecyclerView.setAdapter(mVideoAdapter);
-            }
+
+        mViewModel.mVideoData.observe(this, itemsBeans -> {
+            mVideoAdapter = new VideoAdapter(R.layout.video_item_layout, itemsBeans);
+            mBinding.homeActivityTabView.subVideoView.mRecyclerView.setAdapter(mVideoAdapter);
         });
 
         //走进上海
         mViewModel.uiChangeObservable.intoShEvent.observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
+                //
                 Intent in = new Intent(getActivity(), EnteredShActivity.class);
                 startActivity(in);
             }
@@ -141,6 +150,26 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                 Intent in = new Intent(getActivity(), VideoActivity.class);
                 startActivity(in);
             }
+        });
+
+        //更多活动
+        mViewModel.uiChangeObservable.homeActivityMoreEvent.observe(this, new Observer() {
+            @Override
+            public void onChanged(Object o) {
+                Intent in = new Intent(getActivity(), HomeCentreTabActivity.class);
+                Bundle b = new Bundle();
+                b.putString("HOME_TYPE", "活动");
+                in.putExtras(b);
+                startActivity(in);
+            }
+        });
+
+        mViewModel.mActivityData.observe(this, activityTabBean -> {
+            hideProgress();
+            mBinding.homeActivityTabView.subActivityView.tvHomeActivitySum.setText(" (" + String.valueOf(activityTabBean.getResult().getTotalCount()) + " )");
+            mBinding.homeActivityTabView.subActivityView.tvHomeActivityName.setText(activityTabBean.getResult().getItems().get(3).getName());
+            mBinding.homeActivityTabView.subActivityView.tvHomeActivityMessage.setText(activityTabBean.getResult().getItems().get(3).getSummary());
+            GlideUtils.loadCircleImage_10(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(3).getCover(), mBinding.homeActivityTabView.subActivityView.ivHomeActivityCover);
         });
     }
 

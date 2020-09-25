@@ -28,4 +28,12 @@
     <declare-styleable name="RadioGroup">
         <attr name="onCheckedChangedCommand" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="leftTopRadius" format="dimension" />
+        <attr name="rightTopRadius" format="dimension" />
+        <attr name="leftBottomRadius" format="dimension" />
+        <attr name="rightBottomRadius" format="dimension" />
+    </declare-styleable>
+
 </resources>

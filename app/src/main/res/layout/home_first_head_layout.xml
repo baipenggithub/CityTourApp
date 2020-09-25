@@ -56,7 +56,7 @@
                         android:paddingStart="@dimen/tab_dimens_10"
                         android:singleLine="true"
                         android:textColor="@android:color/white"
-                        android:textColorHint="@color/light_grey"
+                        android:textColorHint="@color/home_back_grey"
                         android:textSize="@dimen/tv_size_14" />
 
                     <ImageView
@@ -67,14 +67,14 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/tab_dimens_10"
                         android:scaleType="centerInside"
-                        android:src="@mipmap/city_tour_home_ic_search" />
+                        android:src="@mipmap/city_tour_home_02" />
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/iv_scan_rq"
                     onClickCommand="@{viewModel.ivHomeScanQr}"
-                    android:layout_width="@dimen/tab_dimens_30"
-                    android:layout_height="@dimen/tab_dimens_30"
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
                     android:layout_gravity="center_vertical"
                     android:scaleType="centerInside"
                     android:src="@mipmap/city_tour_home_ic_scan" />
@@ -84,8 +84,8 @@
 
         <LinearLayout
             onClickCommand="@{viewModel.showUserCommand}"
-            android:layout_width="@dimen/tab_dimens_130"
-            android:layout_height="@dimen/tab_dimens_130"
+            android:layout_width="@dimen/tab_dimens_152"
+            android:layout_height="@dimen/tab_dimens_152"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/tab_dimens_90_"
             android:background="@mipmap/city_tour_home_along_code"
@@ -93,8 +93,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_60"
-                android:layout_height="@dimen/tab_dimens_60"
+                android:layout_width="@dimen/tab_dimens_68"
+                android:layout_height="@dimen/tab_dimens_68"
                 android:src="@mipmap/home_me_scan" />
 
             <TextView
@@ -102,7 +102,7 @@
                 android:layout_marginTop="@dimen/tab_dimens_05"
                 android:text="随申码"
                 android:textColor="@color/light_grey"
-                android:textSize="@dimen/tv_size_15" />
+                android:textSize="@dimen/tv_size_20" />
 
         </LinearLayout>
 
@@ -116,7 +116,7 @@
                 android:gravity="center"
                 android:text="12点半苏浙汇餐厅消费128元 \n 你已成功预约2020-08-30迪尼斯乐园双人门票"
                 android:textColor="#74c8d6"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_15" />
 
         </LinearLayout>
     </LinearLayout>

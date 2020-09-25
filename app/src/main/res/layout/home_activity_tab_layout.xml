@@ -11,13 +11,12 @@
 
     <LinearLayout
         style="@style/MatchMatch.Vertical"
-        android:layout_marginTop="-100dp"
-        android:background="@mipmap/tour_home_01_02">
+        android:layout_marginTop="-100dp">
 
         <LinearLayout
             style="@style/MatchMatch.Vertical"
-            android:layout_height="@dimen/tab_dimens_360"
-            android:background="@mipmap/tour_home_01_01">
+            android:layout_height="@dimen/tab_dimens_350"
+            android:background="@mipmap/home_bg_model_pic">
 
             <include
                 android:id="@+id/sub_activity_view"
@@ -28,7 +27,7 @@
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
-            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:layout_marginTop="-20dp"
             android:background="@mipmap/tour_home_01_01">
 
             <include
@@ -37,7 +36,6 @@
                 app:viewModel="@{viewModel}" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 </layout>

@@ -14,7 +14,7 @@ import io.reactivex.functions.Consumer;
 /**
  * BaseViewModel.
  */
-public abstract class BaseViewModel<T> extends AndroidViewModel implements IBaseViewModel,
+public abstract class BaseViewModel extends AndroidViewModel implements IBaseViewModel,
         Consumer<Disposable> {
     private CompositeDisposable mCompositeDisposable;
 
@@ -23,8 +23,6 @@ public abstract class BaseViewModel<T> extends AndroidViewModel implements IBase
      */
     public BaseViewModel(@NonNull Application application) {
         super(application);
-        initData();
-        createRepository();
         mCompositeDisposable = new CompositeDisposable();
     }
 
@@ -82,8 +80,4 @@ public abstract class BaseViewModel<T> extends AndroidViewModel implements IBase
     public void accept(Disposable disposable) throws Exception {
         addSubscribe(disposable);
     }
-
-    protected abstract void initData();
-
-    protected abstract void createRepository();
 }

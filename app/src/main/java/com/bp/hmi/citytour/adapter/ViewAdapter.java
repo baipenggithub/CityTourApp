@@ -1,5 +1,6 @@
 package com.bp.hmi.citytour.adapter;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioGroup;
 
@@ -22,11 +23,16 @@ public class ViewAdapter {
      * isThrottleFirst Whether to turn on to prevent too fast clicking
      */
     @BindingAdapter(value = {"onClickCommand", "isThrottleFirst"}, requireAll = false)
-    public static void onClickCommand(View view, final BindingCommand clickCommand,
+    public static void onClickCommand(View view, final BindingCommand<String> clickCommand,
                                       final boolean isThrottleFirst) {
         view.setOnClickListener(view1 -> {
             if (clickCommand != null) {
-                clickCommand.execute();
+                if (null != view1.getTag() && !TextUtils.isEmpty(view1.getTag().toString())) {
+                    clickCommand.execute(view1.getTag().toString());
+                } else {
+                    clickCommand.execute();
+                }
+
             }
         });
     }

@@ -6,7 +6,7 @@ import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseApplication;
 import com.bp.hmi.citytour.base.BaseRecyclerAdapter;
 import com.bp.hmi.citytour.base.BaseRecyclerHolder;
-import com.bp.hmi.citytour.bean.VideoBean;
+import com.bp.hmi.citytour.bean.HomeVideoBean;
 import com.bp.hmi.citytour.utils.GlideUtils;
 
 import java.util.List;
@@ -20,7 +20,8 @@ import java.util.List;
  *     version: 1.0
  * </pre>
  */
-public class VideoAdapter extends BaseRecyclerAdapter<VideoBean, BaseRecyclerHolder> {
+public class VideoAdapter extends BaseRecyclerAdapter<HomeVideoBean.ResultBean.ItemsBean, BaseRecyclerHolder> {
+
 
     /**
      * Initialization data.
@@ -28,17 +29,17 @@ public class VideoAdapter extends BaseRecyclerAdapter<VideoBean, BaseRecyclerHol
      * @param layoutResId
      * @param data
      */
-    public VideoAdapter(int layoutResId, @Nullable List<VideoBean> data) {
+    public VideoAdapter(int layoutResId, @Nullable List<HomeVideoBean.ResultBean.ItemsBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseRecyclerHolder helper, VideoBean item) {
-        helper.setTag(R.id.tv_video_title, item.getTitle());
-        helper.setTag(R.id.tv_video_like, item.getLikeSum());
-        helper.setTag(R.id.tv_video_favorite, item.getFavoriteSum());
+    protected void convert(BaseRecyclerHolder helper, HomeVideoBean.ResultBean.ItemsBean item) {
+        helper.setText(R.id.tv_video_title, item.getName());
+        helper.setText(R.id.tv_video_like, item.getLikeSum() + "w");
+        helper.setText(R.id.tv_video_favorite, item.getFavoriteSum() + "w");
         helper.getView(R.id.iv_video_like).setSelected(item.isLike());
         helper.getView(R.id.iv_video_favorite).setSelected(item.isFavorite());
-        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.test_pic, helper.getView(R.id.iv_video_pic));
+        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), item.getId(), helper.getView(R.id.iv_video_pic));
     }
 }

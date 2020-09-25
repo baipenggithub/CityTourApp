@@ -18,12 +18,10 @@ public class MainActivityViewModel extends BaseViewModel {
         super(application);
     }
 
-    @Override
     protected void initData() {
 
     }
 
-    @Override
     protected void createRepository() {
 
     }

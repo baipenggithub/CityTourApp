@@ -1,6 +1,7 @@
 package com.bp.hmi.citytour.ui.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -8,14 +9,20 @@ import com.bp.hmi.citytour.action.SingleLiveEvent;
 import com.bp.hmi.citytour.base.BaseViewModel;
 import com.bp.hmi.citytour.bean.CardsBean;
 import com.bp.hmi.citytour.bean.SubCardsTabTitleBean;
+import com.bp.hmi.citytour.http.APiClient;
+import com.bp.hmi.citytour.http.RxRetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
 public class CardsViewModel extends BaseViewModel {
     private static final String TAG = CardsViewModel.class.getSimpleName();
     public SingleLiveEvent<List<SubCardsTabTitleBean>> mSubCardsTabTitleBean;
-    public SingleLiveEvent<List<CardsBean>> mCardsBeanList;
+    public SingleLiveEvent<CardsBean> mCardsBeanList;
 
     /**
      * Constructor.
@@ -24,18 +31,18 @@ public class CardsViewModel extends BaseViewModel {
      */
     public CardsViewModel(@NonNull Application application) {
         super(application);
+        initData();
+        createRepository();
     }
 
-    @Override
+
     protected void initData() {
         mSubCardsTabTitleBean = new SingleLiveEvent<>();
         mCardsBeanList = new SingleLiveEvent<>();
     }
 
-    @Override
     protected void createRepository() {
         getSubCardsTitle();
-        getCardsList();
     }
 
     public void getSubCardsTitle() {
@@ -65,47 +72,35 @@ public class CardsViewModel extends BaseViewModel {
 
     }
 
-    public void getCardsList() {
-        List<CardsBean> bean = new ArrayList<>();
-        CardsBean v1 = new CardsBean();
-        v1.setTitle("百盛购物中心全场9折券");
-        v1.setTime("有效时间至2020年12月20日");
-        v1.setType(1);
-        bean.add(v1);
+    /**
+     * 获取消费券
+     */
+    public void requestActivityInfo() {
+        RxRetrofitClient.create(APiClient.class).getCardsData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<CardsBean>() {
+                    @Override
+                    public void onStart() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
+                    }
 
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
+                    }
 
-        CardsBean v2 = new CardsBean();
-        v2.setTitle("百盛购物中心全场9折券");
-        v2.setTime("有效时间至2020年12月20日");
-        v2.setType(1);
-        bean.add(v2);
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
+                    }
 
-
-        CardsBean v3 = new CardsBean();
-        v3.setTitle("百盛购物中心全场9折券");
-        v3.setTime("有效时间至2020年12月20日");
-        v3.setType(1);
-        bean.add(v3);
-
-        CardsBean v4 = new CardsBean();
-        v4.setTitle("百盛购物中心全场9折券");
-        v4.setTime("有效时间至2020年12月20日");
-        v4.setType(1);
-        bean.add(v4);
-
-        CardsBean v5 = new CardsBean();
-        v5.setTitle("百盛购物中心全场9折券");
-        v5.setTime("有效时间至2020年12月20日");
-        v5.setType(1);
-        bean.add(v5);
-
-
-        CardsBean v6 = new CardsBean();
-        v6.setTitle("百盛购物中心全场9折券");
-        v6.setTime("有效时间至2020年12月20日");
-        v6.setType(1);
-        bean.add(v6);
-
-        mCardsBeanList.postValue(bean);
+                    @Override
+                    public void onNext(CardsBean weatherBean) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
+                        //绑定数据
+                        mCardsBeanList.postValue(weatherBean);
+                    }
+                });
     }
 }

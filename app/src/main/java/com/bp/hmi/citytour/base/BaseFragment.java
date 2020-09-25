@@ -15,6 +15,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bp.hmi.citytour.R;
+import com.bp.hmi.citytour.widget.CustomProgressDialog;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -28,6 +31,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     private int mViewModelId;
     private boolean mIsNavigationViewInit = false;
     private View mLastView = null;
+    private CustomProgressDialog mLoadingDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        mLoadingDialog = new CustomProgressDialog(getActivity(), R.style.customLoadDialog);
         if (mLastView == null) {
             mBinding = DataBindingUtil.inflate(inflater, initContentView(inflater,
                     container, savedInstanceState), container, false);
@@ -53,8 +58,8 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         if (!mIsNavigationViewInit) {
             super.onViewCreated(view, savedInstanceState);
             initViewDataBinding();
-            initLayout();
             initData();
+            initLayout();
             initViewObservable();
         }
         mIsNavigationViewInit = true;
@@ -82,6 +87,11 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         super.onDestroy();
         if (mBinding != null) {
             mBinding.unbind();
+        }
+
+
+        if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+            mLoadingDialog.dismiss();
         }
     }
 
@@ -182,5 +192,36 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     public View getEmptyView(int layoutRes) {
         View emptyView = getLayoutInflater().inflate(layoutRes, null);
         return emptyView;
+    }
+
+    /**
+     * display loading box.
+     */
+    public void showProgress() {
+        try {
+            if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+                mLoadingDialog.dismiss();
+            }
+
+            if (mLoadingDialog != null) {
+                mLoadingDialog.show();
+            }
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * hide loading box.
+     */
+    public void hideProgress() {
+        try {
+            if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+                mLoadingDialog.dismiss();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }

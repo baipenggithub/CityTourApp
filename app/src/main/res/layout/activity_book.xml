@@ -11,91 +11,137 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/tour_home_01_02">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/rl_book_head"
             style="@style/MatchMatch.Horizontal"
-            android:layout_height="@dimen/tab_dimens_70"
+            android:layout_height="@dimen/tab_dimens_90"
             android:background="@mipmap/tour_home_02_02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
                 android:src="@mipmap/tour_home_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="预定详情"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:text="走进上海-已选路线"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_20" />
+                android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_calendar"
+        <RelativeLayout
+            android:id="@+id/select_date"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_340"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_book_head">
+            android:layout_height="@dimen/tab_dimens_40"
+            android:layout_marginLeft="@dimen/tab_dimens_10"
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_marginRight="@dimen/tab_dimens_10"
+            android:layout_marginBottom="@dimen/tab_dimens_10"
+            android:background="@mipmap/book_details_01">
 
-            <CalendarView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:focusedMonthDateColor="@color/color_primary"
-                android:selectedWeekBackgroundColor="@color/color_primary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:text="出发日期"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/tv_size_14" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="2020-08-31"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/tv_size_14" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/book_details_02" />
+        </RelativeLayout>
+
+        <com.necer.calendar.MonthCalendar
+            android:id="@+id/monthCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_200"
+            android:visibility="gone"
+            app:alphaColor="0"
+            app:firstDayOfWeek="monday"
+            app:hollowCircleColor="@color/home_color_10"
+            app:isShowHoliday="true"
+            app:isShowLunar="false"
+            app:selectCircleColor="@color/home_color_10"
+            app:selectCircleRadius="@dimen/tab_dimens_10"
+            app:solarHolidayTextColor="@color/home_color_10"
+            app:solarTermTextColor="@color/home_color_10"
+            app:solarTextColor="@color/black"
+            app:solarTextSize="@dimen/tv_size_14"
+            app:todaySolarTextColor="@color/home_color_10"
+            app:workdayColor="@color/home_color_10" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/subscribe"
+                android:layout_width="@dimen/tab_dimens_160"
+                android:layout_height="@dimen/tab_dimens_40"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/bg_subscribe"
+                android:gravity="center"
+                android:text="一键预约"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/tv_size_14"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/tab_dimens_90"
+                android:layout_height="@dimen/tab_dimens_40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:background="@drawable/base_round_30_c6bb9d"
+                android:gravity="center"
+                android:text="分享"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/tv_size_14"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/subscribe_ticket_view"
-            app:layout_constraintTop_toBottomOf="@+id/ll_calendar">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <include
-                    android:id="@+id/sub_adult_ticket_view"
-                    layout="@layout/sub_adult_ticket_layout"
-                    app:viewModel="@{viewModel}" />
-
-                <include
-                    android:id="@+id/sub_old_people_ticket_view"
-                    layout="@layout/sub_old_people_ticket_layout"
-                    app:viewModel="@{viewModel}" />
-
-                <include
-                    android:id="@+id/sub_child_ticket_view"
-                    layout="@layout/sub_child_ticket_layout"
-                    app:viewModel="@{viewModel}" />
-
-            </LinearLayout>
-        </ScrollView>
-
-        <include
-            android:id="@+id/subscribe_ticket_view"
-            layout="@layout/subscribe_ticket_layout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:viewModel="@{viewModel}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

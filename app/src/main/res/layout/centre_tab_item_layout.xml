@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWrap.Vertical"
+    android:layout_marginStart="@dimen/tab_dimens_10"
+    android:layout_marginEnd="@dimen/tab_dimens_10"
+    android:layout_marginBottom="@dimen/tab_dimens_10"
+    android:background="@mipmap/tour_home_02_01"
+    android:padding="@dimen/tab_dimens_15">
+
+    <TextView
+        android:id="@+id/tv_cards_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_dimens_05"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心"
+        android:textColor="@color/black"
+        android:textSize="@dimen/tv_size_14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_cards_type"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cards_time"
+        android:layout_width="@dimen/tab_dimens_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_dimens_05"
+        android:layout_marginTop="@dimen/tab_dimens_05"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="有效时间..."
+        android:textColor="@color/home_color_06"
+        android:textSize="@dimen/tv_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_cards_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cards_title" />
+
+    <ImageView
+        android:id="@+id/iv_cards_type"
+        android:layout_width="@dimen/tab_dimens_100"
+        android:layout_height="@dimen/tab_dimens_70"
+        android:scaleType="fitXY"
+        android:src="@mipmap/tour_home_02_06"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

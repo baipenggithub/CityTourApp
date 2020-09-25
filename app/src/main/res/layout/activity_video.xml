@@ -14,13 +14,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_primary"
         android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/rl_entered_sh_head"
             style="@style/MatchMatch.Horizontal"
-            android:layout_height="@dimen/tab_dimens_90"
+            android:layout_height="@dimen/tab_dimens_120"
             android:background="@mipmap/tour_home_02_02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,20 +27,20 @@
 
             <ImageView
                 android:id="@+id/ivCardsBack"
-                android:layout_width="@dimen/tab_dimens_45"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_above="@+id/ll_sub_entered_sh"
                 android:layout_marginStart="@dimen/tab_dimens_20"
-                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_10"
                 android:scaleType="centerInside"
                 android:src="@mipmap/tour_home_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_above="@+id/ll_sub_entered_sh"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_10"
                 android:text="视频"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_16" />
@@ -50,43 +49,41 @@
                 android:id="@+id/iv_entered_search"
                 android:layout_width="@dimen/tab_dimens_30"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/ll_sub_entered_sh"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/tab_dimens_20"
-                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_10"
                 android:scaleType="centerInside"
                 android:src="@mipmap/city_tour_home_ic_search" />
+
+            <LinearLayout
+                android:id="@+id/ll_sub_entered_sh"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tab_dimens_50"
+                android:layout_alignParentBottom="true">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/subRecyclerView"
+                    style="@style/MatchMatch"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_sub_entered_sh"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_50"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_entered_sh_head">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/subRecyclerView"
-                style="@style/MatchMatch"
-                android:overScrollMode="never"
-                android:scrollbars="none" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_home_video_05"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/tab_dimens_0"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/video_bottom_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_sub_entered_sh">
+            app:layout_constraintTop_toBottomOf="@+id/rl_entered_sh_head">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/videoRecyclerView"
+            <com.bp.hmi.citytour.widget.VerticalViewPager
+                android:id="@+id/vertical_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:overScrollMode="never"
@@ -103,6 +100,7 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <include
+            android:id="@+id/video_bottom_view"
             layout="@layout/video_bottom"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_70"

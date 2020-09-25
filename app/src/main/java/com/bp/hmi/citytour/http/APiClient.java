@@ -1,6 +1,9 @@
 package com.bp.hmi.citytour.http;
 
-import com.bp.hmi.citytour.bean.VideoBean;
+import com.bp.hmi.citytour.bean.ActivityTabBean;
+import com.bp.hmi.citytour.bean.CardsBean;
+import com.bp.hmi.citytour.bean.EnteredShBean;
+import com.bp.hmi.citytour.bean.HomeVideoBean;
 import com.bp.hmi.citytour.bean.WeatherBean;
 
 import java.util.Map;
@@ -23,17 +26,43 @@ import rx.Observable;
  */
 public interface APiClient {
 
-    /**
-     * 校验验证码是否正常
-     */
     @FormUrlEncoded
-    @POST(ApiService.HOME_VIDEO_API)
-    Observable<VideoBean> verifyPhoneCode(@FieldMap Map<String, String> params);
+    @POST(ApiService.HOME_API_ENTER_SH)
+    Observable<HomeVideoBean> verifyPhoneCode(@FieldMap Map<String, String> params);
 
     /**
-     * 全部楼盘
+     * 获取天气
      */
     @GET(ApiService.HOME_WEATHER_API)
     Observable<WeatherBean> getWeatherInfo(@QueryMap Map<String, String> params);
+
+    /**
+     * 走进上海
+     */
+    @GET(ApiService.HOME_API_ENTER_SH)
+    Observable<EnteredShBean> getEnterShData();
+
+    /**
+     * 视频
+     */
+    @GET(ApiService.HOME_API_HOME_VIDEO)
+    Observable<HomeVideoBean> getVideoData();
+
+
+    /**
+     * 活动
+     */
+    @GET(ApiService.HOME_API_HOME_ACTIVITY)
+    Observable<ActivityTabBean> getActivityData();
+
+    /**
+     * 购物券
+     */
+    @GET(ApiService.HOME_API_HOME_CARDS)
+    Observable<CardsBean> getCardsData();
+
+
+
+
 
 }

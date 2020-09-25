@@ -22,8 +22,10 @@
             <LinearLayout
                 android:id="@+id/home_file_01"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="展览">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -37,14 +39,16 @@
                     android:gravity="center"
                     android:text="展览"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_file_02"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="景点">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -57,15 +61,17 @@
                     android:gravity="center"
                     android:text="景点"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/home_file_03"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="体育">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -78,14 +84,16 @@
                     android:gravity="center"
                     android:text="体育"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_file_04"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="文创">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -96,16 +104,15 @@
                     style="@style/WrapWrap"
                     android:layout_marginTop="@dimen/tab_dimens_05"
                     android:gravity="center"
-                    android:text="文创"
+                    android:text="购物"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/home_file_05"
             style="@style/MatchWrap.Horizontal"
             android:layout_marginStart="@dimen/tab_dimens_20"
             android:layout_marginTop="@dimen/tab_dimens_20"
@@ -113,9 +120,12 @@
             android:layout_marginBottom="@dimen/tab_dimens_20">
 
             <LinearLayout
+                android:id="@+id/home_file_05"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="休闲">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -128,19 +138,21 @@
                     android:gravity="center"
                     android:text="休闲"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_file_06"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="活动">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
                     android:layout_height="@dimen/tab_dimens_45"
-                    android:src="@mipmap/city_tour_home_ic_spot" />
+                    android:src="@mipmap/city_tour_home_ic_ac" />
 
                 <TextView
                     style="@style/WrapWrap"
@@ -148,14 +160,16 @@
                     android:gravity="center"
                     android:text="活动"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_file_07"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="夜市">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -169,14 +183,16 @@
                     android:gravity="center"
                     android:text="夜市"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_file_08"
                 style="@style/AutoWrap.Vertical"
+                onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:tag="消费券">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_45"
@@ -189,7 +205,7 @@
                     android:gravity="center"
                     android:text="消费券"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_14" />
+                    android:textSize="@dimen/tv_size_20" />
             </LinearLayout>
 
         </LinearLayout>

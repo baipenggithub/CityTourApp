@@ -8,7 +8,8 @@ import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseApplication;
 import com.bp.hmi.citytour.base.BaseRecyclerAdapter;
 import com.bp.hmi.citytour.base.BaseRecyclerHolder;
-import com.bp.hmi.citytour.bean.CardsBean;
+import com.bp.hmi.citytour.bean.EnteredShBean;
+import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.utils.GlideUtils;
 
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.List;
  *     version: 1.0
  * </pre>
  */
-public class EnteredShAdapter extends BaseRecyclerAdapter<CardsBean, BaseRecyclerHolder> {
+public class EnteredShAdapter extends BaseRecyclerAdapter<EnteredShBean.ResultBean.ItemsBean, BaseRecyclerHolder> {
 
     /**
      * Initialization data.
@@ -30,25 +31,25 @@ public class EnteredShAdapter extends BaseRecyclerAdapter<CardsBean, BaseRecycle
      * @param layoutResId
      * @param data
      */
-    public EnteredShAdapter(int layoutResId, @Nullable List<CardsBean> data) {
+    public EnteredShAdapter(int layoutResId, @Nullable List<EnteredShBean.ResultBean.ItemsBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseRecyclerHolder helper, CardsBean item) {
-        helper.setText(R.id.tv_entered_sh_title, item.getTitle());
-        helper.setText(R.id.tv_entered_sh_spot, "游览景点:" + item.getType());
-        helper.setText(R.id.tv_entered_sh_time, "推荐时间:" + item.getTime());
-        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.test_pic, helper.getView(R.id.iv_entered_sh_icon));
+    protected void convert(BaseRecyclerHolder helper, EnteredShBean.ResultBean.ItemsBean item) {
+        helper.setText(R.id.tv_entered_sh_title, item.getName());
+        helper.setText(R.id.tv_entered_sh_spot, "游览景点:" + item.getRecommendPoint());
+        helper.setText(R.id.tv_entered_sh_time, "推荐时间:" + item.getSpendTime());
+        GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_entered_sh_icon));
 
         helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
     }
 
     public class ClickListener implements View.OnClickListener {
-        private CardsBean mCardsBean;
+        private EnteredShBean.ResultBean.ItemsBean mCardsBean;
         private int mPosition;
 
-        public ClickListener(CardsBean resultBean, int position) {
+        public ClickListener(EnteredShBean.ResultBean.ItemsBean resultBean, int position) {
             this.mCardsBean = resultBean;
             this.mPosition = position;
         }
@@ -62,7 +63,7 @@ public class EnteredShAdapter extends BaseRecyclerAdapter<CardsBean, BaseRecycle
     }
 
     public interface OnItemClickListener {
-        void onItemListener(CardsBean resultBean, int position);
+        void onItemListener(EnteredShBean.ResultBean.ItemsBean itemsBean, int position);
     }
 
     private OnItemClickListener mOnClickListener;

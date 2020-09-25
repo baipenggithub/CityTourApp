@@ -5,12 +5,12 @@ import android.app.Application;
 import com.bp.hmi.citytour.BuildConfig;
 import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.http.RxRetrofitClient;
-import com.shuyu.gsyvideoplayer.player.IjkPlayerManager;
-import com.shuyu.gsyvideoplayer.player.PlayerFactory;
-import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
+import com.dueeeke.videoplayer.exo.ExoMediaPlayerFactory;
+import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
+import com.dueeeke.videoplayer.player.AndroidMediaPlayerFactory;
+import com.dueeeke.videoplayer.player.VideoViewConfig;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
-
-import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 
 /**
  * BaseApplication.
@@ -23,15 +23,8 @@ public class BaseApplication extends Application {
         super.onCreate();
         setApplication(this);
         initOkHttp();
-        ZXingLibrary.initDisplayOpinion(this);
-
-
-        //EXOPlayer内核，支持格式更多
-        PlayerFactory.setPlayManager(Exo2PlayerManager.class);
-        //系统内核模式
-        PlayerFactory.setPlayManager(SystemPlayerManager.class);
-        //ijk内核，默认模式
-        PlayerFactory.setPlayManager(IjkPlayerManager.class);
+        initZxing();
+        initVideo();
     }
 
     public static void setApplication(BaseApplication application) {
@@ -42,19 +35,22 @@ public class BaseApplication extends Application {
         return sInstance;
     }
 
-    private void initOkHttp() {
-        //默认配置(15秒超时,HttpLoggingInterceptor,ScalarsConverterFactory,GsonConverterFactory,RxJavaCallAdapterFactory)
-        //传入接口BaseUrl,是否输出log
-        RxRetrofitClient.init(ApiService.HOME_WEATHER_API, BuildConfig.DEBUG);
+    private void initZxing() {
+        ZXingLibrary.initDisplayOpinion(this);
+    }
 
-        //自定义配置
-        /*
-        RxRetrofitConfig config = new RxRetrofitConfig.Builder().connectTimeout(20 * 1000)
-                //.addInterceptor()
-                //.addConverterFactory()
-                //.addCallAdapterFactory()
-                .build();
-        RxRetrofitClient.init(config);
-        */
+    private void initVideo() {
+        VideoViewManager.setConfig(VideoViewConfig.newBuilder()
+                //使用使用IjkPlayer解码
+                .setPlayerFactory(IjkPlayerFactory.create())
+                //使用ExoPlayer解码
+                .setPlayerFactory(ExoMediaPlayerFactory.create())
+                //使用MediaPlayer解码
+                .setPlayerFactory(AndroidMediaPlayerFactory.create())
+                .build());
+    }
+
+    private void initOkHttp() {
+        RxRetrofitClient.init(ApiService.HOME_API, BuildConfig.DEBUG);
     }
 }

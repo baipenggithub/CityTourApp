@@ -41,35 +41,36 @@
 
     <TextView
         android:id="@+id/tv_cards_use"
-        android:layout_width="@dimen/tab_dimens_100"
-        android:layout_height="@dimen/tab_dimens_35"
+        android:layout_width="@dimen/tab_dimens_90"
+        android:layout_height="@dimen/tab_dimens_30"
         android:layout_marginTop="@dimen/tab_dimens_10"
         android:background="@mipmap/tour_home_02_04"
         android:gravity="center"
         android:text="立即使用"
         android:textColor="@color/white"
-        android:textSize="@dimen/tv_size_16"
+        android:textSize="@dimen/tv_size_13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_cards_time" />
 
     <TextView
         android:id="@+id/tv_cards_detail"
-        android:layout_width="@dimen/tab_dimens_100"
-        android:layout_height="@dimen/tab_dimens_35"
+        android:layout_width="@dimen/tab_dimens_90"
+        android:layout_height="@dimen/tab_dimens_30"
         android:layout_marginStart="@dimen/tab_dimens_10"
         android:layout_marginTop="@dimen/tab_dimens_10"
         android:background="@mipmap/tour_home_02_05"
         android:gravity="center"
         android:text="查看详情"
-        android:textColor="@color/color_accent"
-        android:textSize="@dimen/tv_size_16"
+        android:textColor="@color/home_color_10"
+        android:textSize="@dimen/tv_size_13"
         app:layout_constraintLeft_toRightOf="@+id/tv_cards_use"
         app:layout_constraintTop_toBottomOf="@+id/tv_cards_time" />
 
     <ImageView
         android:id="@+id/iv_cards_type"
-        android:layout_width="@dimen/tab_dimens_100"
-        android:layout_height="@dimen/tab_dimens_100"
+        android:layout_width="@dimen/tab_dimens_80"
+        android:layout_height="@dimen/tab_dimens_80"
+        android:scaleType="centerInside"
         android:src="@mipmap/tour_home_02_06"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

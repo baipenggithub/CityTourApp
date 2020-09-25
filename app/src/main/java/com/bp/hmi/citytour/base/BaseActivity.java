@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bp.hmi.citytour.R;
+import com.bp.hmi.citytour.widget.CustomProgressDialog;
 import com.gyf.immersionbar.ImmersionBar;
 
 import java.lang.reflect.ParameterizedType;
@@ -22,15 +24,17 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     protected V mBinding;
     protected VM mViewModel;
     private int mViewModelId;
+    private CustomProgressDialog mLoadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mLoadingDialog = new CustomProgressDialog(this, R.style.customLoadDialog);
         ImmersionBar.with(this).init();
-        initParam();
         initViewDataBinding(savedInstanceState);
-        initLayout();
+        initParam();
         initData();
+        initLayout();
         initViewObservable();
     }
 
@@ -39,6 +43,9 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         super.onDestroy();
         if (mBinding != null) {
             mBinding.unbind();
+        }
+        if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+            mLoadingDialog.dismiss();
         }
     }
 
@@ -122,5 +129,36 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
      */
     public <T extends ViewModel> T createViewModel(FragmentActivity activity, Class<T> cls) {
         return ViewModelProviders.of(activity).get(cls);
+    }
+
+    /**
+     * Display loading box.
+     */
+    public void showProgress() {
+        try {
+            if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+                mLoadingDialog.dismiss();
+            }
+
+            if (mLoadingDialog != null) {
+                mLoadingDialog.show();
+            }
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * Hide loading box.
+     */
+    public void hideProgress() {
+        try {
+            if (null != mLoadingDialog && mLoadingDialog.isShowing()) {
+                mLoadingDialog.dismiss();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
