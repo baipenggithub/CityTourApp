@@ -4,12 +4,17 @@
 
     <LinearLayout
         style="@style/MatchMatch.Vertical"
-        android:layout_marginTop="-70dp"
-        android:background="#22E0E0E0">
+        android:layout_marginTop="-100dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50"
+            android:background="@mipmap/home_bg_ac_01" />
 
         <LinearLayout
             style="@style/MatchMatch.Vertical"
             android:layout_height="@dimen/tab_dimens_350"
+            android:layout_marginTop="-40dp"
             android:background="@mipmap/home_bg_model_pic">
 
             <include
@@ -21,7 +26,7 @@
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-25dp"
             android:background="@mipmap/tour_home_01_01">
 
             <include

@@ -4,10 +4,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/tab_dimens_10"
-        android:layout_marginEnd="@dimen/tab_dimens_10"
-        android:layout_marginBottom="@dimen/tab_dimens_10">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivAssistant"
