@@ -43,10 +43,10 @@
 
     <ImageView
         android:id="@+id/iv_cards_type"
-        android:layout_width="@dimen/tab_dimens_100"
-        android:layout_height="@dimen/tab_dimens_70"
+        android:layout_width="@dimen/tab_dimens_130"
+        android:layout_height="@dimen/tab_dimens_75"
         android:scaleType="fitXY"
-        android:src="@mipmap/tour_home_02_06"
+        android:src="@mipmap/test_pic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

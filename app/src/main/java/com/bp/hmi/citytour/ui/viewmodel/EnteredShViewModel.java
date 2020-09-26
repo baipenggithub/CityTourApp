@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import com.bp.hmi.citytour.action.BindingCommand;
 import com.bp.hmi.citytour.action.SingleLiveEvent;
 import com.bp.hmi.citytour.base.BaseViewModel;
+import com.bp.hmi.citytour.bean.ActivityTabBean;
 import com.bp.hmi.citytour.bean.EnteredShBean;
 import com.bp.hmi.citytour.bean.SubCardsTabTitleBean;
 import com.bp.hmi.citytour.http.APiClient;
@@ -24,6 +25,8 @@ public class EnteredShViewModel extends BaseViewModel {
     private static final String TAG = EnteredShViewModel.class.getSimpleName();
     public SingleLiveEvent<List<SubCardsTabTitleBean>> mSubCardsTabTitleBean;
     public SingleLiveEvent<EnteredShBean> mEnteredShBeanList;
+    public SingleLiveEvent<ActivityTabBean> mActivityData;
+
 
     /**
      * Constructor.
@@ -61,6 +64,7 @@ public class EnteredShViewModel extends BaseViewModel {
     private void initData() {
         mSubCardsTabTitleBean = new SingleLiveEvent<>();
         mEnteredShBeanList = new SingleLiveEvent<>();
+        mActivityData = new SingleLiveEvent<>();
     }
 
     public void getSubCardsTitle() {
@@ -119,6 +123,41 @@ public class EnteredShViewModel extends BaseViewModel {
                         Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
                         //绑定数据
                         mEnteredShBeanList.postValue(weatherBean);
+                    }
+                });
+    }
+
+    /**
+     * 获取活动
+     */
+    public void requestActivityInfo() {
+        RxRetrofitClient.create(APiClient.class).getActivityData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<ActivityTabBean>() {
+                    @Override
+                    public void onStart() {
+                        //showDialog();
+                        Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        // dismissDialog();
+                        Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        //dismissDialog();
+                        Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
+                    }
+
+                    @Override
+                    public void onNext(ActivityTabBean weatherBean) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
+                        //绑定数据
+                        mActivityData.postValue(weatherBean);
                     }
                 });
     }

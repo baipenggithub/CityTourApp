@@ -67,6 +67,13 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
             }
         });
 
+        mBinding.videoBottomView.llAddVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               
+            }
+        });
+
     }
 
     private void initVideoView() {
@@ -148,15 +155,15 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
     }
 
     private void addData() {
-       // String url1 = "android.resource://" + getPackageName() + "/" + R.raw.test_01;
-        //String url2 = "android.resource://" + getPackageName() + "/" + R.raw.test_02;
-        //String url3 = "android.resource://" + getPackageName() + "/" + R.raw.test_03;
-        //String url4 = "android.resource://" + getPackageName() + "/" + R.raw.test_04;
+        String url1 = "android.resource://" + getPackageName() + "/" + R.raw.test_01;
+        String url2 = "android.resource://" + getPackageName() + "/" + R.raw.test_02;
+        String url3 = "android.resource://" + getPackageName() + "/" + R.raw.test_03;
+        String url4 = "android.resource://" + getPackageName() + "/" + R.raw.test_04;
 
-//        mVideoList.add(url1);
-//        mVideoList.add(url2);
-//        mVideoList.add(url3);
-//        mVideoList.add(url4);
+        mVideoList.add(url1);
+        mVideoList.add(url2);
+        mVideoList.add(url3);
+        mVideoList.add(url4);
     }
 
 
@@ -217,4 +224,5 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
             }
         });
     }
+
 }

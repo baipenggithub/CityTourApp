@@ -37,7 +37,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
-                android:text="@{viewModel.mTitle}"
+                android:text="活动"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>
@@ -54,11 +54,115 @@
                 android:scrollbars="none" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
-            style="@style/MatchMatch"
-            android:overScrollMode="never"
-            android:scrollbars="none" />
-    </LinearLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="@dimen/tab_dimens_250"
+                    android:layout_marginStart="@dimen/tab_dimens_10"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:layout_marginEnd="@dimen/tab_dimens_10"
+                    android:layout_marginBottom="@dimen/tab_dimens_10"
+                    android:background="@mipmap/home_activity_small_tab">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_home_activity_cover"
+                            style="@style/MatchWrap"
+                            android:layout_height="@dimen/tab_dimens_160"
+                            android:scaleType="fitXY" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@mipmap/city_tour_home_ic_new" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_marginStart="@dimen/tab_dimens_10"
+                        android:layout_marginTop="@dimen/tab_dimens_10"
+                        android:layout_marginEnd="@dimen/tab_dimens_10">
+
+                        <LinearLayout
+                            style="@style/MatchWrap.Vertical"
+                            android:layout_marginTop="@dimen/tab_dimens_10"
+                            android:layout_marginEnd="@dimen/tab_dimens_10"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_home_activity_name"
+                                style="@style/MatchWrap"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/home_color_07"
+                                android:textSize="@dimen/tv_size_15" />
+
+                            <TextView
+                                android:id="@+id/tv_home_activity_message"
+                                style="@style/MatchWrap"
+                                android:layout_marginTop="@dimen/tab_dimens_05"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/home_color_08"
+                                android:textSize="@dimen/tv_size_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/shape_activity_tab_bac"
+                            android:orientation="vertical"
+                            android:padding="@dimen/tab_dimens_05">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:text="静安"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/tv_size_15" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/tab_dimens_03"
+                                android:gravity="center_horizontal"
+                                android:text="市民云"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/tv_size_12" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mRecyclerView"
+                    style="@style/MatchMatch"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </layout>

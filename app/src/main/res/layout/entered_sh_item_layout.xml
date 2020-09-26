@@ -58,7 +58,7 @@
 
     <ImageView
         android:id="@+id/iv_entered_sh_icon"
-        android:layout_width="@dimen/tab_dimens_140"
+        android:layout_width="@dimen/tab_dimens_130"
         android:layout_height="@dimen/tab_dimens_75"
         android:scaleType="fitXY"
         android:src="@mipmap/test_pic"

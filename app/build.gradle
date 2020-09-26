@@ -101,5 +101,6 @@ dependencies {
     //广告
     implementation 'com.youth.banner:banner:2.1.0'
     api project(path: ':calendar')
+    //视频选择
 
 }

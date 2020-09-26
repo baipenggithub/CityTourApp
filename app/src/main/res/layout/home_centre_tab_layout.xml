@@ -83,7 +83,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="文创">
+                android:tag="购物">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"

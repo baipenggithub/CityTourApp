@@ -205,13 +205,11 @@ public class HomeViewModel extends BaseViewModel {
                 .subscribe(new Subscriber<WeatherBean>() {
                     @Override
                     public void onStart() {
-                        //showDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
                     }
 
                     @Override
                     public void onCompleted() {
-                        // dismissDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
                     }
 
@@ -234,7 +232,7 @@ public class HomeViewModel extends BaseViewModel {
         List<HomeVideoBean.ResultBean.ItemsBean> bean = new ArrayList<>();
         HomeVideoBean.ResultBean.ItemsBean v3 = new HomeVideoBean.ResultBean.ItemsBean();
         v3.setName("探店");
-        v3.setId(R.mipmap.home_video_01_pic);
+        v3.setId(R.mipmap.item_1);
         v3.setLike(true);
         v3.setFavorite(false);
         v3.setLikeSum(20);
@@ -242,7 +240,7 @@ public class HomeViewModel extends BaseViewModel {
         bean.add(v3);
 
         HomeVideoBean.ResultBean.ItemsBean v4 = new HomeVideoBean.ResultBean.ItemsBean();
-        v4.setId(R.mipmap.home_video_02_pic);
+        v4.setId(R.mipmap.item_2);
         v4.setName("微电影");
         v4.setLike(false);
         v4.setFavorite(false);
@@ -251,7 +249,7 @@ public class HomeViewModel extends BaseViewModel {
         bean.add(v4);
 
         HomeVideoBean.ResultBean.ItemsBean v5 = new HomeVideoBean.ResultBean.ItemsBean();
-        v5.setId(R.mipmap.home_video_03_pic);
+        v5.setId(R.mipmap.item_3);
         v5.setName("咖啡馆");
         v5.setLike(true);
         v5.setFavorite(true);
@@ -261,7 +259,7 @@ public class HomeViewModel extends BaseViewModel {
 
 
         HomeVideoBean.ResultBean.ItemsBean v6 = new HomeVideoBean.ResultBean.ItemsBean();
-        v6.setId(R.mipmap.home_video_04_pic);
+        v6.setId(R.mipmap.item_1);
         v6.setName("美术馆");
         v6.setLike(false);
         v6.setFavorite(true);

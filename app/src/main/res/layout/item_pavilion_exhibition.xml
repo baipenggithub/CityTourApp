@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        style="@style/MatchWrap.Horizontal"
+        android:layout_below="@+id/item_title"
+        android:layout_marginLeft="@dimen/tab_dimens_20"
+        android:layout_marginTop="@dimen/tab_dimens_06"
+        android:layout_marginRight="@dimen/tab_dimens_20">
+
+        <TextView
+            android:id="@+id/item_desc"
+            style="@style/WrapWrap"
+            android:text="中央美术学院美术馆"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/tv_size_12" />
+
+        <ImageView
+            android:layout_width="@dimen/tab_dimens_14"
+            android:layout_height="@dimen/tab_dimens_14"
+            android:layout_marginLeft="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_03"
+            android:src="@mipmap/tour_pavilion_gps" />
+
+        <TextView
+            android:id="@+id/item_distance"
+            style="@style/WrapWrap"
+            android:layout_marginLeft="@dimen/tab_dimens_04"
+            android:text="距您576米"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/tv_size_12" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_title"
+        style="@style/WrapWrap"
+        android:layout_below="@+id/item_icon"
+        android:layout_marginLeft="@dimen/tab_dimens_20"
+        android:layout_marginTop="@dimen/tab_dimens_06"
+        android:layout_marginRight="@dimen/tab_dimens_20"
+        android:text="古元画展：纪念古元诞辰百年"
+        android:textColor="@color/black"
+        android:textSize="@dimen/tv_size_15" />
+
+    <com.necer.view.RoundAngleImageView
+        android:id="@+id/item_icon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_dimens_180"
+        android:layout_marginLeft="@dimen/tab_dimens_20"
+        android:layout_marginTop="@dimen/tab_dimens_20"
+        android:layout_marginRight="@dimen/tab_dimens_20"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/pic_1_03"
+        app:leftBottomRadius="@dimen/tab_dimens_10"
+        app:leftTopRadius="@dimen/tab_dimens_10"
+        app:rightBottomRadius="@dimen/tab_dimens_10"
+        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+    <ImageView
+        android:layout_width="@dimen/tab_dimens_100"
+        android:layout_height="@dimen/tab_dimens_25"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/tab_dimens_35"
+        android:layout_marginEnd="@dimen/tab_dimens_15"
+        android:src="@mipmap/city_tour_07_05" />
+
+    <TextView
+        android:layout_width="@dimen/tab_dimens_70"
+        android:layout_height="@dimen/tab_dimens_35"
+        android:layout_below="@+id/item_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:layout_marginEnd="@dimen/tab_dimens_20"
+        android:background="@drawable/base_round_10_ff9900"
+        android:gravity="center"
+        android:text="预 约"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tv_size_18" />
+</RelativeLayout>

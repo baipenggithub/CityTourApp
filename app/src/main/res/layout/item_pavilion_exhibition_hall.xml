@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab_dimens_240">
+
+    <com.necer.view.RoundAngleImageView
+        android:id="@+id/item_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/tab_dimens_10"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:layout_marginRight="@dimen/tab_dimens_10"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/pic_1_12"
+        app:leftBottomRadius="@dimen/tab_dimens_10"
+        app:leftTopRadius="@dimen/tab_dimens_10"
+        app:rightBottomRadius="@dimen/tab_dimens_10"
+        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+    <ImageView
+        android:layout_width="@dimen/tab_dimens_100"
+        android:layout_height="@dimen/tab_dimens_25"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/tab_dimens_30"
+        android:layout_marginRight="@dimen/tab_dimens_05"
+        android:src="@mipmap/city_tour_07_05" />
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/tab_dimens_10"
+        android:layout_marginRight="@dimen/tab_dimens_10"
+        android:background="@drawable/exhibition_hall_bg"
+        android:paddingLeft="@dimen/tab_dimens_10"
+        android:paddingTop="@dimen/tab_dimens_06"
+        android:paddingRight="@dimen/tab_dimens_10"
+        android:paddingBottom="@dimen/tab_dimens_10">
+
+        <LinearLayout style="@style/WrapWrap.Horizontal">
+
+            <TextView
+                android:id="@+id/item_title"
+                style="@style/WrapWrap"
+                android:text="上海博物馆"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_15" />
+
+            <View
+                android:layout_width="@dimen/tab_dimens_10"
+                android:layout_height="@dimen/tab_dimens_10"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/tab_dimens_10"
+                android:background="@drawable/base_round_10_ff9900" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/WrapWrap.Horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_15"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:src="@mipmap/tour_pavilion_star" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_15"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:src="@mipmap/tour_pavilion_star" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_15"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:src="@mipmap/tour_pavilion_star" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_15"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:src="@mipmap/tour_pavilion_star" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_15"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:src="@mipmap/tour_pavilion_star" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/MatchWrap.Horizontal">
+
+            <TextView
+                android:id="@+id/item_desc"
+                style="@style/WrapWrap"
+                android:layout_marginLeft="@dimen/tab_dimens_04"
+                android:text="免费"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/tv_size_12" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/tab_dimens_10"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_14"
+                android:layout_height="@dimen/tab_dimens_14"
+                android:layout_marginLeft="@dimen/tab_dimens_20"
+                android:layout_marginTop="@dimen/tab_dimens_03"
+                android:src="@mipmap/tour_pavilion_gps" />
+
+            <TextView
+                android:id="@+id/item_distance"
+                style="@style/WrapWrap"
+                android:layout_marginLeft="@dimen/tab_dimens_04"
+                android:text="距您576米"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/tv_size_12" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

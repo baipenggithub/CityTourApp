@@ -1,6 +1,7 @@
 package com.bp.hmi.citytour.ui.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ import com.bp.hmi.citytour.ui.fragment.AssistantFragment;
 import com.bp.hmi.citytour.ui.fragment.HomeFragment;
 import com.bp.hmi.citytour.ui.fragment.MyFragment;
 import com.bp.hmi.citytour.ui.fragment.TravelFragment;
-import com.bp.hmi.citytour.ui.fragment.VideoFragment;
 import com.bp.hmi.citytour.ui.viewmodel.MainActivityViewModel;
 
 import java.util.ArrayList;
@@ -35,13 +35,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
     private HomeFragment mHomeFragment;
     private TravelFragment mTravelFragment;
     private AssistantFragment mAssistantFragment;
-    private VideoFragment mVideoFragment;
     private MyFragment mMyFragment;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_main;
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        switchFragment(0);
     }
 
     @Override
@@ -110,12 +115,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
                 break;
             case 3:
                 setTabView(false, false, false, true, false);
-                if (null == mVideoFragment) {
-                    mVideoFragment = VideoFragment.getInstance();
-                    transaction.add(R.id.content_frame_layout, mVideoFragment);
-                } else {
-                    transaction.show(mVideoFragment);
-                }
+                Intent in = new Intent(this, VideoActivity.class);
+                startActivity(in);
                 break;
 
             case 4:
@@ -189,9 +190,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
         }
         if (null != mAssistantFragment) {
             transaction.hide(mAssistantFragment);
-        }
-        if (null != mVideoFragment) {
-            transaction.hide(mVideoFragment);
         }
         if (null != mMyFragment) {
             transaction.hide(mMyFragment);

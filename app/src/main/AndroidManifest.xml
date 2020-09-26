@@ -19,9 +19,11 @@
         <activity android:name=".ui.activity.EnteredShActivity" />
         <activity android:name=".ui.activity.CardsActivity" />
         <activity android:name=".ui.activity.BookActivity" />
-        <activity android:name=".ui.activity.HomeCentreTabActivity" />
+        <activity android:name=".ui.activity.HomeActActivity" />
         <activity android:name=".ui.activity.EnteredShNewDetailsActivity" />
         <activity android:name=".ui.activity.PavilionActivity" />
+        <activity android:name=".ui.activity.EnteredShSpotActivity" />
+        <activity android:name=".ui.activity.ActivityDetailsActivity" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode">

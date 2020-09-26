@@ -67,6 +67,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/iv_city_tour_pavilion"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/tab_dimens_200"
                         android:scaleType="fitXY"
@@ -87,10 +88,15 @@
                         android:scrollbars="none" />
                 </LinearLayout>
 
-                <GridView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listPavilion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:numColumns="2" />
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_100"/>
 
             </LinearLayout>
 

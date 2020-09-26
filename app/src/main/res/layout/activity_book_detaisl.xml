@@ -127,7 +127,7 @@
                             app:solarTermTextColor="@color/home_color_10"
                             app:solarTextColor="#000"
                             app:solarTextSize="@dimen/tv_size_14"
-                            app:todaySolarTextColor="@color/home_color_10"
+                            app:todaySolarTextColor="@color/white"
                             app:workdayColor="@color/home_color_10" />
 
                         <ImageView
