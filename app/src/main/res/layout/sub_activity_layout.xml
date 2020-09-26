@@ -19,15 +19,20 @@
             android:layout_marginEnd="@dimen/tab_dimens_20"
             android:layout_marginBottom="@dimen/tab_dimens_10">
 
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/city_tour_home_ic_activity"/>
+
             <TextView
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
                 android:layout_centerVertical="true"
-                android:drawableStart="@mipmap/city_tour_home_ic_activity"
-                android:drawablePadding="@dimen/tab_dimens_10"
                 android:text="活动"
+                android:layout_marginLeft="@dimen/tab_dimens_35"
                 android:textColor="@color/home_color_05"
-                android:textSize="@dimen/tv_size_16"
+                android:textSize="@dimen/tv_size_20"
                 android:textStyle="bold" />
 
             <TextView
@@ -36,6 +41,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/tv_home_activity_title"
                 android:text="(10)"
+                android:layout_marginLeft="@dimen/tab_dimens_06"
                 android:textColor="@color/home_color_05"
                 android:textSize="@dimen/tv_size_15" />
 
@@ -55,6 +61,10 @@
             android:layout_marginStart="@dimen/tab_dimens_20"
             android:layout_marginEnd="@dimen/tab_dimens_20"
             android:background="@mipmap/home_activity_small_tab">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
 
             <ImageView
                 android:id="@+id/iv_home_activity_cover"
@@ -62,6 +72,14 @@
                 android:layout_height="@dimen/tab_dimens_160"
                 android:scaleType="fitXY"
                 android:src="@mipmap/test_pic" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/city_tour_home_ic_new"/>
+
+            </RelativeLayout>
 
             <LinearLayout
                 style="@style/MatchWrap.Horizontal"

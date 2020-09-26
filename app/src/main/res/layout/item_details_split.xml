@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/tab_dimens_40"
+    android:layout_height="@dimen/tab_dimens_80"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tab_dimens_15"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/leftLing"
+            android:layout_width="@dimen/tab_dimens_10"
+            android:layout_height="@dimen/tab_dimens_02"
+            android:layout_gravity="center_vertical"
+            android:background="#1E91B0" />
+
+        <View
+            android:layout_width="@dimen/tab_dimens_15"
+            android:layout_height="@dimen/tab_dimens_15"
+            android:background="@drawable/base_round_30_1e91b0" />
+
+        <View
+            android:id="@+id/rightLing"
+            android:layout_width="@dimen/tab_dimens_10"
+            android:layout_height="@dimen/tab_dimens_02"
+            android:layout_gravity="center_vertical"
+            android:background="#1E91B0" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/tab_dimens_02"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="#1E91B0" />
+
+
+    <ImageView
+        android:id="@+id/addButton"
+        android:layout_width="@dimen/tab_dimens_40"
+        android:visibility="gone"
+        android:layout_height="@dimen/tab_dimens_40"
+        android:src="@mipmap/city_tour_details_add" />
+</LinearLayout>

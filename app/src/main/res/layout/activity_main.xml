@@ -2,19 +2,182 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        style="@style/MatchMatch.Vertical">
+    <!--    <LinearLayout-->
+    <!--        style="@style/MatchMatch.Vertical">-->
+
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/content_frame_layout"-->
+    <!--            style="@style/MatchAuto" />-->
+
+    <!--        <include-->
+    <!--            android:id="@+id/home_bottom_tab_view"-->
+    <!--            layout="@layout/home_bottom_tab_layout"-->
+    <!--            app:viewModel="@{viewModel}" />-->
+
+    <!--    </LinearLayout>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:id="@+id/content_frame_layout"
-            style="@style/MatchAuto" />
+            style="@style/MatchMatch" />
 
-        <include
+        <!--        <include-->
+        <!--            android:id="@+id/home_bottom_tab_view"-->
+        <!--            layout="@layout/home_bottom_tab_layout"-->
+        <!--            app:viewModel="@{viewModel}" />-->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_bottom_tab_view"
-            layout="@layout/home_bottom_tab_layout"
-            app:viewModel="@{viewModel}" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/tab_dimens_10"
+            android:layout_marginEnd="@dimen/tab_dimens_10"
+            android:layout_marginBottom="@dimen/tab_dimens_10">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/ivAssistant"
+                onClickCommand="@{viewModel.assistantFragmentCommand}"
+                android:layout_width="@dimen/tab_dimens_80"
+                android:layout_height="@dimen/tab_dimens_80"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/tab_dimens_16"
+                android:scaleType="centerInside"
+                android:src="@mipmap/city_tour_home_tab_helper"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tab_dimens_65"
+                android:background="@mipmap/city_tour_home_bottom"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/lin_home"
+                    style="@style/AutoMatch.Vertical"
+                    onClickCommand="@{viewModel.homeFragmentCommand}"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_home"
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/shape_home_tab" />
+
+                    <TextView
+                        android:id="@+id/tv_home"
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_03"
+                        android:text="首页"
+                        android:textColor="@drawable/shape_bottom_bar_text_color"
+                        android:textSize="@dimen/tv_size_14" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lin_travel"
+                    style="@style/AutoMatch.Vertical"
+                    onClickCommand="@{viewModel.travelFragmentCommand}"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_travel"
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/shape_travel_tab" />
+
+                    <TextView
+                        android:id="@+id/tv_travel"
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_03"
+                        android:text="一码游"
+                        android:textColor="@drawable/shape_bottom_bar_text_color"
+                        android:textSize="@dimen/tv_size_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_assistant"
+                    style="@style/AutoMatch.Vertical"
+                    onClickCommand="@{viewModel.assistantFragmentCommand}"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_assistant"
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/shape_home_video"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/tv_assistant"
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_03"
+                        android:text="智能助手"
+                        android:textColor="@drawable/shape_bottom_bar_text_color"
+                        android:textSize="@dimen/tv_size_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_video"
+                    style="@style/AutoMatch.Vertical"
+                    onClickCommand="@{viewModel.videoFragmentCommand}"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_video"
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/shape_home_video" />
+
+                    <TextView
+                        android:id="@+id/tv_video"
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_03"
+                        android:text="视频"
+                        android:textColor="@drawable/shape_bottom_bar_text_color"
+                        android:textSize="@dimen/tv_size_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_me"
+                    style="@style/AutoMatch.Vertical"
+                    onClickCommand="@{viewModel.meFragmentCommand}"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_me"
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/shape_me_tab" />
+
+                    <TextView
+                        android:id="@+id/tv_me"
+                        style="@style/WrapWrap"
+                        android:layout_marginTop="@dimen/tab_dimens_03"
+                        android:text="我的"
+                        android:textColor="@drawable/shape_bottom_bar_text_color"
+                        android:textSize="@dimen/tv_size_14" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
     <data>
 

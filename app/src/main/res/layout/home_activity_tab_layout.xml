@@ -2,16 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
-    </data>
-
     <LinearLayout
         style="@style/MatchMatch.Vertical"
-        android:layout_marginTop="-100dp">
+        android:layout_marginTop="-70dp"
+        android:background="#22E0E0E0">
 
         <LinearLayout
             style="@style/MatchMatch.Vertical"
@@ -38,4 +32,11 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
 </layout>

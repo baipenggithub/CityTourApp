@@ -38,6 +38,7 @@
     <dimen name="tab_dimens_24">24dp</dimen>
     <dimen name="tab_dimens_25">25dp</dimen>
     <dimen name="tab_dimens_30">30dp</dimen>
+    <dimen name="tab_dimens_32">32dp</dimen>
     <dimen name="tab_dimens_35">35dp</dimen>
     <dimen name="tab_dimens_40">40dp</dimen>
     <dimen name="tab_dimens_42">42dp</dimen>

@@ -167,10 +167,10 @@ public class VideoFragment extends BaseFragment<FragmentVodeoBinding, VideoViewM
     }
 
     private void addData() {
-        String url1 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test_01;
-        String url2 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test_02;
-        String url3 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test_03;
-        String url4 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test_04;
+        String url1 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test;
+        String url2 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test;
+        String url3 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test;
+        String url4 = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.test;
 
         mVideoList.add(url1);
         mVideoList.add(url2);

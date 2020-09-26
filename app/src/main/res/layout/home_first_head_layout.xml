@@ -2,13 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,31 +13,32 @@
             android:background="@mipmap/city_tour_home_up_bac"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 style="@style/MatchWrap.Horizontal"
                 android:layout_height="@dimen/tab_dimens_70"
-                android:layout_marginStart="@dimen/tab_dimens_10"
+                android:layout_marginStart="@dimen/tab_dimens_14"
                 android:layout_marginTop="@dimen/tab_dimens_20"
-                android:layout_marginEnd="@dimen/tab_dimens_10">
+                android:layout_marginEnd="@dimen/tab_dimens_14">
 
-                <TextView
-                    android:id="@+id/tv_home_address"
-                    onClickCommand="@{viewModel.tvHomeAddress}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/iv_scan_rq"
+                    onClickCommand="@{viewModel.ivHomeScanQr}"
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:drawablePadding="@dimen/tab_dimens_10"
-                    android:text="上海"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/tv_size_15"
-                    app:drawableEndCompat="@mipmap/city_tour_home_ic_down" />
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/city_tour_home_ic_scan" />
+
 
                 <LinearLayout
-                    style="@style/AutoWrap.Horizontal"
+                    style="@style/MatchMatch.Horizontal"
                     android:layout_height="@dimen/tab_dimens_30"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/tab_dimens_20"
-                    android:layout_marginEnd="@dimen/tab_dimens_20"
+                    android:layout_marginStart="@dimen/tab_dimens_75"
+                    android:layout_marginEnd="@dimen/tab_dimens_50"
                     android:background="@mipmap/city_tour_home_ic_search_box">
 
                     <EditText
@@ -70,16 +64,20 @@
                         android:src="@mipmap/city_tour_home_02" />
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/iv_scan_rq"
-                    onClickCommand="@{viewModel.ivHomeScanQr}"
-                    android:layout_width="@dimen/tab_dimens_25"
-                    android:layout_height="@dimen/tab_dimens_25"
+                <TextView
+                    android:id="@+id/tv_home_address"
+                    onClickCommand="@{viewModel.tvHomeAddress}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/city_tour_home_ic_scan" />
+                    android:drawablePadding="@dimen/tab_dimens_10"
+                    android:text="上海"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/tv_size_15"
+                    app:drawableEndCompat="@mipmap/city_tour_home_ic_down" />
 
-            </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -93,16 +91,17 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_68"
-                android:layout_height="@dimen/tab_dimens_68"
+                android:layout_width="@dimen/tab_dimens_56"
+                android:layout_height="@dimen/tab_dimens_56"
+                android:layout_marginTop="@dimen/tab_dimens_08"
                 android:src="@mipmap/home_me_scan" />
 
             <TextView
                 style="@style/WrapWrap"
-                android:layout_marginTop="@dimen/tab_dimens_05"
+                android:layout_marginTop="@dimen/tab_dimens_06"
                 android:text="随申码"
                 android:textColor="@color/light_grey"
-                android:textSize="@dimen/tv_size_20" />
+                android:textSize="@dimen/tv_size_18" />
 
         </LinearLayout>
 
@@ -114,10 +113,18 @@
             <TextView
                 style="@style/MatchWrap"
                 android:gravity="center"
+                android:lineSpacingExtra="@dimen/tab_dimens_06"
                 android:text="12点半苏浙汇餐厅消费128元 \n 你已成功预约2020-08-30迪尼斯乐园双人门票"
                 android:textColor="#74c8d6"
-                android:textSize="@dimen/tv_size_15" />
+                android:textSize="@dimen/tv_size_14" />
 
         </LinearLayout>
     </LinearLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
 </layout>

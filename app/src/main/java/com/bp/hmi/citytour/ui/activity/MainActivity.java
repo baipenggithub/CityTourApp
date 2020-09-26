@@ -136,47 +136,47 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
     }
 
     private void setTabView(boolean b, boolean b2, boolean b3, boolean b4, boolean b5) {
-        mBinding.homeBottomTabView.ivHome.setSelected(b);
-        mBinding.homeBottomTabView.tvHome.setSelected(b);
+        mBinding.ivHome.setSelected(b);
+        mBinding.tvHome.setSelected(b);
         if (b) {
-            mBinding.homeBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.homeBottomTabView.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvHome.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.homeBottomTabView.ivTravel.setSelected(b2);
-        mBinding.homeBottomTabView.tvTravel.setSelected(b2);
+        mBinding.ivTravel.setSelected(b2);
+        mBinding.tvTravel.setSelected(b2);
         if (b2) {
-            mBinding.homeBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.homeBottomTabView.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvTravel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.homeBottomTabView.ivAssistant.setSelected(b3);
-        mBinding.homeBottomTabView.tvAssistant.setSelected(b3);
+        mBinding.ivAssistant.setSelected(b3);
+        mBinding.tvAssistant.setSelected(b3);
 
         if (b3) {
-            mBinding.homeBottomTabView.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.homeBottomTabView.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvAssistant.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.homeBottomTabView.ivVideo.setSelected(b4);
-        mBinding.homeBottomTabView.tvVideo.setSelected(b4);
+        mBinding.ivVideo.setSelected(b4);
+        mBinding.tvVideo.setSelected(b4);
 
         if (b4) {
-            mBinding.homeBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.homeBottomTabView.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvVideo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
 
-        mBinding.homeBottomTabView.ivMe.setSelected(b5);
-        mBinding.homeBottomTabView.tvMe.setSelected(b5);
+        mBinding.ivMe.setSelected(b5);
+        mBinding.tvMe.setSelected(b5);
 
         if (b5) {
-            mBinding.homeBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
-            mBinding.homeBottomTabView.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            mBinding.tvMe.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
     }
 

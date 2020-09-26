@@ -1,84 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <RelativeLayout style="@style/MatchWrap">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/oriental_pearl_tower" />
+
+        <LinearLayout style="@style/MatchWrap.Vertical">
+
+
+            <RelativeLayout
+                style="@style/MatchWrap"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginTop="@dimen/tab_dimens_50">
+
+                <LinearLayout style="@style/WrapWrap.Vertical">
+
+                    <TextView
+                        style="@style/MatchWrap"
+                        android:gravity="center"
+                        android:text="@{viewModel.mWeatherInfo.wea}"
+                        android:textColor="@color/home_color_02"
+                        android:textSize="@dimen/tv_size_20" />
+
+                    <TextView
+                        style="@style/MatchWrap"
+                        android:gravity="center"
+                        android:text="@{viewModel.mWeatherInfo.tem2 + '℃' + '-' + viewModel.mWeatherInfo.tem1 + '℃'}"
+                        android:textColor="@color/home_color_02"
+                        android:textSize="@dimen/tv_size_15" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/WrapWrap.Vertical"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/tab_dimens_20">
+
+                    <TextView
+                        style="@style/MatchWrap"
+                        android:gravity="center"
+                        android:text="AQI"
+                        android:textColor="@color/home_color_02"
+                        android:textSize="@dimen/tv_size_20" />
+
+                    <TextView
+                        style="@style/MatchWrap"
+                        android:background="@drawable/shape_weather_air_level"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/tab_dimens_03"
+                        android:paddingTop="@dimen/tab_dimens_1"
+                        android:paddingEnd="@dimen/tab_dimens_03"
+                        android:paddingBottom="@dimen/tab_dimens_1"
+                        android:text="@{viewModel.mWeatherInfo.air_level}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tv_size_10" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                onClickCommand="@{viewModel.intoShCommand}"
+                android:layout_width="@dimen/tab_dimens_200"
+                android:layout_height="@dimen/tab_dimens_45"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/tab_dimens_150"
+                android:gravity="center"
+                android:src="@mipmap/home_into_sh" />
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/tab_dimens_10"
+                android:gravity="center"
+                android:text="历史 · 人文 · 行程 · 玩乐"
+                android:textColor="@color/home_color_04"
+                android:textSize="@dimen/tv_size_18"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
     <data>
 
         <variable
             name="viewModel"
             type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
     </data>
-
-    <LinearLayout
-        style="@style/MatchWrap.Vertical"
-        android:background="@mipmap/oriental_pearl_tower">
-
-        <RelativeLayout
-            style="@style/MatchWrap"
-            android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_40">
-
-            <LinearLayout style="@style/WrapWrap.Vertical">
-
-                <TextView
-                    style="@style/MatchWrap"
-                    android:gravity="center"
-                    android:text="@{viewModel.mWeatherInfo.wea}"
-                    android:textColor="@color/home_color_02"
-                    android:textSize="@dimen/tv_size_20" />
-
-                <TextView
-                    style="@style/MatchWrap"
-                    android:gravity="center"
-                    android:text="@{viewModel.mWeatherInfo.tem2 + '℃' + '-' + viewModel.mWeatherInfo.tem1 + '℃'}"
-                    android:textColor="@color/home_color_02"
-                    android:textSize="@dimen/tv_size_15" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/WrapWrap.Vertical"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/tab_dimens_20">
-
-                <TextView
-                    style="@style/MatchWrap"
-                    android:gravity="center"
-                    android:text="AQI"
-                    android:textColor="@color/home_color_02"
-                    android:textSize="@dimen/tv_size_20" />
-
-                <TextView
-                    style="@style/MatchWrap"
-                    android:background="@drawable/shape_weather_air_level"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/tab_dimens_03"
-                    android:paddingTop="@dimen/tab_dimens_1"
-                    android:paddingEnd="@dimen/tab_dimens_03"
-                    android:paddingBottom="@dimen/tab_dimens_1"
-                    android:text="@{viewModel.mWeatherInfo.air_level}"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/tv_size_10" />
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <ImageView
-            onClickCommand="@{viewModel.intoShCommand}"
-            android:layout_width="@dimen/tab_dimens_200"
-            android:layout_height="@dimen/tab_dimens_45"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/tab_dimens_150"
-            android:gravity="center"
-            android:src="@mipmap/home_into_sh" />
-
-        <TextView
-            style="@style/WrapWrap"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/tab_dimens_10"
-            android:gravity="center"
-            android:text="历史 · 人文 · 行程 · 玩乐"
-            android:textColor="@color/home_color_04"
-            android:textSize="@dimen/tv_size_18"
-            android:textStyle="bold" />
-    </LinearLayout>
 </layout>

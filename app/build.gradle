@@ -16,7 +16,7 @@ android {
 
     signingConfigs {
         config {
-            storeFile file("/Users/kangyuan/Documents/GitHubPro/CityTourApp/city.jks")
+            storeFile file("city.jks")
             storePassword '123456'
             keyAlias 'city'
             keyPassword '123456'

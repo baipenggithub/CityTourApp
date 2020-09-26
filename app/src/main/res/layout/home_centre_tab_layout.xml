@@ -3,21 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
-    </data>
-
-
     <LinearLayout style="@style/MatchWrap.Vertical">
 
         <LinearLayout
             style="@style/MatchWrap.Horizontal"
-            android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_20"
-            android:layout_marginEnd="@dimen/tab_dimens_20">
+            android:padding="@dimen/tab_dimens_20">
 
             <LinearLayout
                 android:id="@+id/home_file_01"
@@ -28,8 +18,8 @@
                 android:tag="展览">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_expo" />
 
                 <TextView
@@ -39,7 +29,7 @@
                     android:gravity="center"
                     android:text="展览"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
             <LinearLayout
@@ -51,8 +41,8 @@
                 android:tag="景点">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_spot" />
 
                 <TextView
@@ -61,7 +51,7 @@
                     android:gravity="center"
                     android:text="景点"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
 
@@ -74,8 +64,8 @@
                 android:tag="体育">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_sport" />
 
                 <TextView
@@ -84,7 +74,7 @@
                     android:gravity="center"
                     android:text="体育"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,8 +86,8 @@
                 android:tag="文创">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_art" />
 
                 <TextView
@@ -106,7 +96,7 @@
                     android:gravity="center"
                     android:text="购物"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
 
@@ -114,10 +104,9 @@
 
         <LinearLayout
             style="@style/MatchWrap.Horizontal"
-            android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_20"
-            android:layout_marginEnd="@dimen/tab_dimens_20"
-            android:layout_marginBottom="@dimen/tab_dimens_20">
+            android:paddingLeft="@dimen/tab_dimens_20"
+            android:paddingRight="@dimen/tab_dimens_20"
+            android:paddingBottom="@dimen/tab_dimens_20">
 
             <LinearLayout
                 android:id="@+id/home_file_05"
@@ -128,8 +117,8 @@
                 android:tag="休闲">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_lie" />
 
                 <TextView
@@ -138,7 +127,7 @@
                     android:gravity="center"
                     android:text="休闲"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
             <LinearLayout
@@ -150,8 +139,8 @@
                 android:tag="活动">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_ac" />
 
                 <TextView
@@ -160,7 +149,7 @@
                     android:gravity="center"
                     android:text="活动"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,8 +161,8 @@
                 android:tag="夜市">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_night" />
 
                 <TextView
@@ -183,7 +172,7 @@
                     android:gravity="center"
                     android:text="夜市"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
             <LinearLayout
@@ -195,8 +184,8 @@
                 android:tag="消费券">
 
                 <ImageView
-                    android:layout_width="@dimen/tab_dimens_45"
-                    android:layout_height="@dimen/tab_dimens_45"
+                    android:layout_width="@dimen/tab_dimens_50"
+                    android:layout_height="@dimen/tab_dimens_50"
                     android:src="@mipmap/city_tour_home_ic_gst" />
 
                 <TextView
@@ -205,10 +194,18 @@
                     android:gravity="center"
                     android:text="消费券"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_20" />
+                    android:textSize="@dimen/tv_size_18" />
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
+    </data>
 </layout>

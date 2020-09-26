@@ -1,5 +1,6 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -69,14 +70,15 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
         switch (position) {
 
             case 0:
-                setTabView(true, false, false, false);
-
-                if (null == mEnteredShRoundFragment) {
-                    mEnteredShRoundFragment = EnteredShRoundFragment.getInstance();
-                    transaction.add(R.id.sh_frame_layout, mEnteredShRoundFragment);
-                } else {
-                    transaction.show(mEnteredShRoundFragment);
-                }
+//                setTabView(true, false, false, false);
+//
+//                if (null == mEnteredShRoundFragment) {
+//                    mEnteredShRoundFragment = EnteredShRoundFragment.getInstance();
+//                    transaction.add(R.id.sh_frame_layout, mEnteredShRoundFragment);
+//                } else {
+//                    transaction.show(mEnteredShRoundFragment);
+//                }
+                startActivity(new Intent(this,EnteredShNewDetailsActivity.class));
                 break;
             case 1:
                 setTabView(false, true, false, false);

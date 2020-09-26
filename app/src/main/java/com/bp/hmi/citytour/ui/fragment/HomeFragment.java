@@ -20,6 +20,7 @@ import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeCentreTabActivity;
+import com.bp.hmi.citytour.ui.activity.PavilionActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
