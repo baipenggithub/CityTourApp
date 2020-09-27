@@ -42,8 +42,7 @@
                 android:layout_marginBottom="@dimen/tab_dimens_20"
                 android:text="展 馆"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_20"
-                android:textStyle="bold" />
+                android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>
 
         <androidx.core.widget.NestedScrollView

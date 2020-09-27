@@ -1,5 +1,6 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +16,9 @@ import com.bp.hmi.citytour.databinding.ActivityVideoBinding;
 import com.bp.hmi.citytour.ui.adapter.SubTabTitleAdapter;
 import com.bp.hmi.citytour.ui.adapter.Tiktok2Adapter;
 import com.bp.hmi.citytour.ui.viewmodel.VideoViewModel;
+import com.bp.hmi.citytour.utils.Glide4Engine;
 import com.bp.hmi.citytour.utils.PreloadManager;
+import com.bp.hmi.citytour.utils.ToastUtils;
 import com.bp.hmi.citytour.utils.VideoUtils;
 import com.bp.hmi.citytour.widget.TikTokController;
 import com.bp.hmi.citytour.widget.VerticalViewPager;
@@ -23,6 +26,9 @@ import com.dueeeke.videoplayer.player.VideoView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.bzcoder.mediapicker.SmartMediaPicker;
+import me.bzcoder.mediapicker.config.MediaPickerEnum;
 
 @SuppressWarnings("ALL")
 public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewModel> {
@@ -35,6 +41,9 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
     private PreloadManager mPreloadManager;
 
     private SubTabTitleAdapter mSubTabTitleAdapter;
+    private final String FILE_PROVIDER = "com.sharry.app.salbum.FileProvider";
+    private final String RELATIVE_PATH = "SAlbum";
+    private SmartMediaPicker.Builder builder;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -70,11 +79,37 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
         mBinding.videoBottomView.llAddVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               
+                builder.withMediaPickerType(MediaPickerEnum.CAMERA)
+                        .build()
+                        .show();
             }
+
         });
 
+        builder = SmartMediaPicker.builder(this)
+                //最大图片选择数目
+                .withMaxImageSelectable(5)
+                //最大视频选择数目
+                .withMaxVideoSelectable(1)
+                //图片选择器是否显示数字
+                .withCountable(true)
+                //最大视频长度
+                .withMaxVideoLength(15 * 1000)
+                //最大视频文件大小 单位MB
+                .withMaxVideoSize(1)
+                //最大图片高度 默认1920
+                .withMaxHeight(1920)
+                //最大图片宽度 默认1920
+                .withMaxWidth(1920)
+                //最大图片大小 单位MB
+                .withMaxImageSize(5)
+                //前置摄像头拍摄是否镜像翻转图像 默认为true 与微信一致的话为false
+                .withIsMirror(false)
+                //设置图片加载引擎
+                .withImageEngine(new Glide4Engine());
+
     }
+
 
     private void initVideoView() {
         mVideoView = new VideoView(this);
@@ -225,4 +260,19 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
         });
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        List<String> resultData = SmartMediaPicker.getResultData(this, requestCode, resultCode, data);
+        if (resultData != null && resultData.size() > 0) {
+            //            tvPath.setText(Arrays.toString(resultData.toArray()) + "\n文件类型："
+            //                    + SmartMediaPicker.getFileType(resultData.get(0)) + "\n视频时长: " +
+            //                    (SmartMediaPicker.getFileType(resultData.get(0)).contains("video") ?
+            //                            SmartMediaPicker.getVideoDuration(resultData.get(0)) : ""));
+            ToastUtils.showLong("上传成功:");
+
+        } else {
+            ToastUtils.showLong("上传失败");
+        }
+    }
 }

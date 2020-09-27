@@ -57,7 +57,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     @Override
     public void initData() {
         super.initData();
-        //showProgress();
+        showProgress();
         mViewModel.requestActivityInfo();
     }
 

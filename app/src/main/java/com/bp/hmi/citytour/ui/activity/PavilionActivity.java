@@ -1,5 +1,6 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -125,6 +126,11 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
             mBinding.listPavilion.setLayoutManager(managerCircle);
             PavilionAdapter mScheduleAdapter = new PavilionAdapter(R.layout.item_pavilion_exhibition, getPavilionData());
             mBinding.listPavilion.setAdapter(mScheduleAdapter);
+            mScheduleAdapter.addOnItemClickListener((resultBean, position) -> {
+                Intent i = new Intent(PavilionActivity.this, PavilionHallDetailsActivity.class);
+                startActivity(i);
+            });
+
         } else {
             mBinding.nsv.fullScroll(ScrollView.FOCUS_UP);
             mBinding.ivCityTourPavilion.setImageResource(R.mipmap.pic_01_07);
@@ -132,6 +138,11 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
             mBinding.listPavilion.setLayoutManager(manager);
             PavilionAdapter mScheduleAdapter = new PavilionAdapter(R.layout.item_pavilion_exhibition_hall, getPavilionHallData());
             mBinding.listPavilion.setAdapter(mScheduleAdapter);
+
+            mScheduleAdapter.addOnItemClickListener((resultBean, position) -> {
+                Intent i = new Intent(PavilionActivity.this, PavilionHallDetailsActivity.class);
+                startActivity(i);
+            });
         }
 
     }

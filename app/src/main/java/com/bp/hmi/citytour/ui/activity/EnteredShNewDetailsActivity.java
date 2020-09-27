@@ -28,86 +28,69 @@ import java.util.ArrayList;
  * 创建人:LuoWeiDi
  * 创建时间:2020/9/26
  */
-public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShNewDetailsBinding, EnteredShNewViewModel>
-{
+public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShNewDetailsBinding, EnteredShNewViewModel> {
     @Override
-    public int initContentView(Bundle savedInstanceState)
-    {
+    public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_entered_sh_new_details;
     }
 
     @Override
-    public int initVariableId()
-    {
+    public int initVariableId() {
         return BR.viewModel;
     }
 
 
     @Override
-    public void initLayout()
-    {
+    public void initLayout() {
         super.initLayout();
         SpannableString str = new SpannableString("线路规划（可自定义）");
         str.setSpan(new AbsoluteSizeSpan(16, true), 4, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mBinding.tvPathTitle.setText(str);
-        mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener()
-        {
+        mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 finish();
             }
         });
-        mBinding.rlPathContentPage.setOnClickListener(new View.OnClickListener()
-        {
+        mBinding.rlPathContentPage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 infoSwitch();
             }
         });
-        mBinding.create.setOnClickListener(new View.OnClickListener()
-        {
+        mBinding.create.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 startActivity(new Intent(EnteredShNewDetailsActivity.this, BookActivity.class));
             }
         });
     }
 
     @Override
-    public void initViewObservable()
-    {
+    public void initViewObservable() {
         super.initViewObservable();
     }
 
     @Override
-    public void initData()
-    {
+    public void initData() {
         super.initData();
         ArrayList<ScheduleEntity> scheduleEntities = getBookData();
         mBinding.pathListA.removeAllViews();
         mBinding.pathListB.removeAllViews();
         mBinding.pathSplit.removeAllViews();
         int size = scheduleEntities.size() + 2;
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             View itemSplit = LayoutInflater.from(EnteredShNewDetailsActivity.this).inflate(R.layout.item_details_split, mBinding.pathSplit, false);
             mBinding.pathSplit.addView(itemSplit);
-            if (i < scheduleEntities.size())
-            {
+            if (i < scheduleEntities.size()) {
                 ScheduleEntity scheduleEntity = scheduleEntities.get(i);
-                View           itemPath;
-                if (i % 2 == 0)
-                {
+                View itemPath;
+                if (i % 2 == 0) {
                     itemSplit.findViewById(R.id.leftLing).setVisibility(View.INVISIBLE);
                     itemSplit.findViewById(R.id.rightLing).setVisibility(View.VISIBLE);
                     itemPath = LayoutInflater.from(EnteredShNewDetailsActivity.this).inflate(R.layout.item_details_path, mBinding.pathListA, false);
                     mBinding.pathListA.addView(itemPath);
-                }
-                else
-                {
+                } else {
                     itemSplit.findViewById(R.id.leftLing).setVisibility(View.VISIBLE);
                     itemSplit.findViewById(R.id.rightLing).setVisibility(View.INVISIBLE);
                     itemPath = LayoutInflater.from(EnteredShNewDetailsActivity.this).inflate(R.layout.item_details_path, mBinding.pathListB, false);
@@ -116,22 +99,17 @@ public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShN
                 ((ImageView) itemPath.findViewById(R.id.pathImage)).setImageResource(scheduleEntity.getIcon());
                 ((TextView) itemPath.findViewById(R.id.pathTitle)).setText(scheduleEntity.getTitle());
                 ((TextView) itemPath.findViewById(R.id.pathDes)).setText(scheduleEntity.getLocation());
-            }
-            else
-            {
-                if (i == size - 2)
-                {
+            } else {
+                if (i == size - 2) {
                     itemSplit.findViewById(R.id.leftLing).setVisibility(View.INVISIBLE);
                     itemSplit.findViewById(R.id.rightLing).setVisibility(View.VISIBLE);
                 }
-                if (i == size - 1)
-                {
+                if (i == size - 1) {
                     itemSplit.findViewById(R.id.topCircle).setVisibility(View.GONE);
                     itemSplit.findViewById(R.id.addButton).setVisibility(View.VISIBLE);
                 }
             }
-            if (i == 0)
-            {
+            if (i == 0) {
                 itemSplit.findViewById(R.id.topCircle).setVisibility(View.GONE);
             }
         }
@@ -139,30 +117,22 @@ public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShN
 
     private boolean mGroupIsOpen = false;
 
-    public void infoSwitch()
-    {
-        float     layoutHeight = BannerUtils.dp2px(200);
+    public void infoSwitch() {
+        float layoutHeight = BannerUtils.dp2px(200);
         Animation animation;
-        if (mGroupIsOpen)
-        {
-            animation = new Animation()
-            {
-                protected void applyTransformation(float interpolatedTime, Transformation t)
-                {
-                    int                       v      = (int) (layoutHeight * interpolatedTime);
+        if (mGroupIsOpen) {
+            animation = new Animation() {
+                protected void applyTransformation(float interpolatedTime, Transformation t) {
+                    int v = (int) (layoutHeight * interpolatedTime);
                     LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mBinding.rlPathPage.getLayoutParams();
                     params.topMargin = -v;
                     mBinding.rlPathPage.setLayoutParams(params);
                 }
             };
-        }
-        else
-        {
-            animation = new Animation()
-            {
-                protected void applyTransformation(float interpolatedTime, Transformation t)
-                {
-                    int                       v      = (int) (layoutHeight - layoutHeight * interpolatedTime);
+        } else {
+            animation = new Animation() {
+                protected void applyTransformation(float interpolatedTime, Transformation t) {
+                    int v = (int) (layoutHeight - layoutHeight * interpolatedTime);
                     LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mBinding.rlPathPage.getLayoutParams();
                     params.topMargin = -v;
                     mBinding.rlPathPage.setLayoutParams(params);
@@ -174,11 +144,10 @@ public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShN
         mBinding.rlPathPage.startAnimation(animation);
     }
 
-    public ArrayList<ScheduleEntity> getBookData()
-    {
+    public ArrayList<ScheduleEntity> getBookData() {
         //模拟数据
-        ArrayList<ScheduleEntity> list            = new ArrayList<>();
-        ScheduleEntity            scheduleEntity1 = new ScheduleEntity();
+        ArrayList<ScheduleEntity> list = new ArrayList<>();
+        ScheduleEntity scheduleEntity1 = new ScheduleEntity();
         scheduleEntity1.setIcon(R.mipmap.item_1);
         scheduleEntity1.setTitle("中共一大会址");
         scheduleEntity1.setLocation("海兴业路76号");

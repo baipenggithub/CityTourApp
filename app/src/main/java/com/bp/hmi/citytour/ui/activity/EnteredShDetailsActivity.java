@@ -14,6 +14,7 @@ import com.bp.hmi.citytour.databinding.ActivityJoinTripBinding;
 import com.bp.hmi.citytour.ui.adapter.DetailsActivityAdapter;
 import com.bp.hmi.citytour.ui.adapter.HomeBannerAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.JoinTripViewModel;
+import com.bp.hmi.citytour.utils.ToastUtils;
 import com.youth.banner.config.BannerConfig;
 import com.youth.banner.config.IndicatorConfig;
 import com.youth.banner.indicator.CircleIndicator;
@@ -69,6 +70,21 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
             startActivity(i);
         });
 
+        mBinding.joinTripDetailsView.ivJoinTripVoiceNavigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EnteredShDetailsActivity.this, VoiceActivity.class);
+                startActivity(i);
+            }
+        });
+
+        mBinding.joinTripDetailsView.ivJoinTripVirtualShowrooms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showLong("敬请期待");
+            }
+        });
+
         mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData));
         mBinding.joinTripDetailsView.banner.setIndicator(new CircleIndicator(this));
         mBinding.joinTripDetailsView.banner.setIndicatorGravity(IndicatorConfig.Direction.CENTER);
@@ -93,13 +109,13 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
         //支持内容从新布局
         mBinding.joinTripDetailsView.mWeb.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         //设置 缓存模式
-        mBinding.joinTripDetailsView.mWeb. getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        mBinding.joinTripDetailsView.mWeb.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         //设置DOM Storage缓存
-        mBinding.joinTripDetailsView.mWeb. getSettings().setDomStorageEnabled(true);
+        mBinding.joinTripDetailsView.mWeb.getSettings().setDomStorageEnabled(true);
         // 开启database storage API功能
-        mBinding.joinTripDetailsView.mWeb. getSettings().setDatabaseEnabled(true);
+        mBinding.joinTripDetailsView.mWeb.getSettings().setDatabaseEnabled(true);
         //开启缓存
-        mBinding.joinTripDetailsView.mWeb. getSettings().setAppCacheEnabled(true);
+        mBinding.joinTripDetailsView.mWeb.getSettings().setAppCacheEnabled(true);
 
     }
 
@@ -112,7 +128,7 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
             mHomeCentreTabAdapter = new DetailsActivityAdapter(R.layout.details_activity_item_layout, activityTabBean.getResult().getItems());
             mBinding.joinTripDetailsView.joinTripRecyclerView.setAdapter(mHomeCentreTabAdapter);
 
-            mBinding.joinTripDetailsView.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getItems().get(1).getContent(),"text/html", "utf-8", null);
+            mBinding.joinTripDetailsView.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getItems().get(1).getContent(), "text/html", "utf-8", null);
         });
     }
 }

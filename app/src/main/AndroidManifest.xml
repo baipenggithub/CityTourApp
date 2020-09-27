@@ -24,6 +24,9 @@
         <activity android:name=".ui.activity.PavilionActivity" />
         <activity android:name=".ui.activity.EnteredShSpotActivity" />
         <activity android:name=".ui.activity.ActivityDetailsActivity" />
+        <activity android:name=".ui.activity.VoiceActivity" />
+        <activity android:name=".ui.activity.PavilionHallDetailsActivity" />
+
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode">
@@ -34,6 +37,7 @@
             </intent-filter>
         </activity>
     </application>
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -50,7 +54,8 @@
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
 </manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/tab_dimens_10">
+
+    <com.necer.view.RoundAngleImageView
+        android:id="@+id/item_icon"
+        android:layout_width="@dimen/tab_dimens_200"
+        android:layout_height="@dimen/tab_dimens_100"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/voice_pic_05"
+        app:leftBottomRadius="@dimen/tab_dimens_10"
+        app:leftTopRadius="@dimen/tab_dimens_10"
+        app:rightBottomRadius="@dimen/tab_dimens_10"
+        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+    <TextView
+        android:id="@+id/item_title"
+        style="@style/WrapWrap"
+        android:layout_width="@dimen/tab_dimens_180"
+        android:layout_marginLeft="@dimen/tab_dimens_10"
+        android:layout_marginTop="@dimen/tab_dimens_14"
+        android:layout_marginBottom="@dimen/tab_dimens_14"
+        android:textColor="@color/black"
+        android:textSize="@dimen/tv_size_18" />
+</LinearLayout>

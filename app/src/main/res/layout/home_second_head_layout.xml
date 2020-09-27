@@ -77,7 +77,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/tab_dimens_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/city_tour_home_ic_search" />
+                android:src="@mipmap/city_tour_home_02" />
         </LinearLayout>
 
         <LinearLayout

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_entered_sh_head"
+            android:background="@mipmap/tour_home_01_01"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_entered_sh_head"
+                android:orientation="vertical"
+                android:padding="@dimen/tab_dimens_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/base_round_10_white"
+                    android:orientation="vertical">
+
+                    <com.necer.view.RoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_dimens_200"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/voice_pic_05"
+                        app:leftBottomRadius="@dimen/tab_dimens_10"
+                        app:leftTopRadius="@dimen/tab_dimens_10"
+                        app:rightBottomRadius="@dimen/tab_dimens_10"
+                        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_marginLeft="@dimen/tab_dimens_16"
+                        android:layout_marginTop="@dimen/tab_dimens_16"
+                        android:layout_marginBottom="@dimen/tab_dimens_16"
+                        android:layout_weight="1"
+                        android:text="语音导览语音导览1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_16" />
+
+                    <SeekBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:maxHeight="5dp"
+                        android:minHeight="5dp"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/voice_seekbar_bg"
+                        android:splitTrack="false"
+                        android:thumb="@mipmap/tour_voice_bar" />
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_marginTop="@dimen/tab_dimens_16"
+                        android:layout_marginBottom="@dimen/tab_dimens_16"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/tab_dimens_30"
+                            android:layout_height="@dimen/tab_dimens_30"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/tour_voice_last" />
+
+                        <ImageView
+                            android:layout_width="@dimen/tab_dimens_40"
+                            android:layout_height="@dimen/tab_dimens_40"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/tab_dimens_60"
+                            android:layout_marginRight="@dimen/tab_dimens_60"
+                            android:src="@mipmap/tour_voice_pay" />
+
+                        <ImageView
+                            android:layout_width="@dimen/tab_dimens_30"
+                            android:layout_height="@dimen/tab_dimens_30"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/tour_voice_next" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_80"
+                    android:layout_marginTop="@dimen/tab_dimens_14"
+                    android:background="@drawable/base_round_10_white"
+                    android:orientation="horizontal">
+
+                    <com.necer.view.RoundAngleImageView
+                        android:layout_width="@dimen/tab_dimens_120"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/tab_dimens_10"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/voice_pic_01"
+                        app:leftBottomRadius="@dimen/tab_dimens_10"
+                        app:leftTopRadius="@dimen/tab_dimens_10"
+                        app:rightBottomRadius="@dimen/tab_dimens_10"
+                        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="语音导览语音导览2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_16" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_30"
+                        android:layout_height="@dimen/tab_dimens_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_16"
+                        android:src="@mipmap/tour_voice_pay_gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_80"
+                    android:layout_marginTop="@dimen/tab_dimens_14"
+                    android:background="@drawable/base_round_10_white"
+                    android:orientation="horizontal">
+
+                    <com.necer.view.RoundAngleImageView
+                        android:layout_width="@dimen/tab_dimens_120"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/tab_dimens_10"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/voice_pic_02"
+                        app:leftBottomRadius="@dimen/tab_dimens_10"
+                        app:leftTopRadius="@dimen/tab_dimens_10"
+                        app:rightBottomRadius="@dimen/tab_dimens_10"
+                        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="语音导览语音导览3"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_16" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_30"
+                        android:layout_height="@dimen/tab_dimens_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_16"
+                        android:src="@mipmap/tour_voice_pay_gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_80"
+                    android:layout_marginTop="@dimen/tab_dimens_14"
+                    android:background="@drawable/base_round_10_white"
+                    android:orientation="horizontal">
+
+                    <com.necer.view.RoundAngleImageView
+                        android:layout_width="@dimen/tab_dimens_120"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/tab_dimens_10"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/voice_pic_03"
+                        app:leftBottomRadius="@dimen/tab_dimens_10"
+                        app:leftTopRadius="@dimen/tab_dimens_10"
+                        app:rightBottomRadius="@dimen/tab_dimens_10"
+                        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="语音导览语音导览4"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_16" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_30"
+                        android:layout_height="@dimen/tab_dimens_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_16"
+                        android:src="@mipmap/tour_voice_pay_gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_80"
+                    android:layout_marginTop="@dimen/tab_dimens_14"
+                    android:background="@drawable/base_round_10_white"
+                    android:orientation="horizontal">
+
+                    <com.necer.view.RoundAngleImageView
+                        android:layout_width="@dimen/tab_dimens_120"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/tab_dimens_10"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/voice_pic_04"
+                        app:leftBottomRadius="@dimen/tab_dimens_10"
+                        app:leftTopRadius="@dimen/tab_dimens_10"
+                        app:rightBottomRadius="@dimen/tab_dimens_10"
+                        app:rightTopRadius="@dimen/tab_dimens_10" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="语音导览语音导览5"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/tv_size_16" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_30"
+                        android:layout_height="@dimen/tab_dimens_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_16"
+                        android:src="@mipmap/tour_voice_pay_gray" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:id="@+id/rl_entered_sh_head"
+            style="@style/MatchMatch.Horizontal"
+            android:layout_height="@dimen/tab_dimens_90"
+            android:background="@mipmap/tour_home_02_02"
+            app:layout_collapseMode="pin">
+
+            <ImageView
+                android:id="@+id/ivCardsBack"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/tour_home_back" />
+
+            <ImageView
+                android:id="@+id/iv_entered_search"
+                android:layout_width="@dimen/tab_dimens_30"
+                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/tab_dimens_20"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:scaleType="centerInside"
+                android:src="@mipmap/city_tour_home_ic_scan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/tab_dimens_20"
+                android:text="语音导航"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_16" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.VoiceViewModel" />
+    </data>
+</layout>

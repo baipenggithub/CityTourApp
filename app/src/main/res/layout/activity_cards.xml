@@ -39,7 +39,7 @@
                 android:layout_marginBottom="@dimen/tab_dimens_20"
                 android:text="消费券"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_20" />
+                android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>
 
         <LinearLayout
