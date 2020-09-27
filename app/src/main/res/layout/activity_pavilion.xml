@@ -5,6 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/rl_entered_sh_head"
             style="@style/MatchMatch.Horizontal"
@@ -93,9 +94,10 @@
                     android:layout_height="match_parent"
                     android:overScrollMode="never"
                     android:scrollbars="none" />
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/tab_dimens_100"/>
+                    android:layout_height="@dimen/tab_dimens_100" />
 
             </LinearLayout>
 

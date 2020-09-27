@@ -2,6 +2,9 @@ package com.bp.hmi.citytour.ui.viewmodel;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.ObservableField;
+
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.action.BindingCommand;
 import com.bp.hmi.citytour.action.SingleLiveEvent;
@@ -11,28 +14,22 @@ import com.bp.hmi.citytour.bean.ScheduleEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.databinding.ObservableField;
-
-public class EnteredShNewViewModel extends BaseViewModel
-{
-    private static final String                                TAG = EnteredShNewViewModel.class.getSimpleName();
-    public               SingleLiveEvent<List<ScheduleEntity>> mBookData;
-    public               ObservableField<String>               mBookSum;
+public class EnteredShNewViewModel extends BaseViewModel {
+    private static final String TAG = EnteredShNewViewModel.class.getSimpleName();
+    public SingleLiveEvent<List<ScheduleEntity>> mBookData;
+    public ObservableField<String> mBookSum;
 
     /**
      * Constructor.
      *
      * @param application
      */
-    public EnteredShNewViewModel(@NonNull Application application)
-    {
+    public EnteredShNewViewModel(@NonNull Application application) {
         super(application);
         initData();
     }
 
-    protected void initData()
-    {
+    protected void initData() {
         mBookData = new SingleLiveEvent<>();
         mBookSum = new ObservableField<>("1");
     }
@@ -41,8 +38,7 @@ public class EnteredShNewViewModel extends BaseViewModel
     public BookViewModel.UiChangeObservable uiChangeObservable = new BookViewModel.UiChangeObservable();
 
 
-    public static class UiChangeObservable
-    {
+    public static class UiChangeObservable {
         public SingleLiveEvent homeFragmentLivEvent = new SingleLiveEvent<>();
 
     }
@@ -51,11 +47,10 @@ public class EnteredShNewViewModel extends BaseViewModel
             -> uiChangeObservable.homeFragmentLivEvent.call());
 
 
-    public void getBookData()
-    {
+    public void getBookData() {
         //模拟数据
-        ArrayList<ScheduleEntity> list            = new ArrayList<>();
-        ScheduleEntity            scheduleEntity1 = new ScheduleEntity();
+        ArrayList<ScheduleEntity> list = new ArrayList<>();
+        ScheduleEntity scheduleEntity1 = new ScheduleEntity();
         scheduleEntity1.setIcon(R.mipmap.item_1);
         scheduleEntity1.setTitle("中共一大会址");
         scheduleEntity1.setLocation("海兴业路76号");

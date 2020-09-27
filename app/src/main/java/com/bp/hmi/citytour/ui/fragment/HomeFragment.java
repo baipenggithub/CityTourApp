@@ -21,6 +21,7 @@ import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
+import com.bp.hmi.citytour.ui.activity.TravelActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
@@ -82,6 +83,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                     startActivity(in);
                 } else if (o.equals("活动")) {
                     Intent in = new Intent(getActivity(), HomeActActivity.class);
+                    startActivity(in);
+                } else if (o.equals("景点")) {
+                    Intent in = new Intent(getActivity(), TravelActivity.class);
                     startActivity(in);
                 } else {
                     ToastUtils.showLong("敬请期待!");
@@ -161,9 +165,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
             @Override
             public void onChanged(Object o) {
                 Intent in = new Intent(getActivity(), HomeActActivity.class);
-                Bundle b = new Bundle();
-                b.putString("HOME_TYPE", "活动");
-                in.putExtras(b);
                 startActivity(in);
             }
         });
