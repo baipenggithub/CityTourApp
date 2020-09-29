@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import com.necer.listener.OnCalendarChangedListener;
 import org.joda.time.LocalDate;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -80,7 +83,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
         mCurrent = new Date();
         mBinding.tvDate.setText(new SimpleDateFormat("yyyy年M月d日").format(mCurrent));
 
-
+        //        tickets_list
         mBinding.ivBack.setOnClickListener(this);
         mBinding.adultCard.setOnClickListener(this);
         mBinding.oldCard.setOnClickListener(this);
@@ -91,6 +94,29 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
         mBinding.tvBookOk.setOnClickListener(this);
         mBinding.ivBookSubtract.setOnClickListener(this);
         mBinding.ivBookAdd.setOnClickListener(this);
+        mBinding.ivTicketsOpen.setOnClickListener(this);
+        mBinding.ivTicketsUp.setOnClickListener(this);
+
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("中共一大会址");
+        list.add("上海鲁迅纪念馆");
+        list.add("四行仓库抗战纪念馆");
+        list.add("万国建筑群");
+        list.add("中共四大会址纪念馆");
+        list.add("龙华烈士林园");
+        for (int i = 0; i < list.size(); i++) {
+            String value = list.get(i) + (i == 0 ? "(已预约)" : "(未预约)");
+            View itemView = LayoutInflater.from(this).inflate(R.layout.item_tickets_view, mBinding.ticketsList, false);
+            SpannableString tickets = new SpannableString(value);
+            tickets.setSpan(new AbsoluteSizeSpan(16, true), 0, value.length() - 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            if (value.endsWith("(已预约)")) {
+                tickets.setSpan(new ForegroundColorSpan(Color.parseColor("#000000")), 0, value.length() - 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                tickets.setSpan(new ForegroundColorSpan(Color.parseColor("#57CED4")), value.length() - 5, value.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            ((TextView) itemView.findViewById(R.id.title)).setText(tickets);
+            mBinding.ticketsList.addView(itemView);
+        }
     }
 
     @Override
@@ -150,9 +176,19 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
                     mBinding.ivOpen.setVisibility(View.GONE);
                 }
                 break;
+            case R.id.iv_tickets_open:
+                if (mBinding.llTickets.getVisibility() == View.GONE) {
+                    mBinding.llTickets.setVisibility(View.VISIBLE);
+                    mBinding.ivTicketsOpen.setVisibility(View.GONE);
+                }
+                break;
             case R.id.iv_up:
                 mBinding.llCalendar.setVisibility(View.GONE);
                 mBinding.ivOpen.setVisibility(View.VISIBLE);
+                break;
+            case R.id.iv_tickets_up:
+                mBinding.llTickets.setVisibility(View.GONE);
+                mBinding.ivTicketsOpen.setVisibility(View.VISIBLE);
                 break;
         }
     }

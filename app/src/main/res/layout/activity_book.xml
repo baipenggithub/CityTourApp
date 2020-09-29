@@ -113,16 +113,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_50"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tab_dimens_20"
             android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/tab_dimens_20"
+            android:paddingRight="@dimen/tab_dimens_20">
 
             <TextView
                 android:id="@+id/subscribe"
-                android:layout_width="@dimen/tab_dimens_160"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="@dimen/tab_dimens_40"
                 android:layout_gravity="center_vertical"
-                android:background="@mipmap/bg_subscribe"
+                android:background="@drawable/details_path_button"
                 android:gravity="center"
                 android:text="一键预约"
                 android:textColor="@android:color/white"
@@ -133,9 +137,9 @@
                 android:layout_width="@dimen/tab_dimens_90"
                 android:layout_height="@dimen/tab_dimens_40"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/tab_dimens_20"
                 android:background="@drawable/base_round_30_c6bb9d"
                 android:gravity="center"
+                android:layout_marginLeft="@dimen/tab_dimens_20"
                 android:text="分享"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/tv_size_14"

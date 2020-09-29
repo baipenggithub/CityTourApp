@@ -87,6 +87,7 @@
                         android:src="@mipmap/ic_down" />
                 </RelativeLayout>
 
+
                 <LinearLayout
                     android:id="@+id/ll_calendar"
                     android:layout_width="match_parent"
@@ -110,7 +111,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
-                            android:background="@mipmap/book_details_03" />
+                            android:background="@drawable/book_windows_bg" />
 
                         <com.necer.calendar.MonthCalendar
                             android:id="@+id/monthCalendar"
@@ -140,6 +141,79 @@
                             android:layout_marginBottom="12dp"
                             android:src="@mipmap/ic_arrow" />
 
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_50"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_tickets"
+                        style="@style/WrapWrap"
+                        android:layout_centerHorizontal="true"
+                        android:text="中共一大会址门票预约"
+                        android:layout_marginTop="@dimen/tab_dimens_04"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/tv_size_14"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:text="（已预约1/6个）"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#57CED4"
+                        android:textStyle="bold"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/tab_dimens_04"
+                        android:textSize="@dimen/tv_size_12" />
+
+                    <ImageView
+                        android:id="@+id/iv_tickets_open"
+                        android:layout_width="@dimen/tab_dimens_20"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_down" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_tickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/tickets_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/tab_dimens_30"
+                        android:background="@drawable/book_windows_bg"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="12dp">
+                        <ImageView
+                            android:id="@+id/iv_tickets_up"
+                            android:layout_width="24dp"
+                            android:layout_height="12dp"
+                            android:layout_marginBottom="@dimen/tab_dimens_20"
+                            android:src="@mipmap/ic_arrow" />
+                    </RelativeLayout>
                     </RelativeLayout>
                 </LinearLayout>
 
