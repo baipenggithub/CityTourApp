@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -12,25 +11,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_dimens_70"
-        android:background="@mipmap/tour_home_02_02"
+        android:layout_height="@dimen/tab_dimens_80"
+        android:background="@drawable/video_end_bg"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableEnd="@mipmap/home_video_06"
-                android:drawablePadding="@dimen/tab_dimens_10"
+                android:layout_marginRight="@dimen/tab_dimens_10"
                 android:text="黄埔"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_16" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_10"
+                android:layout_height="@dimen/tab_dimens_08"
+                android:src="@mipmap/home_video_06" />
         </LinearLayout>
 
 
@@ -44,11 +48,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableEnd="@mipmap/home_video_06"
-                android:drawablePadding="@dimen/tab_dimens_10"
+                android:layout_marginRight="@dimen/tab_dimens_10"
                 android:text="休闲"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_16" />
+
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_10"
+                android:layout_height="@dimen/tab_dimens_08"
+                android:src="@mipmap/home_video_06" />
         </LinearLayout>
 
 
@@ -59,8 +68,8 @@
             android:layout_weight="1">
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_50"
-                android:layout_height="@dimen/tab_dimens_50"
+                android:layout_width="@dimen/tab_dimens_60"
+                android:layout_height="@dimen/tab_dimens_60"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/tab_dimens_05"
                 android:scaleType="centerInside"
@@ -72,7 +81,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +90,11 @@
                 android:layout_gravity="center"
                 android:text="消息"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_16" />
+
+            <View
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,7 +110,11 @@
                 android:layout_gravity="center"
                 android:text="我的"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_16" />
+
+            <View
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
 

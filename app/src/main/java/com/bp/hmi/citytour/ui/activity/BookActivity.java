@@ -39,7 +39,7 @@ public class BookActivity extends BaseActivity<ActivityBookBinding, BookViewMode
         super.initLayout();
 
         mCurrent = new Date();
-        mBinding.tvTime.setText(new SimpleDateFormat("yyyy年M月d日").format(mCurrent));
+        mBinding.tvTime.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
 
         LinearLayoutManager managerCircle = new LinearLayoutManager(this);
         managerCircle.setOrientation(LinearLayoutManager.VERTICAL);
@@ -71,7 +71,7 @@ public class BookActivity extends BaseActivity<ActivityBookBinding, BookViewMode
             if (mCurrent == null || !mCurrent.equals(localDate.toDate())) {
                 mCurrent = localDate.toDate();
                 mBinding.monthCalendar.jumpDate(new SimpleDateFormat("yyyy-MM-dd").format(mCurrent));//同步日历
-                mBinding.tvTime.setText(new SimpleDateFormat("yyyy年M月d日").format(mCurrent));
+                mBinding.tvTime.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
             }
         });
     }

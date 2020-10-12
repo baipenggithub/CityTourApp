@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout style="@style/MatchWrap">
+    <RelativeLayout
+        style="@style/MatchWrap"
+        android:layout_marginTop="-70dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
             android:src="@mipmap/oriental_pearl_tower" />
 
         <LinearLayout style="@style/MatchWrap.Vertical">
@@ -15,7 +16,7 @@
             <RelativeLayout
                 style="@style/MatchWrap"
                 android:layout_marginStart="@dimen/tab_dimens_20"
-                android:layout_marginTop="@dimen/tab_dimens_50">
+                android:layout_marginTop="@dimen/tab_dimens_100">
 
                 <LinearLayout style="@style/WrapWrap.Vertical">
 
@@ -65,10 +66,10 @@
 
             <ImageView
                 onClickCommand="@{viewModel.intoShCommand}"
-                android:layout_width="@dimen/tab_dimens_200"
-                android:layout_height="@dimen/tab_dimens_45"
+                android:layout_width="@dimen/tab_dimens_180"
+                android:layout_height="@dimen/tab_dimens_40"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/tab_dimens_150"
+                android:layout_marginTop="@dimen/tab_dimens_100"
                 android:gravity="center"
                 android:src="@mipmap/home_into_sh" />
 

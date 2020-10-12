@@ -81,5 +81,8 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="EnterAnimLayout">
+        <attr name="isVisibleAtFirst" format="boolean" />
+    </declare-styleable>
 
 </resources>

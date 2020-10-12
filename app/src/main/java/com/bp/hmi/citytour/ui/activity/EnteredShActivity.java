@@ -38,7 +38,7 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
     @Override
     protected void onResume() {
         super.onResume();
-        setTabView(false, false, false, false);
+        //        setTabView(false, false, false, false);
         mBinding.mapFrameLayout.setVisibility(View.GONE);
         mBinding.shFrameLayout.setVisibility(View.VISIBLE);
     }
@@ -96,7 +96,6 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
         mBinding.subRecyclerView.setLayoutManager(linearLayoutManager);
 
         mBinding.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     @Override
@@ -125,6 +124,7 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
                 startActivity(in);
             });
         });
+        setTabView(true, false, false, false);
     }
 
     private void switchFragment(int position) {

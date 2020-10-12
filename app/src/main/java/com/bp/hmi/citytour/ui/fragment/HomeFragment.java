@@ -21,14 +21,19 @@ import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
+import com.bp.hmi.citytour.ui.activity.SportsActivity;
 import com.bp.hmi.citytour.ui.activity.TravelActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
 import com.bp.hmi.citytour.utils.GlideUtils;
 import com.bp.hmi.citytour.utils.ToastUtils;
+import com.bp.hmi.citytour.widget.EnterAnimLayout;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
+
+import anim.Anim;
+import anim.AnimShiZiXingKuoZhan;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
     private static final String TAG = HomeFragment.class.getSimpleName();
@@ -86,6 +91,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                     startActivity(in);
                 } else if (o.equals("景点")) {
                     Intent in = new Intent(getActivity(), TravelActivity.class);
+                    startActivity(in);
+                } else if (o.equals("体育")) {
+                    Intent in = new Intent(getActivity(), SportsActivity.class);
                     startActivity(in);
                 } else {
                     ToastUtils.showLong("敬请期待!");
@@ -176,6 +184,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
             mBinding.homeActivityTabView.subActivityView.tvHomeActivityMessage.setText(activityTabBean.getResult().getItems().get(3).getSummary());
             GlideUtils.loadCircleImage_10(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(3).getCover(), mBinding.homeActivityTabView.subActivityView.ivHomeActivityCover);
 
+        });
+
+        mViewModel.uiChangeObservable.intoAnim.observe(this, o -> {
+            EnterAnimLayout view1 = mBinding.homeSecondHeadView.mEnterAnimLayout;
+            Anim anim1 = new AnimShiZiXingKuoZhan(view1);
+            anim1.startAnimation(1000);
         });
     }
 

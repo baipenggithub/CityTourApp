@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/tab_dimens_10"
+        android:layout_marginTop="@dimen/tab_dimens_30"
+        android:layout_marginRight="@dimen/tab_dimens_10"
+        android:layout_marginBottom="@dimen/tab_dimens_30"
+        android:background="@drawable/base_round_10_white">
+
+        <ScrollView
+            style="@style/MatchWrap"
+            android:scrollbars="none">
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:paddingLeft="@dimen/tab_dimens_14"
+                android:paddingRight="@dimen/tab_dimens_14">
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_16"
+                    android:text="单盒月饼礼盒正价减80元"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_20"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:lineSpacingExtra="@dimen/tab_dimens_06"
+                    android:text="好礼使用规则:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:lineSpacingExtra="@dimen/tab_dimens_06"
+                    android:text="1.凭本好礼以正价购买星情或星悦或星奕月饼礼盒一盒可立減80元一次。本好礼优惠金额不可疊加享受。"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:lineSpacingExtra="@dimen/tab_dimens_06"
+                    android:text="2.促销产品每店每日限量供应，产品是否有售以门店的实际库存为"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:lineSpacingExtra="@dimen/tab_dimens_06"
+                    android:text="3.本好礼仅限使用一次。"
+                    android:textColor="@color/black"
+
+                    android:textSize="@dimen/tv_size_16" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:lineSpacingExtra="@dimen/tab_dimens_06"
+                    android:text="4.本好礼可以在中国大陆地区指定星巴克门店现场消费时使用，或在32个指定城市(杭州市，宁波市，常州市，泰州市，淮安市，无锡市，连云港市，徐州市，南京市，盐城市，南通市，扬州市，宿迁市，镇江市，苏州市，上海市，武汉市，成都市，重庆市，北京市，廊坊市，天津市，东莞市，惠州市，江门市，深圳市，中山市，广州市，珠海市，佛山市，清远市，肇庆市)内通过星巴克中国App(限IOS/安卓7.5.0及以上版本)内专星送服务、啡快服务或星巴克中国微信小程序内专星送服务线上消费时使用。指定星巴克门店不包括星巴克臻选上海烘焙工坊、星巴克臻选上海世茂场店、星巴克臻选北京坊旗舰店、星巴克臻选咖啡焙烤坊、星巴克臻选深圳湾万象城店、星巴克臻选咖啡酒坊、星巴克臻选天津恒隆广场"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_size_16" />
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_90"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/close"
+                android:layout_width="@dimen/tab_dimens_100"
+                android:layout_height="@dimen/tab_dimens_40"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/tv_size_20"
+                android:layout_marginRight="@dimen/tab_dimens_14"
+                android:background="@drawable/base_round_30_1e91b0"
+                android:gravity="center"
+                android:text="关闭"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_18" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

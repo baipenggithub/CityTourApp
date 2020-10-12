@@ -18,16 +18,21 @@
             android:layout_marginEnd="@dimen/tab_dimens_20"
             android:layout_marginBottom="@dimen/tab_dimens_10">
 
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/city_tour_home_ic_video" />
+
             <TextView
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
                 android:layout_centerVertical="true"
-                android:drawablePadding="@dimen/tab_dimens_10"
+                android:layout_marginLeft="@dimen/tab_dimens_35"
                 android:text="视频"
                 android:textColor="@color/home_color_05"
-                android:textSize="@dimen/tv_size_16"
-                android:textStyle="bold"
-                app:drawableStartCompat="@mipmap/city_tour_home_ic_video" />
+                android:textSize="@dimen/tv_size_20"
+                android:textStyle="bold" />
 
             <TextView
                 style="@style/WrapWrap"

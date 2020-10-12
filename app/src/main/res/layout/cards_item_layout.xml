@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchWrap.Vertical"
-    android:layout_marginStart="@dimen/tab_dimens_10"
-    android:layout_marginEnd="@dimen/tab_dimens_10"
-    android:layout_marginBottom="@dimen/tab_dimens_10"
+    android:layout_marginStart="@dimen/tab_dimens_18"
+    android:layout_marginEnd="@dimen/tab_dimens_18"
+    android:layout_marginBottom="@dimen/tab_dimens_18"
     android:background="@mipmap/tour_home_02_01"
-    android:padding="@dimen/tab_dimens_15">
+    android:padding="@dimen/tab_dimens_18">
 
     <TextView
         android:id="@+id/tv_cards_title"
@@ -18,7 +17,7 @@
         android:singleLine="true"
         android:text="百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心百盛购物中心"
         android:textColor="@color/black"
-        android:textSize="@dimen/tv_size_15"
+        android:textSize="@dimen/tv_size_16"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/iv_cards_type"
         app:layout_constraintStart_toStartOf="parent"

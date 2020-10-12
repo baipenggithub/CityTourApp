@@ -100,7 +100,7 @@
             app:solarTermTextColor="@color/home_color_10"
             app:solarTextColor="@color/black"
             app:solarTextSize="@dimen/tv_size_14"
-            app:todaySolarTextColor="@color/white"
+            app:todaySolarTextColor="@color/home_color_10"
             app:workdayColor="@color/home_color_10" />
 
         <androidx.recyclerview.widget.RecyclerView

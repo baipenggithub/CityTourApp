@@ -20,7 +20,7 @@
             android:id="@+id/rl_entered_sh_head"
             style="@style/MatchMatch.Horizontal"
             android:layout_height="@dimen/tab_dimens_120"
-            android:background="@mipmap/tour_home_02_02"
+            android:background="@drawable/video_title_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -43,7 +43,7 @@
                 android:layout_marginBottom="@dimen/tab_dimens_10"
                 android:text="视频"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_16" />
+                android:textSize="@dimen/tv_size_18" />
 
             <ImageView
                 android:id="@+id/iv_entered_search"

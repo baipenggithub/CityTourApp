@@ -45,7 +45,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
     @Override
     public void initLayout() {
         super.initLayout();
-        mBinding.tvDate.setText(new SimpleDateFormat("yyyy年M月d日").format(new Date()));
+        mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(new Date()));
         SpannableString str = new SpannableString("数量（每单限购 3 份）");
         str.setSpan(new AbsoluteSizeSpan(14, true), 2, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mBinding.tvNumber.setText(str);
@@ -63,7 +63,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
                 if (mCurrent == null || !mCurrent.equals(localDate.toDate())) {
                     mCurrent = localDate.toDate();
                     mBinding.monthCalendar.jumpDate(new SimpleDateFormat("yyyy-MM-dd").format(mCurrent));//同步日历
-                    mBinding.tvDate.setText(new SimpleDateFormat("yyyy年M月d日").format(mCurrent));
+                    mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
                     int childCount = mBinding.viewMonthBar.monthList.getChildCount();
                     for (int i = 0; i < childCount; i++) {
                         TextView childAt = (TextView) mBinding.viewMonthBar.monthList.getChildAt(i);
@@ -81,7 +81,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
         });
 
         mCurrent = new Date();
-        mBinding.tvDate.setText(new SimpleDateFormat("yyyy年M月d日").format(mCurrent));
+        mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
 
         //        tickets_list
         mBinding.ivBack.setOnClickListener(this);

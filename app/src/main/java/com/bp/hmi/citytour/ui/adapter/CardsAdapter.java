@@ -60,6 +60,9 @@ public class CardsAdapter extends BaseRecyclerAdapter<CardsBean.ResultBean.Items
             GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_07, helper.getView(R.id.iv_cards_type));
 
         }
+
+        helper.getView(R.id.tv_cards_use).setOnClickListener(new ClickListener(item,helper.getAdapterPosition()));
+        helper.getView(R.id.tv_cards_detail).setOnClickListener(new ClickListener(item,helper.getAdapterPosition()));
     }
 
     public class ClickListener implements View.OnClickListener {
@@ -73,14 +76,27 @@ public class CardsAdapter extends BaseRecyclerAdapter<CardsBean.ResultBean.Items
 
         @Override
         public void onClick(View v) {
-            if (null != mOnClickListener) {
-                mOnClickListener.onItemListener(mCardsBean, mPosition);
+
+            switch (v.getId()){
+               case  R.id.tv_cards_use:
+                   if (null != mOnClickListener) {
+                       mOnClickListener.onItemUseListener(mCardsBean, mPosition);
+                   }
+                break;
+
+                case  R.id.tv_cards_detail:
+                    if (null != mOnClickListener) {
+                        mOnClickListener.onItemDetailsListener(mCardsBean, mPosition);
+                    }
+                    break;
             }
+
         }
     }
 
     public interface OnItemClickListener {
-        void onItemListener(CardsBean.ResultBean.ItemsBean resultBean, int position);
+        void onItemUseListener(CardsBean.ResultBean.ItemsBean resultBean, int position);
+        void onItemDetailsListener(CardsBean.ResultBean.ItemsBean resultBean, int position);
     }
 
     private OnItemClickListener mOnClickListener;

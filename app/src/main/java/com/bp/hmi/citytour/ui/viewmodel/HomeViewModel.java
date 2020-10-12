@@ -56,6 +56,7 @@ public class HomeViewModel extends BaseViewModel {
         public SingleLiveEvent homeVideoEvent = new SingleLiveEvent<>();
         public SingleLiveEvent homeTabEvent = new SingleLiveEvent<>();
         public SingleLiveEvent homeActivityMoreEvent = new SingleLiveEvent<>();
+        public SingleLiveEvent intoAnim = new SingleLiveEvent<>();
 
     }
 
@@ -79,24 +80,26 @@ public class HomeViewModel extends BaseViewModel {
     public BindingCommand tvHomeSearch = new BindingCommand(() ->
             ToastUtils.showLong("暂无搜索内容")
     );
-    public BindingCommand ivHomeCheckedLeft = new BindingCommand(() ->
-            checkCodeIndex(0)
-    );
+    public BindingCommand ivHomeCheckedLeft = new BindingCommand(() -> {
+        uiChangeObservable.intoAnim.call();
+        checkCodeIndex(0);
+    });
 
-    public BindingCommand ivHomeCheckedRight = new BindingCommand(() ->
-            checkCodeIndex(1)
-    );
+    public BindingCommand ivHomeCheckedRight = new BindingCommand(() -> {
+        uiChangeObservable.intoAnim.call();
+        checkCodeIndex(1);
+    });
 
     public BindingCommand ivHomeShowUserName = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
             //显示
             if (mShowUserNameType == 0) {
-                mUserName.set("城市游");
+                mUserName.set("***");
                 mShowUserNameType = 1;
                 // 隐藏
             } else {
-                mUserName.set("姓名");
+                mUserName.set("城市游");
                 mShowUserNameType = 0;
             }
         }

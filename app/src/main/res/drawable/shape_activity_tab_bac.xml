@@ -3,6 +3,6 @@
     <!-- 填充颜色 -->
     <solid android:color="@color/home_color_11" />
     <!-- 矩形的圆角半径 -->
-    <corners android:radius="@dimen/tab_dimens_05" />
+    <corners android:radius="@dimen/tab_dimens_08" />
 
 </shape>

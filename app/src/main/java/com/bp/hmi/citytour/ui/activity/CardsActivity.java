@@ -1,8 +1,12 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +20,8 @@ import com.bp.hmi.citytour.databinding.ActivityCardsBinding;
 import com.bp.hmi.citytour.ui.adapter.CardsAdapter;
 import com.bp.hmi.citytour.ui.adapter.SubTabTitleAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.CardsViewModel;
+import com.bp.hmi.citytour.widget.CustomDialog;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import java.util.List;
 
@@ -88,7 +94,39 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
                 hideProgress();
                 mCardsAdapter = new CardsAdapter(R.layout.cards_item_layout, cardsBean.getResult().getItems());
                 mBinding.mRecyclerView.setAdapter(mCardsAdapter);
+
+                mCardsAdapter.addOnItemClickListener(new CardsAdapter.OnItemClickListener() {
+
+                    @Override
+                    public void onItemUseListener(CardsBean.ResultBean.ItemsBean resultBean, int position) {
+                        showScanDialog();
+
+                    }
+
+                    @Override
+                    public void onItemDetailsListener(CardsBean.ResultBean.ItemsBean resultBean, int position) {
+                        showDetailsDialog();
+                    }
+                });
             }
         });
+    }
+
+    private void showDetailsDialog() {
+        View view = LayoutInflater.from(this).inflate(R.layout.cards_details_view, null, false);
+        CustomDialog dialog = new CustomDialog(this, view, R.style.dialog);
+        view.findViewById(R.id.close).setOnClickListener(view1 -> dialog.dismiss());
+        dialog.show();
+    }
+
+    private void showScanDialog() {
+        Bitmap mBitmap = CodeUtils.createImage("textContent", 400, 400, BitmapFactory.decodeResource(getResources(), R.mipmap.icon));
+        View view = LayoutInflater.from(this).inflate(R.layout.cards_scan_view, null, false);
+        CustomDialog dialog = new CustomDialog(this, view, R.style.dialog);
+        ImageView scanIv = view.findViewById(R.id.iv_cards_scan);
+        scanIv.setImageBitmap(mBitmap);
+        view.findViewById(R.id.close).setOnClickListener(view1 -> dialog.dismiss());
+        dialog.show();
+
     }
 }
