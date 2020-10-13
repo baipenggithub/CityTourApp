@@ -70,7 +70,7 @@ public class TravelViewModel extends BaseViewModel {
 
 
         HomeVideoBean.ResultBean.ItemsBean v6 = new HomeVideoBean.ResultBean.ItemsBean();
-        v6.setId(R.mipmap.item_1);
+        v6.setId(R.mipmap.item_4);
         v6.setName("周末画展合集");
         v6.setLike(false);
         v6.setFavorite(true);
@@ -80,7 +80,7 @@ public class TravelViewModel extends BaseViewModel {
 
 
         HomeVideoBean.ResultBean.ItemsBean v7 = new HomeVideoBean.ResultBean.ItemsBean();
-        v7.setId(R.mipmap.item_2);
+        v7.setId(R.mipmap.item_5);
         v7.setName("上海夜景十大看点");
         v7.setLike(false);
         v7.setFavorite(true);

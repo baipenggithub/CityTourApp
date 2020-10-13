@@ -31,11 +31,12 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.SportsActivity"/>
+        <activity android:name=".ui.activity.SportsActivity" />
         <activity android:name=".ui.activity.TravelActivity" />
         <activity
             android:name=".ui.activity.VideoActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.NewActivityDetailsActivity" />
         <activity android:name=".ui.activity.EnteredShDetailsActivity" />
         <activity android:name=".ui.activity.BookDetailsActivity" />
         <activity android:name=".ui.activity.EnteredShActivity" />

@@ -262,14 +262,13 @@ public class HomeViewModel extends BaseViewModel {
 
 
         HomeVideoBean.ResultBean.ItemsBean v6 = new HomeVideoBean.ResultBean.ItemsBean();
-        v6.setId(R.mipmap.item_1);
+        v6.setId(R.mipmap.item_4);
         v6.setName("美术馆");
         v6.setLike(false);
         v6.setFavorite(true);
         v6.setLikeSum(60);
         v6.setFavoriteSum(70);
         bean.add(v6);
-
         mVideoData.postValue(bean);
     }
 

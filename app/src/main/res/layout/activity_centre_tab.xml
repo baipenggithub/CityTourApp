@@ -66,6 +66,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/ll_ac_details"
                     style="@style/MatchWrap.Vertical"
                     android:layout_height="@dimen/tab_dimens_250"
                     android:layout_marginStart="@dimen/tab_dimens_10"
@@ -88,8 +89,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            app:rightTopRadius="@dimen/tab_dimens_12"
-                            android:src="@mipmap/city_tour_home_ic_new" />
+                            android:src="@mipmap/city_tour_home_ic_new"
+                            app:rightTopRadius="@dimen/tab_dimens_12" />
 
                     </RelativeLayout>
 

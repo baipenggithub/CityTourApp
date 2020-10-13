@@ -59,6 +59,14 @@ public class HomeActActivity extends BaseActivity<ActivityCentreTabBinding, Home
         mBinding.subRecyclerView.setLayoutManager(linearLayoutManager);
 
         mBinding.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mBinding.llAcDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(HomeActActivity.this, NewActivityDetailsActivity.class);
+                startActivity(in);
+            }
+        });
     }
 
 
@@ -85,7 +93,7 @@ public class HomeActActivity extends BaseActivity<ActivityCentreTabBinding, Home
             GlideUtils.loadCircleImage_10(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(3).getCover(), mBinding.ivHomeActivityCover);
 
             mHomeCentreTabAdapter.addOnItemClickListener((itemsBean, position) -> {
-                Intent in = new Intent(HomeActActivity.this, ActivityDetailsActivity.class);
+                Intent in = new Intent(HomeActActivity.this, NewActivityDetailsActivity.class);
                 startActivity(in);
             });
 

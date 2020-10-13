@@ -101,17 +101,30 @@
 
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:id="@+id/tv_spot_show_details"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:drawableBottom="@mipmap/ic_down"
-            android:drawablePadding="@dimen/tab_dimens_10"
-            android:padding="@dimen/tab_dimens_20"
-            android:text="查看详情"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_size_15" />
+            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:orientation="vertical"
+            android:padding="@dimen/tab_dimens_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="查看详情"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_15" />
+
+            <ImageView
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/tab_dimens_06"
+                android:src="@mipmap/ic_down" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_exhibition_introduced"
@@ -130,17 +143,29 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_1"
-            android:background="@color/home_color_08"/>
+            android:background="@color/home_color_08" />
 
-        <TextView
-            android:id="@+id/tv_join_trip_related_activities"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/tab_dimens_10"
-            android:text="相关活动"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_size_16"
-            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50">
+
+            <TextView
+                android:id="@+id/tv_join_trip_related_activities"
+                style="@style/WrapWrap"
+                android:layout_centerVertical="true"
+                android:text="相关活动"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_18"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="查看更多>"
+                android:textColor="@color/gray_text" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_join_trip_related_activities"
@@ -154,15 +179,36 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_rim_trip_related_activities"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_1"
+            android:layout_marginLeft="@dimen/tab_dimens_10"
             android:layout_marginTop="@dimen/tab_dimens_10"
-            android:text="周边活动"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_size_16"
-            android:textStyle="bold" />
+            android:layout_marginRight="@dimen/tab_dimens_10"
+            android:layout_marginBottom="@dimen/tab_dimens_10"
+            android:background="#d8d8d8" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_50">
+
+            <TextView
+                android:id="@+id/tv_rim_trip_related_activities"
+
+                style="@style/WrapWrap"
+                android:layout_centerVertical="true"
+                android:text="相关周边"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_size_18"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/WrapWrap"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="查看更多>"
+                android:textColor="@color/gray_text" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_rim_trip_related_activities"

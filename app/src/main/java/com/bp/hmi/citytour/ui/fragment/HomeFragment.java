@@ -20,6 +20,7 @@ import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
+import com.bp.hmi.citytour.ui.activity.NewActivityDetailsActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
 import com.bp.hmi.citytour.ui.activity.SportsActivity;
 import com.bp.hmi.citytour.ui.activity.TravelActivity;
@@ -99,6 +100,14 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                     ToastUtils.showLong("敬请期待!");
                 }
 
+            }
+        });
+
+        mBinding.homeActivityTabView.subActivityView.llAcDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), NewActivityDetailsActivity.class);
+                startActivity(in);
             }
         });
     }
