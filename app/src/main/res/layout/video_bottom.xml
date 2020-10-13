@@ -12,12 +12,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_dimens_80"
-        android:background="@drawable/video_end_bg"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="@dimen/tab_dimens_10"
-                android:text="黄埔"
+                android:text="黄浦"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_16" />
 
@@ -41,6 +41,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -80,6 +81,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
@@ -100,6 +102,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_dimens_20"
             android:layout_weight="1"
             android:gravity="center">
 

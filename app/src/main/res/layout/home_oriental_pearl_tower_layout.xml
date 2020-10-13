@@ -15,7 +15,7 @@
 
             <RelativeLayout
                 style="@style/MatchWrap"
-                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_marginStart="@dimen/tab_dimens_40"
                 android:layout_marginTop="@dimen/tab_dimens_100">
 
                 <LinearLayout style="@style/WrapWrap.Vertical">
@@ -39,7 +39,7 @@
                 <LinearLayout
                     style="@style/WrapWrap.Vertical"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/tab_dimens_20">
+                    android:layout_marginEnd="@dimen/tab_dimens_40">
 
                     <TextView
                         style="@style/MatchWrap"
@@ -80,7 +80,7 @@
                 android:gravity="center"
                 android:text="历史 · 人文 · 行程 · 玩乐"
                 android:textColor="@color/home_color_04"
-                android:textSize="@dimen/tv_size_18" />
+                android:textSize="@dimen/tv_size_14" />
         </LinearLayout>
     </RelativeLayout>
 

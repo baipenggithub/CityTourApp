@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/ivCardsBack"
-                android:layout_width="@dimen/tab_dimens_30"
-                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
@@ -65,7 +65,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
                 <LinearLayout
                     style="@style/MatchWrap.Vertical"
                     android:layout_height="@dimen/tab_dimens_250"
@@ -73,7 +72,7 @@
                     android:layout_marginTop="@dimen/tab_dimens_20"
                     android:layout_marginEnd="@dimen/tab_dimens_10"
                     android:layout_marginBottom="@dimen/tab_dimens_10"
-                    android:background="@mipmap/home_activity_small_tab">
+                    android:background="@drawable/base_round_12_white">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -85,10 +84,11 @@
                             android:layout_height="@dimen/tab_dimens_160"
                             android:scaleType="fitXY" />
 
-                        <ImageView
+                        <com.necer.view.RoundAngleImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            app:rightTopRadius="@dimen/tab_dimens_12"
                             android:src="@mipmap/city_tour_home_ic_new" />
 
                     </RelativeLayout>

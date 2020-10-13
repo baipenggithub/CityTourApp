@@ -14,21 +14,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
         android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/rl_entered_sh_head"
             style="@style/MatchMatch.Horizontal"
             android:layout_height="@dimen/tab_dimens_120"
-            android:background="@drawable/video_title_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/ivCardsBack"
-                android:layout_width="@dimen/tab_dimens_30"
-                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
                 android:layout_above="@+id/ll_sub_entered_sh"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:layout_marginBottom="@dimen/tab_dimens_10"
@@ -103,7 +103,7 @@
             android:id="@+id/video_bottom_view"
             layout="@layout/video_bottom"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_70"
+            android:layout_height="@dimen/tab_dimens_80"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

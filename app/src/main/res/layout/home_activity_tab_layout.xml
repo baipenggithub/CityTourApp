@@ -27,7 +27,8 @@
         <LinearLayout
             style="@style/MatchWrap.Vertical"
             android:layout_marginTop="-25dp"
-            android:background="@mipmap/tour_home_01_01">
+            android:paddingBottom="@dimen/tab_dimens_100"
+            android:background="@drawable/base_round_36_white">
 
             <include
                 android:id="@+id/sub_video_view"

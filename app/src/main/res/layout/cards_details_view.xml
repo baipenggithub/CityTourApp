@@ -12,7 +12,8 @@
         android:background="@drawable/base_round_10_white">
 
         <ScrollView
-            style="@style/MatchWrap"
+            style="@style/MatchMatch"
+            android:layout_above="@+id/close_page"
             android:scrollbars="none">
 
             <LinearLayout
@@ -72,6 +73,7 @@
         </ScrollView>
 
         <RelativeLayout
+            android:id="@+id/close_page"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_90"
             android:layout_alignParentBottom="true">

@@ -13,6 +13,7 @@ import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.utils.GlideUtils;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * <pre>
@@ -40,8 +41,21 @@ public class HomeCentreTabAdapter extends BaseRecyclerAdapter<ActivityTabBean.Re
         helper.setText(R.id.tv_cards_title, item.getName());
         helper.setText(R.id.tv_cards_time, item.getTime());
         GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_cards_type));
-
         helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
+
+        Random random = new Random();
+        int max = 4;
+        int min = 1;
+        int index = random.nextInt(max) % (max - min + 1) + min;
+        if (index == 1) {
+            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_1);
+        } else if (index == 2) {
+            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_2);
+        } else if (index == 3) {
+            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_3);
+        } else {
+            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_4);
+        }
     }
 
     public class ClickListener implements View.OnClickListener {

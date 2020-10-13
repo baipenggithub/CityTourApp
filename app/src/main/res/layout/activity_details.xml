@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/ivCardsBack"
-                android:layout_width="@dimen/tab_dimens_30"
-                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
@@ -162,17 +162,28 @@
 
                     </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/tv_spot_show_details"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:drawableBottom="@mipmap/ic_down"
-                        android:drawablePadding="@dimen/tab_dimens_10"
-                        android:padding="@dimen/tab_dimens_20"
-                        android:text="查看详情"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/tv_size_15" />
+                        android:padding="@dimen/tab_dimens_10"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="查看详情"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/tv_size_15" />
+
+                            <ImageView
+                                android:layout_width="@dimen/tab_dimens_20"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/tab_dimens_06"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@mipmap/ic_down"/>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_exhibition_introduced"
@@ -214,6 +225,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_dimens_1"
+                        android:background="@color/home_color_08" />
 
                     <TextView
                         android:id="@+id/tv_rim_trip_related_activities"

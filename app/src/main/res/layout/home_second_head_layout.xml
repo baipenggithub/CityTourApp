@@ -73,12 +73,12 @@
             <ImageView
                 android:id="@+id/iv_home_second_search"
                 onClickCommand="@{viewModel.tvHomeSearch}"
-                android:layout_width="@dimen/tab_dimens_16"
-                android:layout_height="@dimen/tab_dimens_16"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
                 android:layout_gravity="center"
                 android:layout_marginRight="@dimen/tab_dimens_16"
                 android:scaleType="centerInside"
-                android:src="@mipmap/city_tour_home_ic_search" />
+                android:src="@mipmap/city_tour_home_02" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,6 +97,7 @@
                 android:layout_width="@dimen/tab_dimens_0"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/tab_dimens_20"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:src="@mipmap/city_tour_home_ic_left" />
@@ -117,7 +118,7 @@
                 android:layout_weight="1"
                 android:text="@{viewModel.mCodeTitleList.get(viewModel.mCurrentIndex)}"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_23"
+                android:textSize="@dimen/tv_size_20"
                 android:textStyle="bold" />
 
             <TextView
@@ -133,9 +134,10 @@
             <ImageView
                 android:id="@+id/iv_home_checked_right"
                 onClickCommand="@{viewModel.ivHomeCheckedRight}"
-                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/tab_dimens_20"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:src="@mipmap/city_tour_home_icright" />
@@ -144,7 +146,7 @@
         <RelativeLayout
             android:id="@+id/lin_home_second_health_code"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_180"
+            android:layout_height="@dimen/tab_dimens_220"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,13 +157,13 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="-20dp"
-                android:layout_marginTop="@dimen/tab_dimens_25"
-                android:layout_marginBottom="@dimen/tab_dimens_25"
+                android:layout_marginTop="@dimen/tab_dimens_30"
+                android:layout_marginBottom="@dimen/tab_dimens_30"
                 android:src="@mipmap/tour_home_04_11" />
 
             <com.bp.hmi.citytour.widget.EnterAnimLayout
                 android:id="@+id/mEnterAnimLayout"
-                android:layout_width="@dimen/tab_dimens_180"
+                android:layout_width="@dimen/tab_dimens_220"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true">
 
@@ -177,9 +179,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/tab_dimens_25"
-                android:layout_marginEnd="-15dp"
-                android:layout_marginBottom="@dimen/tab_dimens_25"
+                android:layout_marginTop="@dimen/tab_dimens_30"
+                android:layout_marginEnd="-10dp"
+                android:layout_marginBottom="@dimen/tab_dimens_30"
                 android:src="@mipmap/tour_home_04_10" />
         </RelativeLayout>
 
@@ -220,14 +222,14 @@
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:text="@{viewModel.mUserName}"
                 android:textColor="@color/home_color_09"
-                android:textSize="@dimen/tv_size_18"
+                android:textSize="@dimen/tv_size_20"
                 android:textStyle="bold" />
 
             <ImageView
                 onClickCommand="@{viewModel.ivHomeShowUserName}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/tab_dimens_20"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_15"
+                android:layout_marginStart="@dimen/tab_dimens_14"
                 android:src="@mipmap/city_tour_home_ic_eye" />
         </LinearLayout>
 
@@ -281,7 +283,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/tab_dimens_04"
+                    android:layout_marginLeft="@dimen/tab_dimens_06"
                     android:gravity="center_vertical"
                     android:text="卡包"
                     android:textColor="@color/white"
@@ -308,7 +310,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/tab_dimens_04"
+                    android:layout_marginLeft="@dimen/tab_dimens_06"
                     android:gravity="center_vertical"
                     android:text="消费券"
                     android:textColor="@color/white"
@@ -334,7 +336,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/tab_dimens_04"
+                    android:layout_marginLeft="@dimen/tab_dimens_06"
                     android:gravity="center_vertical"
                     android:text="行程"
                     android:textColor="@color/white"

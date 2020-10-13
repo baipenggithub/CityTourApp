@@ -16,8 +16,8 @@
 
             <ImageView
                 android:id="@+id/ivCardsBack"
-                android:layout_width="@dimen/tab_dimens_30"
-                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_height="@dimen/tab_dimens_20"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
