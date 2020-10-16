@@ -15,6 +15,7 @@
             style="@style/MatchMatch.Vertical"
             android:layout_height="@dimen/tab_dimens_350"
             android:layout_marginTop="-40dp"
+            android:layout_marginBottom="@dimen/tab_dimens_16"
             android:background="@mipmap/home_bg_model_pic">
 
             <include
@@ -35,7 +36,7 @@
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
-            android:layout_marginTop="-25dp"
+            android:layout_marginTop="-36dp"
             android:background="@drawable/base_round_36_white"
             android:paddingBottom="@dimen/tab_dimens_100">
 

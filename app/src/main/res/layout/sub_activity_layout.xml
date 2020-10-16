@@ -69,16 +69,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.necer.view.RoundAngleImageView
                     android:id="@+id/iv_home_activity_cover"
                     style="@style/MatchWrap"
                     android:layout_height="@dimen/tab_dimens_160"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/test_pic" />
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/test_pic"
+                    app:leftBottomRadius="@dimen/tab_dimens_12"
+                    app:leftTopRadius="@dimen/tab_dimens_12"
+                    app:rightBottomRadius="@dimen/tab_dimens_12"
+                    app:rightTopRadius="@dimen/tab_dimens_12" />
 
                 <com.necer.view.RoundAngleImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/tab_dimens_30"
+                    android:layout_height="@dimen/tab_dimens_30"
                     android:layout_alignParentRight="true"
                     android:src="@mipmap/city_tour_home_ic_new"
                     app:rightTopRadius="@dimen/tab_dimens_12" />

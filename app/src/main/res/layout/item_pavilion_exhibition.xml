@@ -80,4 +80,14 @@
         android:text="预 约"
         android:textColor="@color/white"
         android:textSize="@dimen/tv_size_18" />
+
+    <View
+        android:id="@+id/item_dot"
+        android:layout_width="@dimen/tab_dimens_08"
+        android:layout_height="@dimen/tab_dimens_08"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/tab_dimens_10"
+        android:background="@drawable/base_round_10_ff9900" />
+
 </RelativeLayout>

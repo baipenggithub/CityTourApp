@@ -98,7 +98,7 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
 
     public void contentTypeSwitch(int type) {
         mContentType = type;
-
+        ((TextView) findViewById(R.id.title)).setText(mContentType == 0 ? "展 览" : "展 馆");
         ((ImageView) findViewById(R.id.iv_home)).setImageResource(mContentType == 0 ?
                 R.mipmap.tour_pavilion_image :
                 R.mipmap.tour_pavilion_up_image);
@@ -128,6 +128,7 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
             mBinding.listPavilion.setAdapter(mScheduleAdapter);
             mScheduleAdapter.addOnItemClickListener((resultBean, position) -> {
                 Intent i = new Intent(PavilionActivity.this, PavilionHallDetailsActivity.class);
+                i.putExtra("type", mContentType);
                 startActivity(i);
             });
 
@@ -141,6 +142,7 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
 
             mScheduleAdapter.addOnItemClickListener((resultBean, position) -> {
                 Intent i = new Intent(PavilionActivity.this, PavilionHallDetailsActivity.class);
+                i.putExtra("type", mContentType);
                 startActivity(i);
             });
         }

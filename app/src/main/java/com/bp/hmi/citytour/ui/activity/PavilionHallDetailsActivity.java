@@ -3,6 +3,7 @@ package com.bp.hmi.citytour.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -87,6 +88,8 @@ public class PavilionHallDetailsActivity extends BaseActivity<ActivityPavilionHa
                 ToastUtils.showLong("敬请期待");
             }
         });
+
+        ((TextView) findViewById(R.id.title)).setText(getIntent().getIntExtra("type", 0) == 0 ? "展 览" : "展 馆");
     }
 
     @Override

@@ -86,6 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_dimens_70"
             android:layout_marginTop="@dimen/tab_dimens_20"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,42 +95,40 @@
             <ImageView
                 android:id="@+id/iv_home_checked_left"
                 onClickCommand="@{viewModel.ivHomeCheckedLeft}"
-                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/tab_dimens_20"
-                android:layout_weight="1"
+                android:layout_marginRight="@dimen/tab_dimens_14"
                 android:scaleType="centerInside"
                 android:src="@mipmap/city_tour_home_ic_left" />
 
             <TextView
-                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
                 android:text="@{viewModel.mCodeTitleList.get(viewModel.mPreIndex)}"
                 android:textColor="#205460"
-                android:textSize="@dimen/tv_size_16" />
+                android:textSize="@dimen/tv_size_14" />
 
             <TextView
-                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/tab_dimens_25"
+                android:layout_marginRight="@dimen/tab_dimens_25"
                 android:text="@{viewModel.mCodeTitleList.get(viewModel.mCurrentIndex)}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_20"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="@dimen/tab_dimens_0"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
                 android:gravity="end"
                 android:text="@{viewModel.mCodeTitleList.get(viewModel.mNexIndex)}"
                 android:textColor="#205460"
-                android:textSize="@dimen/tv_size_16" />
+                android:textSize="@dimen/tv_size_14" />
 
             <ImageView
                 android:id="@+id/iv_home_checked_right"
@@ -137,8 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/tab_dimens_20"
-                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/tab_dimens_14"
                 android:scaleType="centerInside"
                 android:src="@mipmap/city_tour_home_icright" />
         </LinearLayout>
@@ -259,9 +257,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_100"
-            android:gravity="center_vertical|center_horizontal"
+            android:layout_height="@dimen/tab_dimens_140"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
+            android:paddingTop="@dimen/tab_dimens_50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_home_second_data">
@@ -269,7 +268,7 @@
             <LinearLayout
                 onClickCommand="@{viewModel.ivHomeCardCommand}"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center">
 
                 <ImageView
@@ -295,7 +294,7 @@
             <LinearLayout
                 onClickCommand="@{viewModel.ivHomeGiftCommand}"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:gravity="center">
 
@@ -321,7 +320,7 @@
             <LinearLayout
                 onClickCommand="@{viewModel.ivHomeRoundCommand}"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_20"
                 android:gravity="center">
 

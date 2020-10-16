@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
@@ -23,6 +24,7 @@ import org.joda.time.LocalDate;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -47,7 +49,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
         super.initLayout();
         mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(new Date()));
         SpannableString str = new SpannableString("数量（每单限购 3 份）");
-        str.setSpan(new AbsoluteSizeSpan(14, true), 2, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        str.setSpan(new AbsoluteSizeSpan(12, true), 2, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mBinding.tvNumber.setText(str);
 
         mBinding.adultCard.setCardInfo("成人票(单人)", "限2020.9.30前使用", "届时请携带预约成功短信", "", 135);
@@ -64,18 +66,7 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
                     mCurrent = localDate.toDate();
                     mBinding.monthCalendar.jumpDate(new SimpleDateFormat("yyyy-MM-dd").format(mCurrent));//同步日历
                     mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
-                    int childCount = mBinding.viewMonthBar.monthList.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        TextView childAt = (TextView) mBinding.viewMonthBar.monthList.getChildAt(i);
-                        childAt.setTextColor(Color.parseColor("#999999"));
-                    }
-                    TextView childAt = (TextView) mBinding.viewMonthBar.monthList.getChildAt(month - 1);
-                    childAt.setTextColor(Color.parseColor("#57CED4"));
-                    if (month < 7) {
-                        mBinding.viewMonthBar.monthSv.scrollTo(0, 0);
-                    } else {
-                        mBinding.viewMonthBar.monthSv.scrollTo(10000000, 0);
-                    }
+                    initMonthView(month);
                 }
             }
         });
@@ -116,6 +107,25 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
             }
             ((TextView) itemView.findViewById(R.id.title)).setText(tickets);
             mBinding.ticketsList.addView(itemView);
+        }
+
+        int childCount = mBinding.viewMonthBar.monthList.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = mBinding.viewMonthBar.monthList.getChildAt(i);
+            int finalI = i;
+            childAt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Calendar rightNow = Calendar.getInstance();
+                    rightNow.setTime(mCurrent);
+                    rightNow.set(Calendar.MONTH, finalI);
+                    mCurrent = rightNow.getTime();
+                    mBinding.monthCalendar.jumpDate(new SimpleDateFormat("yyyy-MM-dd").format(mCurrent));//同步日历
+                    rightNow.clear();
+                    initMonthView(finalI + 1);
+                    mBinding.tvDate.setText(new SimpleDateFormat("yyyy年 M月 d日").format(mCurrent));
+                }
+            });
         }
     }
 
@@ -190,6 +200,21 @@ public class BookDetailsActivity extends BaseActivity<ActivityBookDetaislBinding
                 mBinding.llTickets.setVisibility(View.GONE);
                 mBinding.ivTicketsOpen.setVisibility(View.VISIBLE);
                 break;
+        }
+    }
+
+    private void initMonthView(int month) {
+        int childCount = mBinding.viewMonthBar.monthList.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            TextView childAt = (TextView) mBinding.viewMonthBar.monthList.getChildAt(i);
+            childAt.setTextColor(Color.parseColor("#999999"));
+        }
+        TextView childAt = (TextView) mBinding.viewMonthBar.monthList.getChildAt(month - 1);
+        childAt.setTextColor(Color.parseColor("#57CED4"));
+        if (month < 7) {
+            mBinding.viewMonthBar.monthSv.scrollTo(0, 0);
+        } else {
+            mBinding.viewMonthBar.monthSv.scrollTo(10000000, 0);
         }
     }
 }

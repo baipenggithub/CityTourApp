@@ -42,7 +42,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
-                android:text="走进上海-已选路线"
+                android:text="预约详情"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>
@@ -62,31 +62,41 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/tab_dimens_50"
-                    android:background="@color/white">
+                    android:layout_height="52dp">
 
-                    <TextView
-                        android:id="@+id/tv_date"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="2020-09-14"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/tv_size_14"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/iv_open"
-                        android:layout_width="@dimen/tab_dimens_20"
                         android:layout_height="@dimen/tab_dimens_20"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="12dp"
-                        android:scaleType="centerInside"
-                        android:src="@mipmap/ic_down" />
-                </RelativeLayout>
+                        android:layout_alignParentBottom="true" />
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_dimens_50"
+                        android:background="@drawable/book_top_bg">
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:text="2020-09-14"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/tv_size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/iv_open"
+                            android:layout_width="@dimen/tab_dimens_20"
+                            android:layout_height="@dimen/tab_dimens_20"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/ic_down" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_calendar"
@@ -146,39 +156,48 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/tab_dimens_50"
-                    android:layout_marginTop="@dimen/tab_dimens_10"
-                    android:background="@color/white">
+                    android:layout_height="52dp">
 
-                    <TextView
-                        android:id="@+id/tv_tickets"
-                        style="@style/WrapWrap"
-                        android:layout_centerHorizontal="true"
-                        android:text="中共一大会址门票预约"
-                        android:layout_marginTop="@dimen/tab_dimens_04"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/tv_size_14"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/WrapWrap"
-                        android:text="（已预约1/6个）"
-                        android:layout_centerHorizontal="true"
-                        android:textColor="#57CED4"
-                        android:textStyle="bold"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/tab_dimens_04"
-                        android:textSize="@dimen/tv_size_12" />
-
-                    <ImageView
-                        android:id="@+id/iv_tickets_open"
-                        android:layout_width="@dimen/tab_dimens_20"
+                    <View
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/tab_dimens_20"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="12dp"
-                        android:scaleType="centerInside"
-                        android:src="@mipmap/ic_down" />
+                        android:layout_alignParentBottom="true" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_dimens_50"
+                        android:background="@drawable/book_top_bg">
+
+                        <TextView
+                            android:id="@+id/tv_tickets"
+                            style="@style/WrapWrap"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/tab_dimens_04"
+                            android:text="中共一大会址门票预约"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/tv_size_14"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/WrapWrap"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/tab_dimens_04"
+                            android:text="（已预约1/6个）"
+                            android:textColor="#57CED4"
+                            android:textSize="@dimen/tv_size_12"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/iv_tickets_open"
+                            android:layout_width="@dimen/tab_dimens_20"
+                            android:layout_height="@dimen/tab_dimens_20"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/ic_down" />
+                    </RelativeLayout>
                 </RelativeLayout>
 
                 <LinearLayout
@@ -192,28 +211,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/tickets_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/tab_dimens_30"
-                        android:background="@drawable/book_windows_bg"
-                        android:orientation="vertical">
+                        <LinearLayout
+                            android:id="@+id/tickets_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/book_windows_bg"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/tab_dimens_30">
 
-                    </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="12dp">
-                        <ImageView
-                            android:id="@+id/iv_tickets_up"
-                            android:layout_width="24dp"
-                            android:layout_height="12dp"
-                            android:layout_marginBottom="@dimen/tab_dimens_20"
-                            android:src="@mipmap/ic_arrow" />
-                    </RelativeLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginRight="12dp">
+
+                            <ImageView
+                                android:id="@+id/iv_tickets_up"
+                                android:layout_width="24dp"
+                                android:layout_height="12dp"
+                                android:layout_marginBottom="@dimen/tab_dimens_20"
+                                android:src="@mipmap/ic_arrow" />
+                        </RelativeLayout>
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -295,8 +316,8 @@
                 android:textSize="@dimen/tv_size_15" />
 
             <LinearLayout
-                android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="40dp"
@@ -305,8 +326,8 @@
 
                 <ImageView
                     android:id="@+id/iv_book_subtract"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:padding="2dp"
                     android:scaleType="centerInside"
                     android:src="@mipmap/tour_home_04_06" />
@@ -332,8 +353,8 @@
 
                 <ImageView
                     android:id="@+id/iv_book_add"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:padding="2dp"
                     android:scaleType="centerInside"
                     android:src="@mipmap/tour_home_04_05" />

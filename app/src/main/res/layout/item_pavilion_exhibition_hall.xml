@@ -47,8 +47,9 @@
                 android:textSize="@dimen/tv_size_15" />
 
             <View
-                android:layout_width="@dimen/tab_dimens_10"
-                android:layout_height="@dimen/tab_dimens_10"
+                android:id="@+id/item_dot"
+                android:layout_width="@dimen/tab_dimens_06"
+                android:layout_height="@dimen/tab_dimens_06"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/tab_dimens_10"
                 android:background="@drawable/base_round_10_ff9900" />

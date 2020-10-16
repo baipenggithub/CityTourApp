@@ -11,6 +11,7 @@ import com.bp.hmi.citytour.base.BaseRecyclerHolder;
 import com.bp.hmi.citytour.bean.PavilionBean;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class PavilionAdapter extends BaseRecyclerAdapter<PavilionBean, BaseRecyclerHolder> {
@@ -32,6 +33,17 @@ public class PavilionAdapter extends BaseRecyclerAdapter<PavilionBean, BaseRecyc
         helper.setText(R.id.item_distance, item.getDistance());
         ((ImageView) helper.getView(R.id.item_icon)).setImageResource(item.getIcon());
         helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
+        Random random = new Random();
+        int max = 3;
+        int min = 1;
+        int index = random.nextInt(max) % (max - min + 1) + min;
+        if (index == 1) {
+            helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_green);
+        } else if (index == 2) {
+            helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_red);
+        } else if (index == 3) {
+            helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_ff9900);
+        }
     }
 
     public class ClickListener implements View.OnClickListener {
