@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
-import com.bp.hmi.citytour.common.MapConstant;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityMainBinding;
 import com.bp.hmi.citytour.ui.fragment.AssistantFragment;
 import com.bp.hmi.citytour.ui.fragment.HomeFragment;
@@ -204,8 +204,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
                 listNonPermissions.add(type);
             }
         }
-        if (listNonPermissions.size() > MapConstant.PERMISSIONS_SIZE) {
-            ActivityCompat.requestPermissions(this, PERMISSIONS, MapConstant.REQUEST_CODE);
+        if (listNonPermissions.size() > CityConstant.PERMISSIONS_SIZE) {
+            ActivityCompat.requestPermissions(this, PERMISSIONS, CityConstant.REQUEST_CODE);
         }
     }
 }

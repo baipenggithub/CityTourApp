@@ -40,7 +40,7 @@ public class ScheduleAdapter extends BaseRecyclerAdapter<ScheduleEntity, BaseRec
         helper.setText(R.id.tv_time_value, item.getTimeValueA());
         helper.setText(R.id.tv_path_time_value, item.getTimeValueB());
 
-        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), item.getIcon(), helper.getView(R.id.iv_icon));
+        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), item.getIcon(), helper.getView(R.id.iv_icon),30);
     }
 
 }

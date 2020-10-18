@@ -31,7 +31,7 @@ public class HomeBannerAdapter extends BannerAdapter<Integer, BannerHolder> {
 
     @Override
     public void onBindView(BannerHolder holder, Integer data, int position, int size) {
-        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(),data,(ImageView) holder.itemView);
+        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), data, (ImageView) holder.itemView, 0);
 
     }
 

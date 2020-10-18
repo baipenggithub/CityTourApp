@@ -77,11 +77,18 @@ public class GlideUtils {
      * @param url
      * @param imageView
      */
-    public static void loadRoundCircleRes(Context context, int url, ImageView imageView) {
-        Glide.with(context)
-                .load(url)
-                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
-                .into(imageView);
+    public static void loadRoundCircleRes(Context context, int url, ImageView imageView, int radius) {
+        if (radius == 0) {
+            Glide.with(context)
+                    .load(url)
+                    .into(imageView);
+        } else {
+            Glide.with(context)
+                    .load(url)
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(radius)))
+                    .into(imageView);
+        }
+
     }
 
 
@@ -108,10 +115,65 @@ public class GlideUtils {
      * @param url
      * @param imageView
      */
-    public static void loadCircleImage_10(Context context, String url, ImageView imageView) {
+    public static void loadCircleImage_17(Context context, String url, ImageView imageView) {
         RequestOptions mRequestOptions = new RequestOptions()
                 .centerInside()
-                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(17)))
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+
+        Glide.with(context).load(url).apply(mRequestOptions).into(imageView);
+    }
+
+    /**
+     * 加载圆形图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void loadCircleImage(Context context, String url, ImageView imageView, int radius) {
+        RequestOptions mRequestOptions;
+        if (radius == 0) {
+            mRequestOptions = new RequestOptions()
+                    .centerInside()
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+        } else {
+            mRequestOptions = new RequestOptions()
+                    .centerInside()
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(radius)))
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+        }
+
+        Glide.with(context).load(url).apply(mRequestOptions).into(imageView);
+    }
+
+    /**
+     * 加载圆形图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void loadCircleImage_20(Context context, String url, ImageView imageView) {
+        RequestOptions mRequestOptions = new RequestOptions()
+                .centerInside()
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+
+        Glide.with(context).load(url).apply(mRequestOptions).into(imageView);
+    }
+
+    /**
+     * 加载圆形图片
+     *
+     * @param context
+     * @param url
+     * @param imageView
+     */
+    public static void loadCircleImage_15(Context context, String url, ImageView imageView) {
+        RequestOptions mRequestOptions = new RequestOptions()
+                .centerInside()
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
 
         Glide.with(context).load(url).apply(mRequestOptions).into(imageView);

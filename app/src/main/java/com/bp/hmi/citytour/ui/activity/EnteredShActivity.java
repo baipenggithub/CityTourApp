@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityEnteredShBinding;
 import com.bp.hmi.citytour.ui.adapter.EnteredShAdapter;
 import com.bp.hmi.citytour.ui.adapter.HomeBannerAdapter;
@@ -30,15 +31,14 @@ import java.util.List;
  */
 public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, EnteredShViewModel> {
     private EnteredShMapFragment mEnteredShMapFragment;
-
     private List<Integer> mBannerData = new ArrayList<>();
     private SubTabTitleAdapter mSubTabTitleAdapter;
     private EnteredShAdapter mEnteredShAdapter;
+    private int mIntoType = 0;
 
     @Override
     protected void onResume() {
         super.onResume();
-        //        setTabView(false, false, false, false);
         mBinding.mapFrameLayout.setVisibility(View.GONE);
         mBinding.shFrameLayout.setVisibility(View.VISIBLE);
     }
@@ -66,7 +66,7 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
 
         showProgress();
         mViewModel.getSubCardsTitle();
-        mViewModel.getCardsList();
+        mViewModel.getEnterShList();
     }
 
     @Override
@@ -110,7 +110,6 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
             mSubTabTitleAdapter = new SubTabTitleAdapter(R.layout.sub_cards_tab_item_layout, result);
             mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
             mSubTabTitleAdapter.setSelectedIndex(0);
-
             mSubTabTitleAdapter.addOnItemClickListener((resultBean, position) -> mSubTabTitleAdapter.setSelectedIndex(position));
         });
 
@@ -118,10 +117,27 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
             hideProgress();
             mEnteredShAdapter = new EnteredShAdapter(R.layout.entered_sh_item_layout, enteredShBean.getResult().getItems());
             mBinding.mRecyclerView.setAdapter(mEnteredShAdapter);
-
             mEnteredShAdapter.addOnItemClickListener((itemsBean, position) -> {
-                Intent in = new Intent(this, EnteredShDetailsActivity.class);
-                startActivity(in);
+                if (mIntoType == 0) {
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
+                    Intent in = new Intent(this, EnteredShDetailsActivity.class);
+                    in.putExtras(mBundle);
+                    startActivity(in);
+                } else if (mIntoType == 1) {
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
+                    Intent in = new Intent(this, EnteredShNewDetailsActivity.class);
+                    in.putExtras(mBundle);
+                    startActivity(in);
+                } else if (mIntoType == 2) {
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
+                    Intent in = new Intent(this, EnteredShSpotActivity.class);
+                    in.putExtras(mBundle);
+                    startActivity(in);
+                }
+
             });
         });
         setTabView(true, false, false, false);
@@ -130,15 +146,22 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
     private void switchFragment(int position) {
         switch (position) {
             case 0:
+                showProgress();
+                mIntoType = 1;
                 setTabView(true, false, false, false);
-                Intent i = new Intent(EnteredShActivity.this, EnteredShNewDetailsActivity.class);
-                startActivity(i);
+                mBannerData.clear();
+                mBannerData.add(R.mipmap.enter_sh_test_01);
+                mBinding.banner.setAdapter(new HomeBannerAdapter(mBannerData));
+                hideProgress();
                 break;
             case 1:
+                showProgress();
+                mIntoType = 2;
                 setTabView(false, true, false, false);
-                i = new Intent(EnteredShActivity.this, EnteredShSpotActivity.class);
-                startActivity(i);
-
+                mBannerData.clear();
+                mBannerData.add(R.mipmap.pic_1_06);
+                mBinding.banner.setAdapter(new HomeBannerAdapter(mBannerData));
+                hideProgress();
                 break;
             case 2:
                 mBinding.mapFrameLayout.setVisibility(View.VISIBLE);
@@ -155,7 +178,7 @@ public class EnteredShActivity extends BaseActivity<ActivityEnteredShBinding, En
                 break;
             case 3:
                 setTabView(false, false, false, true);
-                i = new Intent(EnteredShActivity.this, BookActivity.class);
+                Intent i = new Intent(EnteredShActivity.this, BookActivity.class);
                 startActivity(i);
                 break;
         }

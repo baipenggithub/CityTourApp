@@ -33,7 +33,7 @@ import rx.schedulers.Schedulers;
 
 public class HomeViewModel extends BaseViewModel {
     private static final String TAG = HomeViewModel.class.getSimpleName();
-    public SingleLiveEvent<List<HomeVideoBean.ResultBean.ItemsBean>> mVideoData;
+    public SingleLiveEvent<HomeVideoBean> mVideoData;
     public SingleLiveEvent<ActivityTabBean> mActivityData;
     public SingleLiveEvent<WeatherBean> mWeatherInfo;
     public UiChangeObservable uiChangeObservable = new UiChangeObservable();
@@ -194,7 +194,6 @@ public class HomeViewModel extends BaseViewModel {
      * 获取天气
      */
     public void requestWeatherInfo() {
-
         //设置参数
         Map<String, String> params = new HashMap<>();
         params.put("version", "v6");
@@ -231,45 +230,36 @@ public class HomeViewModel extends BaseViewModel {
                 });
     }
 
+    /**
+     * 获取视频数据
+     */
     public void getVoidData() {
-        List<HomeVideoBean.ResultBean.ItemsBean> bean = new ArrayList<>();
-        HomeVideoBean.ResultBean.ItemsBean v3 = new HomeVideoBean.ResultBean.ItemsBean();
-        v3.setName("探店");
-        v3.setId(R.mipmap.item_1);
-        v3.setLike(true);
-        v3.setFavorite(false);
-        v3.setLikeSum(20);
-        v3.setFavoriteSum(10);
-        bean.add(v3);
+        RxRetrofitClient.create(APiClient.class).getVideoData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<HomeVideoBean>() {
+                    @Override
+                    public void onStart() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
+                    }
 
-        HomeVideoBean.ResultBean.ItemsBean v4 = new HomeVideoBean.ResultBean.ItemsBean();
-        v4.setId(R.mipmap.item_2);
-        v4.setName("微电影");
-        v4.setLike(false);
-        v4.setFavorite(false);
-        v4.setLikeSum(21);
-        v4.setFavoriteSum(30);
-        bean.add(v4);
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
+                    }
 
-        HomeVideoBean.ResultBean.ItemsBean v5 = new HomeVideoBean.ResultBean.ItemsBean();
-        v5.setId(R.mipmap.item_3);
-        v5.setName("咖啡馆");
-        v5.setLike(true);
-        v5.setFavorite(true);
-        v5.setLikeSum(32);
-        v5.setFavoriteSum(16);
-        bean.add(v5);
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
+                    }
 
-
-        HomeVideoBean.ResultBean.ItemsBean v6 = new HomeVideoBean.ResultBean.ItemsBean();
-        v6.setId(R.mipmap.item_4);
-        v6.setName("美术馆");
-        v6.setLike(false);
-        v6.setFavorite(true);
-        v6.setLikeSum(60);
-        v6.setFavoriteSum(70);
-        bean.add(v6);
-        mVideoData.postValue(bean);
+                    @Override
+                    public void onNext(HomeVideoBean weatherBean) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
+                        //绑定数据
+                        mVideoData.postValue(weatherBean);
+                    }
+                });
     }
 
     private void checkCodeIndex(int index) {
@@ -336,31 +326,31 @@ public class HomeViewModel extends BaseViewModel {
      * 获取活动
      */
     public void requestActivityInfo() {
-        RxRetrofitClient.create(APiClient.class).getActivityData()
+        Map<String, String> params = new HashMap<>();
+        params.put("isNew", "0");
+        params.put("type", "3");
+        RxRetrofitClient.create(APiClient.class).getActivityData(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<ActivityTabBean>() {
                     @Override
                     public void onStart() {
-                        //showDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
                     }
 
                     @Override
                     public void onCompleted() {
-                        // dismissDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //dismissDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
                     }
 
                     @Override
                     public void onNext(ActivityTabBean weatherBean) {
-                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
+                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.getResult().getItems().size());
                         //绑定数据
                         mActivityData.postValue(weatherBean);
                     }

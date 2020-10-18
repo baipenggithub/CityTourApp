@@ -1,7 +1,9 @@
 package com.bp.hmi.citytour.http;
 
+import com.bp.hmi.citytour.bean.ActDetailsBean;
 import com.bp.hmi.citytour.bean.ActivityTabBean;
 import com.bp.hmi.citytour.bean.CardsBean;
+import com.bp.hmi.citytour.bean.EnterShDetailsBean;
 import com.bp.hmi.citytour.bean.EnteredShBean;
 import com.bp.hmi.citytour.bean.HomeVideoBean;
 import com.bp.hmi.citytour.bean.WeatherBean;
@@ -13,6 +15,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 import rx.Observable;
 
 /**
@@ -43,6 +46,12 @@ public interface APiClient {
     Observable<EnteredShBean> getEnterShData();
 
     /**
+     * 走进上海详情
+     */
+    @GET
+    Observable<EnterShDetailsBean> getEnterShDetailsData(@Url String ur);
+
+    /**
      * 视频
      */
     @GET(ApiService.HOME_API_HOME_VIDEO)
@@ -53,16 +62,19 @@ public interface APiClient {
      * 活动
      */
     @GET(ApiService.HOME_API_HOME_ACTIVITY)
-    Observable<ActivityTabBean> getActivityData();
+    Observable<ActivityTabBean> getActivityData(@QueryMap Map<String, String> params);
+
+    /**
+     * 活动详情
+     */
+    @GET
+    Observable<ActDetailsBean> getActivityDetailsData(@Url String ur);
+
 
     /**
      * 购物券
      */
     @GET(ApiService.HOME_API_HOME_CARDS)
     Observable<CardsBean> getCardsData();
-
-
-
-
 
 }

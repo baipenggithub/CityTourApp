@@ -10,10 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.base.BaseApplication;
+import com.bp.hmi.citytour.bean.ActivityTabBean;
 import com.bp.hmi.citytour.bean.RecommendBean;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityNewDetailsBinding;
+import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.adapter.PavilionRecommendAdapter;
-import com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel;
+import com.bp.hmi.citytour.ui.viewmodel.ActDetailsViewModel;
+import com.bp.hmi.citytour.utils.GlideUtils;
 import com.bp.hmi.citytour.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -24,16 +29,8 @@ import java.util.List;
  * 创建人:LuoWeiDi
  * 创建时间:2020/10/13
  */
-public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsBinding, EnteredShViewModel> {
-
-    public static ActivityDetailsActivity getInstance() {
-        return new ActivityDetailsActivity();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsBinding, ActDetailsViewModel> {
+    private ActivityTabBean.ResultBean.ItemsBean itemsBean;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -49,7 +46,9 @@ public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsB
     public void initData() {
         super.initData();
         showProgress();
-        mViewModel.requestActivityInfo();
+        Bundle mBundle = getIntent().getExtras();
+        itemsBean = (ActivityTabBean.ResultBean.ItemsBean) mBundle.getSerializable(CityConstant.PARAMETER_PASSING_KEY);
+        mViewModel.requestActivityInfo(itemsBean.getId());
     }
 
     @Override
@@ -59,6 +58,22 @@ public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsB
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        mBinding.tvRelatedMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(NewActivityDetailsActivity.this, HomeActActivity.class);
+                startActivity(in);
+            }
+        });
+
+        mBinding.tvSurroundingMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(NewActivityDetailsActivity.this, HomeActActivity.class);
+                startActivity(in);
             }
         });
 
@@ -120,10 +135,17 @@ public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsB
     @Override
     public void initViewObservable() {
         super.initViewObservable();
-        mViewModel.mActivityData.observe(this, activityTabBean -> {
+        mViewModel.mActDetailsBean.observe(this, activityTabBean -> {
             hideProgress();
+
+            GlideUtils.loadCircleImage_17(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivAvd);
+            mBinding.tvJoinTripAddress.setText(activityTabBean.getResult().getName());
+            mBinding.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
+            mBinding.tvTime.setText(activityTabBean.getResult().getTime());
+            mBinding.tvAddress.setText(activityTabBean.getResult().getAddress());
             //详情
-            mBinding.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getItems().get(1).getContent(), "text/html", "utf-8", null);
+            mBinding.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getContent(), "text/html", "utf-8", null);
+
         });
     }
 

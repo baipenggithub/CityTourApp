@@ -39,30 +39,30 @@ public class CardsAdapter extends BaseRecyclerAdapter<CardsBean.ResultBean.Items
         helper.setText(R.id.tv_cards_title, item.getName());
         helper.setText(R.id.tv_cards_time, "有效时间:" + item.getExpire());
 
-        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_0509, helper.getView(R.id.iv_cards_type));
+        GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_0509, helper.getView(R.id.iv_cards_type), 30);
 
         if (helper.getAdapterPosition() == 0) {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_08, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_08, helper.getView(R.id.iv_cards_type), 30);
 
         } else if (helper.getAdapterPosition() == 1) {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_07, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_07, helper.getView(R.id.iv_cards_type), 30);
 
         } else if (helper.getAdapterPosition() == 2) {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_06, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_06, helper.getView(R.id.iv_cards_type), 30);
 
         } else if (helper.getAdapterPosition() == 3) {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_0509, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_0509, helper.getView(R.id.iv_cards_type), 30);
 
         } else if (helper.getAdapterPosition() == 4) {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_08, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_08, helper.getView(R.id.iv_cards_type), 30);
 
         } else {
-            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_07, helper.getView(R.id.iv_cards_type));
+            GlideUtils.loadRoundCircleRes(BaseApplication.getApplication(), R.mipmap.tour_home_02_07, helper.getView(R.id.iv_cards_type), 30);
 
         }
 
-        helper.getView(R.id.tv_cards_use).setOnClickListener(new ClickListener(item,helper.getAdapterPosition()));
-        helper.getView(R.id.tv_cards_detail).setOnClickListener(new ClickListener(item,helper.getAdapterPosition()));
+        helper.getView(R.id.tv_cards_use).setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
+        helper.getView(R.id.tv_cards_detail).setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
     }
 
     public class ClickListener implements View.OnClickListener {
@@ -77,14 +77,14 @@ public class CardsAdapter extends BaseRecyclerAdapter<CardsBean.ResultBean.Items
         @Override
         public void onClick(View v) {
 
-            switch (v.getId()){
-               case  R.id.tv_cards_use:
-                   if (null != mOnClickListener) {
-                       mOnClickListener.onItemUseListener(mCardsBean, mPosition);
-                   }
-                break;
+            switch (v.getId()) {
+                case R.id.tv_cards_use:
+                    if (null != mOnClickListener) {
+                        mOnClickListener.onItemUseListener(mCardsBean, mPosition);
+                    }
+                    break;
 
-                case  R.id.tv_cards_detail:
+                case R.id.tv_cards_detail:
                     if (null != mOnClickListener) {
                         mOnClickListener.onItemDetailsListener(mCardsBean, mPosition);
                     }
@@ -96,6 +96,7 @@ public class CardsAdapter extends BaseRecyclerAdapter<CardsBean.ResultBean.Items
 
     public interface OnItemClickListener {
         void onItemUseListener(CardsBean.ResultBean.ItemsBean resultBean, int position);
+
         void onItemDetailsListener(CardsBean.ResultBean.ItemsBean resultBean, int position);
     }
 

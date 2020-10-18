@@ -16,9 +16,11 @@ import android.widget.TextView;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.bean.EnteredShBean;
 import com.bp.hmi.citytour.bean.ScheduleEntity;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityEnteredShNewDetailsBinding;
-import com.bp.hmi.citytour.ui.viewmodel.EnteredShNewViewModel;
+import com.bp.hmi.citytour.ui.viewmodel.EnterShDetailsViewModel;
 import com.youth.banner.util.BannerUtils;
 
 import java.util.ArrayList;
@@ -28,7 +30,9 @@ import java.util.ArrayList;
  * 创建人:LuoWeiDi
  * 创建时间:2020/9/26
  */
-public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShNewDetailsBinding, EnteredShNewViewModel> {
+public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShNewDetailsBinding, EnterShDetailsViewModel> {
+    private EnteredShBean.ResultBean.ItemsBean itemsBean;
+    private boolean mGroupIsOpen = false;
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_entered_sh_new_details;
@@ -69,11 +73,27 @@ public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShN
     @Override
     public void initViewObservable() {
         super.initViewObservable();
+
+        mViewModel.mActDetailsBean.observe(this, activityTabBean -> {
+            hideProgress();
+            //GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivEnteredShAdv, 0);
+            //mBinding.joinTripDetailsView.tvJoinTripAddress.setText(activityTabBean.getResult().getName());
+            // mBinding.joinTripDetailsView.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
+            //mBinding.joinTripDetailsView.tvTime.setText(activityTabBean.getResult().getTime());
+            //mBinding.joinTripDetailsView.tvAddress.setText(activityTabBean.getResult().getAddress());
+            //详情
+            //mBinding.joinTripDetailsView.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getContent(), "text/html", "utf-8", null);
+        });
     }
 
     @Override
     public void initData() {
         super.initData();
+        Bundle mBundle = getIntent().getExtras();
+        itemsBean = (EnteredShBean.ResultBean.ItemsBean) mBundle.getSerializable(CityConstant.PARAMETER_PASSING_KEY);
+        showProgress();
+        mViewModel.requestActivityInfo(itemsBean.getId());
+
         ArrayList<ScheduleEntity> scheduleEntities = getBookData();
         mBinding.pathListA.removeAllViews();
         mBinding.pathListB.removeAllViews();
@@ -115,7 +135,7 @@ public class EnteredShNewDetailsActivity extends BaseActivity<ActivityEnteredShN
         }
     }
 
-    private boolean mGroupIsOpen = false;
+
 
     public void infoSwitch() {
         float layoutHeight = BannerUtils.dp2px(200);

@@ -59,6 +59,7 @@
             <LinearLayout style="@style/MatchWrap.Vertical">
 
                 <ImageView
+                    android:id="@+id/ivEnteredShAdv"
                     style="@style/MatchWrap"
                     android:layout_height="@dimen/tab_dimens_220"
                     android:scaleType="centerCrop"
@@ -314,6 +315,6 @@
 
         <variable
             name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.EnteredShNewViewModel" />
+            type="com.bp.hmi.citytour.ui.viewmodel.EnterShDetailsViewModel" />
     </data>
 </layout>

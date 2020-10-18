@@ -46,9 +46,9 @@
         <activity android:name=".ui.activity.EnteredShNewDetailsActivity" />
         <activity android:name=".ui.activity.PavilionActivity" />
         <activity android:name=".ui.activity.EnteredShSpotActivity" />
-        <activity android:name=".ui.activity.ActivityDetailsActivity" />
         <activity android:name=".ui.activity.VoiceActivity" />
         <activity android:name=".ui.activity.PavilionHallDetailsActivity" />
+        <activity android:name=".ui.activity.EnteredShMapDetailsActivity" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode">

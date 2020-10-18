@@ -39,8 +39,8 @@ public class EnteredShAdapter extends BaseRecyclerAdapter<EnteredShBean.ResultBe
     protected void convert(BaseRecyclerHolder helper, EnteredShBean.ResultBean.ItemsBean item) {
         helper.setText(R.id.tv_entered_sh_title, item.getName());
         helper.setText(R.id.tv_entered_sh_spot, "游览景点:" + item.getRecommendPoint());
-        helper.setText(R.id.tv_entered_sh_time, "推荐时间:" + item.getSpendTime());
-        GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_entered_sh_icon));
+        helper.setText(R.id.tv_entered_sh_time, "推荐时间:" + item.getSpendTime() + "小时");
+        GlideUtils.loadCircleImage_20(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_entered_sh_icon));
 
         helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
     }

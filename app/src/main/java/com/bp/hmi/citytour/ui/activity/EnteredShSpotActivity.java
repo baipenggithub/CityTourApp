@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.bean.EnteredShBean;
+import com.bp.hmi.citytour.bean.RecommendBean;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.FragmentShSpotBinding;
-import com.bp.hmi.citytour.ui.adapter.DetailsActivityAdapter;
 import com.bp.hmi.citytour.ui.adapter.HomeBannerAdapter;
-import com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel;
+import com.bp.hmi.citytour.ui.adapter.PavilionRecommendAdapter;
+import com.bp.hmi.citytour.ui.viewmodel.EnterShDetailsViewModel;
 import com.bp.hmi.citytour.utils.ToastUtils;
 import com.youth.banner.config.BannerConfig;
 import com.youth.banner.config.IndicatorConfig;
@@ -26,10 +29,10 @@ import java.util.List;
 /**
  * 景点推荐
  */
-public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, EnteredShViewModel> {
+public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, EnterShDetailsViewModel> {
     private static final String TAG = EnteredShSpotActivity.class.getSimpleName();
-    private DetailsActivityAdapter mHomeCentreTabAdapter;
     private List<Integer> mBannerData = new ArrayList<>();
+    private EnteredShBean.ResultBean.ItemsBean itemsBean;
 
 
     public static EnteredShSpotActivity getInstance() {
@@ -61,8 +64,10 @@ public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, E
         mBannerData.add(R.mipmap.pic_1_05);
         mBannerData.add(R.mipmap.pic_1_06);
 
+        Bundle mBundle = getIntent().getExtras();
+        itemsBean = (EnteredShBean.ResultBean.ItemsBean) mBundle.getSerializable(CityConstant.PARAMETER_PASSING_KEY);
         showProgress();
-        mViewModel.requestActivityInfo();
+        mViewModel.requestActivityInfo(itemsBean.getId());
 
     }
 
@@ -73,6 +78,23 @@ public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, E
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+
+        mBinding.joinTripDetailsView.tvRelatedMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(EnteredShSpotActivity.this, HomeActActivity.class);
+                startActivity(in);
+            }
+        });
+
+        mBinding.joinTripDetailsView.tvSurroundingMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(EnteredShSpotActivity.this, HomeActActivity.class);
+                startActivity(in);
             }
         });
 
@@ -99,14 +121,18 @@ public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, E
             }
         });
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mBinding.joinTripDetailsView.joinTripRecyclerView.setLayoutManager(linearLayoutManager);
+        // 相关活动
+        LinearLayoutManager managerPavilion = new LinearLayoutManager(this);
+        managerPavilion.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mBinding.joinTripDetailsView.listPavilion.setLayoutManager(managerPavilion);
+        PavilionRecommendAdapter pavilionAdapter = new PavilionRecommendAdapter(R.layout.item_haill_recommend, getPavilionData());
+        mBinding.joinTripDetailsView.listPavilion.setAdapter(pavilionAdapter);
 
-
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mBinding.joinTripDetailsView.rimTripRecyclerView.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager managerRim = new LinearLayoutManager(this);
+        managerRim.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mBinding.joinTripDetailsView.listRim.setLayoutManager(managerRim);
+        PavilionRecommendAdapter rimAdapter = new PavilionRecommendAdapter(R.layout.item_haill_recommend, getRimData());
+        mBinding.joinTripDetailsView.listRim.setAdapter(rimAdapter);
 
 
         mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData));
@@ -142,17 +168,32 @@ public class EnteredShSpotActivity extends BaseActivity<FragmentShSpotBinding, E
     public void initViewObservable() {
         super.initViewObservable();
 
-        mViewModel.mActivityData.observe(this, activityTabBean -> {
+        mViewModel.mActDetailsBean.observe(this, activityTabBean -> {
             hideProgress();
-            //相关活动
-            mHomeCentreTabAdapter = new DetailsActivityAdapter(R.layout.details_activity_item_layout, activityTabBean.getResult().getItems());
-            mBinding.joinTripDetailsView.joinTripRecyclerView.setAdapter(mHomeCentreTabAdapter);
-            //周边活动
-            mBinding.joinTripDetailsView.rimTripRecyclerView.setAdapter(mHomeCentreTabAdapter);
-
+            //GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivEnteredShAdv, 0);
+            mBinding.joinTripDetailsView.tvJoinTripAddress.setText(activityTabBean.getResult().getName());
+            //mBinding.joinTripDetailsView.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
+            //mBinding.joinTripDetailsView.tvTime.setText(activityTabBean.getResult().getTime());
+            //mBinding.joinTripDetailsView.tvAddress.setText(activityTabBean.getResult().getAddress());
             //详情
-            mBinding.joinTripDetailsView.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getItems().get(1).getContent(), "text/html", "utf-8", null);
-
+            mBinding.joinTripDetailsView.mWeb.loadDataWithBaseURL(null, activityTabBean.getResult().getContent(), "text/html", "utf-8", null);
         });
+    }
+
+    private List<RecommendBean> getPavilionData() {
+        ArrayList<RecommendBean> list = new ArrayList<>();
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_04, "古元画展：纪念古元诞辰百年"));
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_05, "东风画展：纪念电视台"));
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_06, "城隍庙展：纪念城隍庙"));
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_07, "黄浦江画展：纪念江河"));
+        return list;
+    }
+
+    private List<RecommendBean> getRimData() {
+        ArrayList<RecommendBean> list = new ArrayList<>();
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_01, "万达绿地广场"));
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_02, "星巴克"));
+        list.add(new RecommendBean(R.mipmap.hall_details_pic_03, "乐园田园"));
+        return list;
     }
 }

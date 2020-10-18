@@ -9,14 +9,15 @@ import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
-import com.bp.hmi.citytour.base.BaseApplication;
 import com.bp.hmi.citytour.base.BaseFragment;
+import com.bp.hmi.citytour.bean.ActivityTabBean;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
-import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
 import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
@@ -25,9 +26,9 @@ import com.bp.hmi.citytour.ui.activity.PavilionActivity;
 import com.bp.hmi.citytour.ui.activity.SportsActivity;
 import com.bp.hmi.citytour.ui.activity.TravelActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
+import com.bp.hmi.citytour.ui.adapter.HomeActItemAdapter;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
-import com.bp.hmi.citytour.utils.GlideUtils;
 import com.bp.hmi.citytour.utils.ToastUtils;
 import com.bp.hmi.citytour.widget.EnterAnimLayout;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
@@ -40,6 +41,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     private static final String TAG = HomeFragment.class.getSimpleName();
     private VideoAdapter mVideoAdapter;
     private static final int REQUEST_CODE = 0;
+    private HomeActItemAdapter mHomeActItemAdapter;
 
     public static HomeFragment getInstance() {
         return new HomeFragment();
@@ -71,10 +73,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     @Override
     public void initLayout() {
         super.initLayout();
-        mBinding.homeActivityTabView.subVideoView.mRecyclerView.setNestedScrollingEnabled(false);
+
         if (null != getActivity()) {
+            //活动
+            mBinding.homeActivityTabView.subActivityView.rcyAct.setNestedScrollingEnabled(false);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            mBinding.homeActivityTabView.subActivityView.rcyAct.setLayoutManager(linearLayoutManager);
+
+            //视频
+            mBinding.homeActivityTabView.subVideoView.mRecyclerView.setNestedScrollingEnabled(false);
             StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            // manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
             mBinding.homeActivityTabView.subVideoView.mRecyclerView.setLayoutManager(manager);
         }
 
@@ -102,22 +111,15 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
 
             }
         });
-
-        mBinding.homeActivityTabView.subActivityView.llAcDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getActivity(), NewActivityDetailsActivity.class);
-                startActivity(in);
-            }
-        });
     }
 
     @Override
     public void initViewObservable() {
         super.initViewObservable();
 
+        //视频数据
         mViewModel.mVideoData.observe(this, itemsBeans -> {
-            mVideoAdapter = new VideoAdapter(R.layout.video_item_layout, itemsBeans);
+            mVideoAdapter = new VideoAdapter(R.layout.video_item_layout, itemsBeans.getResult().getItems());
             mBinding.homeActivityTabView.subVideoView.mRecyclerView.setAdapter(mVideoAdapter);
         });
 
@@ -173,6 +175,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
             @Override
             public void onChanged(Object o) {
                 Intent in = new Intent(getActivity(), VideoActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, mViewModel.mVideoData.getValue());
+                in.putExtras(mBundle);
                 startActivity(in);
             }
         });
@@ -189,10 +194,18 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         mViewModel.mActivityData.observe(this, activityTabBean -> {
             hideProgress();
             mBinding.homeActivityTabView.subActivityView.tvHomeActivitySum.setText(" (" + String.valueOf(activityTabBean.getResult().getTotalCount()) + " )");
-            mBinding.homeActivityTabView.subActivityView.tvHomeActivityName.setText(activityTabBean.getResult().getItems().get(3).getName());
-            mBinding.homeActivityTabView.subActivityView.tvHomeActivityMessage.setText(activityTabBean.getResult().getItems().get(3).getSummary());
-            GlideUtils.loadCircleImage_10(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(3).getCover(), mBinding.homeActivityTabView.subActivityView.ivHomeActivityCover);
-
+            mHomeActItemAdapter = new HomeActItemAdapter(R.layout.home_act_item, activityTabBean.getResult().getItems());
+            mBinding.homeActivityTabView.subActivityView.rcyAct.setAdapter(mHomeActItemAdapter);
+            mHomeActItemAdapter.addOnItemClickListener(new HomeActItemAdapter.OnItemClickListener() {
+                @Override
+                public void onItemListener(ActivityTabBean.ResultBean.ItemsBean itemsBean, int position) {
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
+                    Intent in = new Intent(getActivity(), NewActivityDetailsActivity.class);
+                    in.putExtras(mBundle);
+                    startActivity(in);
+                }
+            });
         });
 
         mViewModel.uiChangeObservable.intoAnim.observe(this, o -> {

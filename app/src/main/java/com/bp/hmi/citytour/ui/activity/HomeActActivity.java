@@ -11,6 +11,8 @@ import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
 import com.bp.hmi.citytour.base.BaseApplication;
+import com.bp.hmi.citytour.bean.ActivityTabBean;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityCentreTabBinding;
 import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.ui.adapter.HomeCentreTabAdapter;
@@ -63,7 +65,11 @@ public class HomeActActivity extends BaseActivity<ActivityCentreTabBinding, Home
         mBinding.llAcDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ActivityTabBean.ResultBean.ItemsBean itemsBean = mViewModel.mActivityData.getValue().getResult().getItems().get(0);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
                 Intent in = new Intent(HomeActActivity.this, NewActivityDetailsActivity.class);
+                in.putExtras(mBundle);
                 startActivity(in);
             }
         });
@@ -78,7 +84,6 @@ public class HomeActActivity extends BaseActivity<ActivityCentreTabBinding, Home
             mSubTabTitleAdapter = new SubTabTitleAdapter(R.layout.sub_cards_tab_item_layout, result);
             mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
             mSubTabTitleAdapter.setSelectedIndex(0);
-
             mSubTabTitleAdapter.addOnItemClickListener((resultBean, position) -> mSubTabTitleAdapter.setSelectedIndex(position));
         });
 
@@ -87,13 +92,16 @@ public class HomeActActivity extends BaseActivity<ActivityCentreTabBinding, Home
             mHomeCentreTabAdapter = new HomeCentreTabAdapter(R.layout.centre_tab_item_layout, activityTabBean.getResult().getItems());
             mBinding.mRecyclerView.setAdapter(mHomeCentreTabAdapter);
 
-            mBinding.tvHomeActivityName.setText(activityTabBean.getResult().getItems().get(3).getName());
-            mBinding.tvHomeActivityMessage.setText(activityTabBean.getResult().getItems().get(3).getSummary());
+            mBinding.tvHomeActivityName.setText(activityTabBean.getResult().getItems().get(0).getName());
+            mBinding.tvHomeActivityMessage.setText(activityTabBean.getResult().getItems().get(0).getSummary());
 
-            GlideUtils.loadCircleImage_10(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(3).getCover(), mBinding.ivHomeActivityCover);
+            GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getItems().get(0).getCover(), mBinding.ivHomeActivityCover);
 
             mHomeCentreTabAdapter.addOnItemClickListener((itemsBean, position) -> {
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, itemsBean);
                 Intent in = new Intent(HomeActActivity.this, NewActivityDetailsActivity.class);
+                in.putExtras(mBundle);
                 startActivity(in);
             });
 

@@ -9,7 +9,8 @@ package com.bp.hmi.citytour.common;
  *     version: 1.0
  * </pre>
  */
-public interface MapConstant {
+public interface CityConstant {
     int REQUEST_CODE = 100;
     int PERMISSIONS_SIZE = 0;
+    String PARAMETER_PASSING_KEY="parameter_passing_key";
 }

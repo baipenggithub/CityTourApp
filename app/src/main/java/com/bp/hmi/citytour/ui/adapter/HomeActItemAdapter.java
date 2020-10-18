@@ -13,7 +13,6 @@ import com.bp.hmi.citytour.http.ApiService;
 import com.bp.hmi.citytour.utils.GlideUtils;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * <pre>
@@ -24,37 +23,24 @@ import java.util.Random;
  *     version: 1.0
  * </pre>
  */
-public class HomeCentreTabAdapter extends BaseRecyclerAdapter<ActivityTabBean.ResultBean.ItemsBean, BaseRecyclerHolder> {
+public class HomeActItemAdapter extends BaseRecyclerAdapter<ActivityTabBean.ResultBean.ItemsBean, BaseRecyclerHolder> {
+
     /**
      * Initialization data.
      *
      * @param layoutResId
      * @param data
      */
-    public HomeCentreTabAdapter(int layoutResId, @Nullable List<ActivityTabBean.ResultBean.ItemsBean> data) {
+    public HomeActItemAdapter(int layoutResId, @Nullable List<ActivityTabBean.ResultBean.ItemsBean> data) {
         super(layoutResId, data);
     }
 
     @Override
     protected void convert(BaseRecyclerHolder helper, ActivityTabBean.ResultBean.ItemsBean item) {
-        helper.setText(R.id.tv_cards_title, item.getName());
-        helper.setText(R.id.tv_cards_time, item.getSummary());
-        GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_cards_type));
+        helper.setText(R.id.tv_home_activity_name, item.getName());
+        helper.setText(R.id.tv_home_activity_message, item.getSummary());
+        GlideUtils.loadCircleImage_15(BaseApplication.getApplication(), ApiService.HOME_API + item.getCover(), helper.getView(R.id.iv_home_activity_cover));
         helper.itemView.setOnClickListener(new ClickListener(item, helper.getAdapterPosition()));
-
-        Random random = new Random();
-        int max = 4;
-        int min = 1;
-        int index = random.nextInt(max) % (max - min + 1) + min;
-        if (index == 1) {
-            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_1);
-        } else if (index == 2) {
-            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_2);
-        } else if (index == 3) {
-            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_3);
-        } else {
-            helper.setImageResource(R.id.iv_cards_log, R.mipmap.city_tour_log_4);
-        }
     }
 
     public class ClickListener implements View.OnClickListener {

@@ -58,101 +58,12 @@
                 android:textSize="@dimen/tv_size_15" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_ac_details"
-            style="@style/MatchWrap.Vertical"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcy_act"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginEnd="@dimen/tab_dimens_20"
-            android:background="@mipmap/home_activity_small_tab">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.necer.view.RoundAngleImageView
-                    android:id="@+id/iv_home_activity_cover"
-                    style="@style/MatchWrap"
-                    android:layout_height="@dimen/tab_dimens_160"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/test_pic"
-                    app:leftBottomRadius="@dimen/tab_dimens_12"
-                    app:leftTopRadius="@dimen/tab_dimens_12"
-                    app:rightBottomRadius="@dimen/tab_dimens_12"
-                    app:rightTopRadius="@dimen/tab_dimens_12" />
-
-                <com.necer.view.RoundAngleImageView
-                    android:layout_width="@dimen/tab_dimens_30"
-                    android:layout_height="@dimen/tab_dimens_30"
-                    android:layout_alignParentRight="true"
-                    android:src="@mipmap/city_tour_home_ic_new"
-                    app:rightTopRadius="@dimen/tab_dimens_12" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-                style="@style/MatchWrap.Horizontal"
-                android:layout_marginStart="@dimen/tab_dimens_10"
-                android:layout_marginTop="@dimen/tab_dimens_10"
-                android:layout_marginEnd="@dimen/tab_dimens_10">
-
-                <LinearLayout
-                    style="@style/MatchWrap.Vertical"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:id="@+id/tv_home_activity_name"
-                        style="@style/MatchWrap"
-                        android:layout_marginRight="@dimen/tab_dimens_10"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="千秋大业十二载,璀璨重光静安寺"
-                        android:textColor="@color/home_color_07"
-                        android:textSize="@dimen/tv_size_15" />
-
-                    <TextView
-                        android:id="@+id/tv_home_activity_message"
-                        style="@style/MatchWrap"
-                        android:layout_marginTop="@dimen/tab_dimens_05"
-                        android:layout_marginRight="@dimen/tab_dimens_10"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:text="穿越12个年思绪的时空隧道,回眸那四千二百个日日夜夜,真的让人感慨万千!"
-                        android:textColor="@color/home_color_08"
-                        android:textSize="@dimen/tv_size_12" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="@dimen/tab_dimens_02"
-                    android:background="@drawable/shape_activity_tab_bac"
-                    android:orientation="vertical"
-                    android:padding="@dimen/tab_dimens_05">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal"
-                        android:text="静安"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/tv_size_15" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/tab_dimens_03"
-                        android:gravity="center_horizontal"
-                        android:text="市民云"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/tv_size_12" />
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+            android:overScrollMode="never"
+            android:scrollbars="none" />
     </LinearLayout>
 </layout>

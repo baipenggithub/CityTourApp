@@ -14,7 +14,9 @@ import com.bp.hmi.citytour.http.APiClient;
 import com.bp.hmi.citytour.http.RxRetrofitClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -74,32 +76,31 @@ public class HomeCentreTabViewModel extends BaseViewModel {
      * 获取活动
      */
     public void requestActivityInfo() {
-        RxRetrofitClient.create(APiClient.class).getActivityData()
+        Map<String, String> params = new HashMap<>();
+        params.put("isNew", "0");
+        params.put("type", "");
+        RxRetrofitClient.create(APiClient.class).getActivityData(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<ActivityTabBean>() {
                     @Override
                     public void onStart() {
-                        //showDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
                     }
 
                     @Override
                     public void onCompleted() {
-                        // dismissDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //dismissDialog();
                         Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
                     }
 
                     @Override
                     public void onNext(ActivityTabBean weatherBean) {
                         Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
-                        //绑定数据
                         mActivityData.postValue(weatherBean);
                     }
                 });

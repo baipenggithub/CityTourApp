@@ -19,6 +19,7 @@
         style="@style/WrapWrap"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-3dp"
         android:src="@mipmap/tour_home_02_03" />
 
 </RelativeLayout>

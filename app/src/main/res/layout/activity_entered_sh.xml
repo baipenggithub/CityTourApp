@@ -92,7 +92,7 @@
                         <com.youth.banner.Banner
                             android:id="@+id/banner"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/tab_dimens_200"
+                            android:layout_height="@dimen/tab_dimens_203"
                             app:layout_collapseMode="parallax"
                             app:layout_collapseParallaxMultiplier="0.7" />
                     </com.google.android.material.appbar.CollapsingToolbarLayout>

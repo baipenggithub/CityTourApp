@@ -10,17 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
-import com.bp.hmi.citytour.base.BaseApplication;
 import com.bp.hmi.citytour.bean.EnteredShBean;
 import com.bp.hmi.citytour.bean.RecommendBean;
 import com.bp.hmi.citytour.common.CityConstant;
-import com.bp.hmi.citytour.databinding.ActivityJoinTripBinding;
-import com.bp.hmi.citytour.http.ApiService;
-import com.bp.hmi.citytour.ui.adapter.DetailsActivityAdapter;
+import com.bp.hmi.citytour.databinding.FragmentShSpotBinding;
 import com.bp.hmi.citytour.ui.adapter.HomeBannerAdapter;
 import com.bp.hmi.citytour.ui.adapter.PavilionRecommendAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.EnterShDetailsViewModel;
-import com.bp.hmi.citytour.utils.GlideUtils;
 import com.bp.hmi.citytour.utils.ToastUtils;
 import com.youth.banner.config.BannerConfig;
 import com.youth.banner.config.IndicatorConfig;
@@ -31,16 +27,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 走进上海详情
+ * 地图详情
  */
-public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBinding, EnterShDetailsViewModel> {
+public class EnteredShMapDetailsActivity extends BaseActivity<FragmentShSpotBinding, EnterShDetailsViewModel> {
+    private static final String TAG = EnteredShMapDetailsActivity.class.getSimpleName();
     private List<Integer> mBannerData = new ArrayList<>();
-    private DetailsActivityAdapter mHomeCentreTabAdapter;
     private EnteredShBean.ResultBean.ItemsBean itemsBean;
+
+
+    public static EnteredShMapDetailsActivity getInstance() {
+        return new EnteredShMapDetailsActivity();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
-        return R.layout.activity_join_trip;
+        return R.layout.fragment_sh_spot;
     }
 
     @Override
@@ -51,9 +57,6 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
     @Override
     public void initData() {
         super.initData();
-        Bundle mBundle = getIntent().getExtras();
-        itemsBean = (EnteredShBean.ResultBean.ItemsBean) mBundle.getSerializable(CityConstant.PARAMETER_PASSING_KEY);
-
         mBannerData.add(R.mipmap.pic_1_01);
         mBannerData.add(R.mipmap.pic_1_02);
         mBannerData.add(R.mipmap.pic_1_03);
@@ -61,14 +64,16 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
         mBannerData.add(R.mipmap.pic_1_05);
         mBannerData.add(R.mipmap.pic_1_06);
 
+        Bundle mBundle = getIntent().getExtras();
+        itemsBean = (EnteredShBean.ResultBean.ItemsBean) mBundle.getSerializable(CityConstant.PARAMETER_PASSING_KEY);
         showProgress();
         mViewModel.requestActivityInfo(itemsBean.getId());
+
     }
 
     @Override
     public void initLayout() {
         super.initLayout();
-
         mBinding.ivCardsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,24 +81,11 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
             }
         });
 
-        mBinding.joinTripDetailsView.tvJoinTrip.setOnClickListener(view -> {
-            Intent i = new Intent(EnteredShDetailsActivity.this, BookActivity.class);
-            startActivity(i);
-        });
-
-        mBinding.joinTripDetailsView.ivJoinTripVoiceNavigation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(EnteredShDetailsActivity.this, VoiceActivity.class);
-                startActivity(i);
-            }
-        });
-
 
         mBinding.joinTripDetailsView.tvRelatedMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(EnteredShDetailsActivity.this, HomeActActivity.class);
+                Intent in = new Intent(EnteredShMapDetailsActivity.this, HomeActActivity.class);
                 startActivity(in);
             }
         });
@@ -101,26 +93,33 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
         mBinding.joinTripDetailsView.tvSurroundingMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(EnteredShDetailsActivity.this, HomeActActivity.class);
+                Intent in = new Intent(EnteredShMapDetailsActivity.this, HomeActActivity.class);
                 startActivity(in);
             }
         });
 
-        mBinding.joinTripDetailsView.ivJoinTripVirtualShowrooms.setOnClickListener(new View.OnClickListener() {
+        mBinding.joinTripDetailsView.tvSpotShowDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showLong("敬请期待");
+                mBinding.joinTripDetailsView.tvSpotShowDetails.setVisibility(View.GONE);
+                mBinding.joinTripDetailsView.llExhibitionIntroduced.setVisibility(View.VISIBLE);
             }
         });
 
-        mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData));
-        mBinding.joinTripDetailsView.banner.setIndicator(new CircleIndicator(this));
-        mBinding.joinTripDetailsView.banner.setIndicatorGravity(IndicatorConfig.Direction.CENTER);
-        mBinding.joinTripDetailsView.banner.setIndicatorMargins(new IndicatorConfig.Margins(0, 0,
-                BannerConfig.INDICATOR_MARGIN, (int) BannerUtils.dp2px(12)));
-        mBinding.joinTripDetailsView.banner.isAutoLoop(false);
-        mBinding.joinTripDetailsView.banner.addBannerLifecycleObserver(this);
+        mBinding.joinTripDetailsView.tvSubscribeAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showLong("行程加入成功");
+            }
+        });
 
+        mBinding.joinTripDetailsView.tvSubscribeBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(EnteredShMapDetailsActivity.this, BookActivity.class);
+                startActivity(in);
+            }
+        });
 
         // 相关活动
         LinearLayoutManager managerPavilion = new LinearLayoutManager(this);
@@ -134,6 +133,15 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
         mBinding.joinTripDetailsView.listRim.setLayoutManager(managerRim);
         PavilionRecommendAdapter rimAdapter = new PavilionRecommendAdapter(R.layout.item_haill_recommend, getRimData());
         mBinding.joinTripDetailsView.listRim.setAdapter(rimAdapter);
+
+
+        mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData));
+        mBinding.joinTripDetailsView.banner.setIndicator(new CircleIndicator(this));
+        mBinding.joinTripDetailsView.banner.setIndicatorGravity(IndicatorConfig.Direction.CENTER);
+        mBinding.joinTripDetailsView.banner.setIndicatorMargins(new IndicatorConfig.Margins(0, 0,
+                BannerConfig.INDICATOR_MARGIN, (int) BannerUtils.dp2px(12)));
+        mBinding.joinTripDetailsView.banner.isAutoLoop(false);
+        mBinding.joinTripDetailsView.banner.addBannerLifecycleObserver(this);
 
 
         //开启js脚本支持
@@ -153,6 +161,7 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
         //开启缓存
         mBinding.joinTripDetailsView.mWeb.getSettings().setAppCacheEnabled(true);
 
+
     }
 
     @Override
@@ -161,9 +170,9 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
 
         mViewModel.mActDetailsBean.observe(this, activityTabBean -> {
             hideProgress();
-            GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivEnteredShAdv, 0);
+            //GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivEnteredShAdv, 0);
             mBinding.joinTripDetailsView.tvJoinTripAddress.setText(activityTabBean.getResult().getName());
-            // mBinding.joinTripDetailsView.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
+            //mBinding.joinTripDetailsView.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
             //mBinding.joinTripDetailsView.tvTime.setText(activityTabBean.getResult().getTime());
             //mBinding.joinTripDetailsView.tvAddress.setText(activityTabBean.getResult().getAddress());
             //详情

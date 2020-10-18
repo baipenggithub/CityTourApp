@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.EnteredShViewModel" />
+            type="com.bp.hmi.citytour.ui.viewmodel.EnterShDetailsViewModel" />
     </data>
 
     <LinearLayout
@@ -85,7 +85,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@mipmap/home_entred_map_001" />
+                            android:src="@mipmap/test_map_01" />
 
                         <ImageView
                             android:layout_width="match_parent"

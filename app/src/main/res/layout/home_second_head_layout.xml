@@ -118,7 +118,7 @@
                 android:layout_marginRight="@dimen/tab_dimens_25"
                 android:text="@{viewModel.mCodeTitleList.get(viewModel.mCurrentIndex)}"
                 android:textColor="@color/white"
-                android:textSize="@dimen/tv_size_20"
+                android:textSize="@dimen/tv_size_40"
                 android:textStyle="bold" />
 
             <TextView

@@ -15,11 +15,17 @@ public interface ApiService {
     //走进上海
     String HOME_API_ENTER_SH = "api/zouJinSH";
 
+    //活动详情
+    String HOME_API_HOME_ENTER_SH_DETAILS = "api/zouJinSH/";
+
     //走进上海
     String HOME_API_HOME_VIDEO = "api/video";
 
     //活动
     String HOME_API_HOME_ACTIVITY = "api/activity";
+
+    //活动详情
+    String HOME_API_HOME_ACTIVITY_DETAILS = "api/activity/";
 
     //购物券
     String HOME_API_HOME_CARDS = "api/consumerVoucher";
