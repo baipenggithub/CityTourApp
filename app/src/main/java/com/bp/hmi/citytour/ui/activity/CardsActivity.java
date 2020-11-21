@@ -81,8 +81,9 @@ public class CardsActivity extends BaseActivity<ActivityCardsBinding, CardsViewM
 
                 mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
                     @Override
-                    public void onItemListener(SubCardsTabTitleBean resultBean, int position) {
+                    public void onItemListener(SubCardsTabTitleBean resultBean, int position, View view) {
                         mSubTabTitleAdapter.setSelectedIndex(position);
+
                     }
                 });
             }

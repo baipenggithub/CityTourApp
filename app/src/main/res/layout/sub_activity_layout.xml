@@ -22,8 +22,8 @@
             android:layout_marginBottom="@dimen/tab_dimens_10">
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_20"
-                android:layout_height="@dimen/tab_dimens_20"
+                android:layout_width="@dimen/tab_dimens_17"
+                android:layout_height="@dimen/tab_dimens_17"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/city_tour_home_ic_activity" />
 
@@ -31,10 +31,10 @@
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/tab_dimens_35"
+                android:layout_marginLeft="@dimen/tab_dimens_30"
                 android:text="活动"
                 android:textColor="@color/home_color_05"
-                android:textSize="@dimen/tv_size_20"
+                android:textSize="@dimen/tv_size_18"
                 android:textStyle="bold" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_centerVertical="true"
                 android:text="更多 >"
                 android:textColor="@color/home_color_06"
-                android:textSize="@dimen/tv_size_15" />
+                android:textSize="@dimen/tv_size_12" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/tab_dimens_20"
+            android:layout_marginEnd="@dimen/tab_dimens_20"
             android:overScrollMode="never"
             android:scrollbars="none" />
     </LinearLayout>

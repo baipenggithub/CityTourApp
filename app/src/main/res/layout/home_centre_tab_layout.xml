@@ -2,8 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <LinearLayout style="@style/MatchWrap.Vertical"
-       >
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_marginTop="@dimen/tab_dimens_30">
 
         <LinearLayout
             style="@style/MatchWrap.Horizontal"
@@ -29,7 +30,7 @@
                     android:gravity="center"
                     android:text="展览"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -51,7 +52,7 @@
                     android:gravity="center"
                     android:text="景点"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
 
@@ -74,7 +75,7 @@
                     android:gravity="center"
                     android:text="体育"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,7 +97,7 @@
                     android:gravity="center"
                     android:text="购物"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
 
@@ -127,7 +128,7 @@
                     android:gravity="center"
                     android:text="休闲"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,7 +150,7 @@
                     android:gravity="center"
                     android:text="活动"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,7 +173,7 @@
                     android:gravity="center"
                     android:text="夜市"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -194,7 +195,7 @@
                     android:gravity="center"
                     android:text="消费券"
                     android:textColor="@color/home_color_01"
-                    android:textSize="@dimen/tv_size_18" />
+                    android:textSize="@dimen/tv_size_13" />
             </LinearLayout>
 
         </LinearLayout>

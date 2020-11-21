@@ -44,48 +44,38 @@ public class TravelViewModel extends BaseViewModel {
         HomeVideoBean.ResultBean.ItemsBean v3 = new HomeVideoBean.ResultBean.ItemsBean();
         v3.setName("假日周边好去处");
         v3.setId(R.mipmap.item_1);
-//        v3.setLike(true);
-//        v3.setFavorite(false);
-//        v3.setLikeSum(20);
-//        v3.setFavoriteSum(10);
+        v3.setCollectQty(20);
+        v3.setCommentQty(10);
         bean.add(v3);
 
         HomeVideoBean.ResultBean.ItemsBean v4 = new HomeVideoBean.ResultBean.ItemsBean();
         v4.setId(R.mipmap.item_2);
         v4.setName("一帘幽梦|海香林..");
-//        v4.setLike(false);
-//        v4.setFavorite(false);
-//        v4.setLikeSum(21);
-//        v4.setFavoriteSum(30);
+        v4.setCollectQty(30);
+        v4.setCommentQty(90);
         bean.add(v4);
 
         HomeVideoBean.ResultBean.ItemsBean v5 = new HomeVideoBean.ResultBean.ItemsBean();
         v5.setId(R.mipmap.item_3);
         v5.setName("大美无言,盛没无疆");
-//        v5.setLike(true);
-//        v5.setFavorite(true);
-//        v5.setLikeSum(32);
-//        v5.setFavoriteSum(16);
+        v5.setCollectQty(2);
+        v5.setCommentQty(100);
         bean.add(v5);
 
 
         HomeVideoBean.ResultBean.ItemsBean v6 = new HomeVideoBean.ResultBean.ItemsBean();
         v6.setId(R.mipmap.item_4);
         v6.setName("周末画展合集");
-//        v6.setLike(false);
-//        v6.setFavorite(true);
-//        v6.setLikeSum(60);
-//        v6.setFavoriteSum(70);
+        v6.setCollectQty(5);
+        v6.setCommentQty(9);
         bean.add(v6);
 
 
         HomeVideoBean.ResultBean.ItemsBean v7 = new HomeVideoBean.ResultBean.ItemsBean();
         v7.setId(R.mipmap.item_5);
         v7.setName("上海夜景十大看点");
-//        v7.setLike(false);
-//        v7.setFavorite(true);
-//        v7.setLikeSum(60);
-//        v7.setFavoriteSum(70);
+        v7.setCollectQty(50);
+        v7.setCommentQty(12);
         bean.add(v7);
 
         HomeVideoBean.ResultBean.ItemsBean v8 = new HomeVideoBean.ResultBean.ItemsBean();

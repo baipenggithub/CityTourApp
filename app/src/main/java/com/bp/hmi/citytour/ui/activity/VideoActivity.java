@@ -252,8 +252,12 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
 
                 mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
                     @Override
-                    public void onItemListener(SubCardsTabTitleBean resultBean, int position) {
+                    public void onItemListener(SubCardsTabTitleBean resultBean, int position, View view) {
                         mSubTabTitleAdapter.setSelectedIndex(position);
+                        if (resultBean.getTitle().equals("类型")) {
+                            //showMenuPop(view);
+                        }
+
                     }
                 });
             }

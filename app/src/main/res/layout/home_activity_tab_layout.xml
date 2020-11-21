@@ -36,7 +36,7 @@
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
-            android:layout_marginTop="-36dp"
+            android:layout_marginTop="-40dp"
             android:background="@drawable/base_round_36_white"
             android:paddingBottom="@dimen/tab_dimens_100">
 

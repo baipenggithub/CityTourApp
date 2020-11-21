@@ -138,7 +138,7 @@ public class NewActivityDetailsActivity extends BaseActivity<ActivityNewDetailsB
         mViewModel.mActDetailsBean.observe(this, activityTabBean -> {
             hideProgress();
 
-            GlideUtils.loadCircleImage_17(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivAvd);
+            GlideUtils.loadCircleImage(BaseApplication.getApplication(), ApiService.HOME_API + activityTabBean.getResult().getCover(), mBinding.ivAvd, 20);
             mBinding.tvJoinTripAddress.setText(activityTabBean.getResult().getName());
             mBinding.tvJoinTripRanking.setText(activityTabBean.getResult().getPingfen() + "分");
             mBinding.tvTime.setText(activityTabBean.getResult().getTime());

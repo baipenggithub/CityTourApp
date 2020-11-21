@@ -75,10 +75,10 @@ public class HomeCentreTabViewModel extends BaseViewModel {
     /**
      * 获取活动
      */
-    public void requestActivityInfo() {
+    public void requestActivityInfo(String type) {
         Map<String, String> params = new HashMap<>();
         params.put("isNew", "0");
-        params.put("type", "");
+        params.put("type", type);
         RxRetrofitClient.create(APiClient.class).getActivityData(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -106,5 +106,37 @@ public class HomeCentreTabViewModel extends BaseViewModel {
                 });
     }
 
+    /**
+     * 获取购物
+     */
+    public void requestShopping() {
+        Map<String, String> params = new HashMap<>();
+        params.put("isNew", "");
+        params.put("type", "3");
+        RxRetrofitClient.create(APiClient.class).getActivityData(params)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<ActivityTabBean>() {
+                    @Override
+                    public void onStart() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onStart......");
+                    }
 
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onCompleted......");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onError......" + e);
+                    }
+
+                    @Override
+                    public void onNext(ActivityTabBean weatherBean) {
+                        Log.d(TAG, Thread.currentThread().getName() + "---onNext......" + weatherBean.toString());
+                        mActivityData.postValue(weatherBean);
+                    }
+                });
+    }
 }

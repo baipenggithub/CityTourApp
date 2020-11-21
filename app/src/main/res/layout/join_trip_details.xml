@@ -55,12 +55,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/home_color_17"
                 android:id="@+id/tvTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/tab_dimens_10"
                 android:text="周二至周日9:00-17:00(16:00 禁止入场)"
+                android:textColor="@color/home_color_17"
                 android:textSize="@dimen/tv_size_13" />
 
             <TextView
@@ -142,22 +142,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <WebView
                 android:id="@+id/mWeb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_1"
-            android:layout_marginLeft="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_10"
-            android:layout_marginRight="@dimen/tab_dimens_20"
-            android:layout_marginBottom="@dimen/tab_dimens_10"
-            android:background="#d8d8d8" />
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
@@ -237,6 +228,7 @@
                 android:scrollbars="none" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/tv_join_trip"
             android:layout_width="@dimen/tab_dimens_160"

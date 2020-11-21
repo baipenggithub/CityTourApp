@@ -9,7 +9,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_dimens_200"
+            android:layout_height="@dimen/tab_dimens_180"
             android:background="@mipmap/city_tour_home_up_bac"
             android:orientation="vertical">
 
@@ -51,7 +51,7 @@
                         android:singleLine="true"
                         android:textColor="@android:color/white"
                         android:textColorHint="@color/home_back_grey"
-                        android:textSize="@dimen/tv_size_14" />
+                        android:textSize="@dimen/tv_size_13" />
 
                     <ImageView
                         android:id="@+id/tv_home_search"
@@ -74,7 +74,7 @@
                     android:drawablePadding="@dimen/tab_dimens_10"
                     android:text="上海"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/tv_size_15"
+                    android:textSize="@dimen/tv_size_13"
                     app:drawableEndCompat="@mipmap/city_tour_home_ic_down" />
 
             </RelativeLayout>
@@ -101,13 +101,13 @@
                 android:layout_marginTop="@dimen/tab_dimens_06"
                 android:text="随申码"
                 android:textColor="@color/light_grey"
-                android:textSize="@dimen/tv_size_18" />
+                android:textSize="@dimen/tv_size_13" />
 
         </LinearLayout>
 
         <LinearLayout
             style="@style/MatchWrap.Vertical"
-            android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_marginTop="@dimen/tab_dimens_15"
             android:layout_marginBottom="@dimen/tab_dimens_10">
 
             <TextView
@@ -116,7 +116,7 @@
                 android:lineSpacingExtra="@dimen/tab_dimens_06"
                 android:text="12点半苏浙汇餐厅消费128元 \n 你已成功预约2020-08-30迪尼斯乐园双人门票"
                 android:textColor="#74c8d6"
-                android:textSize="@dimen/tv_size_14" />
+                android:textSize="@dimen/tv_size_10" />
 
         </LinearLayout>
     </LinearLayout>

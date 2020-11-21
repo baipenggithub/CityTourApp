@@ -4,7 +4,7 @@
     android:id="@+id/ll_ac_details"
     style="@style/MatchWrap.Vertical"
     android:layout_marginTop="@dimen/tab_dimens_05"
-    android:layout_marginEnd="@dimen/tab_dimens_20"
+    android:layout_marginEnd="@dimen/tab_dimens_10"
     android:background="@mipmap/home_activity_small_tab">
 
     <RelativeLayout
@@ -18,13 +18,12 @@
             android:scaleType="fitXY"
             android:src="@mipmap/test_pic" />
 
-        <com.necer.view.RoundAngleImageView
+        <ImageView
             android:layout_width="@dimen/tab_dimens_30"
             android:layout_height="@dimen/tab_dimens_30"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="-2dp"
-            android:src="@mipmap/city_tour_home_ic_new"
-            app:rightTopRadius="@dimen/tab_dimens_15" />
+            android:layout_marginEnd="-2dp"
+            android:src="@mipmap/city_tour_home_ic_new" />
 
     </RelativeLayout>
 

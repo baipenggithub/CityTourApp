@@ -116,10 +116,10 @@
                 android:layout_gravity="center_horizontal"
                 android:text="查看详情"
                 android:textColor="@color/black"
-                android:textSize="@dimen/tv_size_15" />
+                android:textSize="@dimen/tv_size_13" />
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_20"
+                android:layout_width="@dimen/tab_dimens_18"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/tab_dimens_06"

@@ -9,29 +9,30 @@
             type="com.bp.hmi.citytour.ui.viewmodel.HomeViewModel" />
     </data>
 
-    <LinearLayout style="@style/MatchWrap.Vertical">
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:background="@drawable/base_round_36_white">
 
         <RelativeLayout
             style="@style/MatchWrap.Horizontal"
             android:layout_marginStart="@dimen/tab_dimens_20"
-            android:layout_marginTop="@dimen/tab_dimens_20"
+            android:layout_marginTop="@dimen/tab_dimens_30"
             android:layout_marginEnd="@dimen/tab_dimens_20"
             android:layout_marginBottom="@dimen/tab_dimens_10">
 
             <ImageView
-                android:layout_width="@dimen/tab_dimens_20"
-                android:layout_height="@dimen/tab_dimens_20"
+                android:layout_width="@dimen/tab_dimens_17"
+                android:layout_height="@dimen/tab_dimens_17"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/city_tour_home_ic_video" />
 
             <TextView
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/tab_dimens_35"
+                android:layout_marginLeft="@dimen/tab_dimens_30"
                 android:text="视频"
                 android:textColor="@color/home_color_05"
-                android:textSize="@dimen/tv_size_20"
+                android:textSize="@dimen/tv_size_18"
                 android:textStyle="bold" />
 
             <TextView
@@ -41,7 +42,7 @@
                 android:layout_centerVertical="true"
                 android:text="更多 >"
                 android:textColor="@color/home_color_06"
-                android:textSize="@dimen/tv_size_15" />
+                android:textSize="@dimen/tv_size_12" />
         </RelativeLayout>
 
 
@@ -49,6 +50,8 @@
             android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/tab_dimens_10"
+            android:layout_marginEnd="@dimen/tab_dimens_10"
             android:overScrollMode="never"
             android:scrollbars="none" />
     </LinearLayout>

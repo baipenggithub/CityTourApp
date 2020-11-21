@@ -56,8 +56,12 @@ public class PavilionActivity extends BaseActivity<ActivityPavilionBinding, Pavi
         mSubTabTitleAdapter.setSelectedIndex(0);
         mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
             @Override
-            public void onItemListener(SubCardsTabTitleBean resultBean, int position) {
+            public void onItemListener(SubCardsTabTitleBean resultBean, int position, View view) {
                 mSubTabTitleAdapter.setSelectedIndex(position);
+                if (resultBean.getTitle().equals("类型")) {
+                   // showMenuPop(view);
+                }
+
             }
         });
 

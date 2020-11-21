@@ -30,4 +30,9 @@
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
+    <style name="popShowAnim">
+        <item name="android:windowEnterAnimation">@anim/pop_alpha_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_alpha_out</item>
+    </style>
+
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
@@ -23,6 +22,7 @@ import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
 import com.bp.hmi.citytour.ui.activity.NewActivityDetailsActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
+import com.bp.hmi.citytour.ui.activity.ShoppingActivity;
 import com.bp.hmi.citytour.ui.activity.SportsActivity;
 import com.bp.hmi.citytour.ui.activity.TravelActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
@@ -105,6 +105,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                 } else if (o.equals("体育")) {
                     Intent in = new Intent(getActivity(), SportsActivity.class);
                     startActivity(in);
+                } else if (o.equals("购物")) {
+                    Intent in = new Intent(getActivity(), ShoppingActivity.class);
+                    startActivity(in);
                 } else {
                     ToastUtils.showLong("敬请期待!");
                 }
@@ -144,11 +147,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         mViewModel.uiChangeObservable.hideUserEvent.observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
+                mBinding.homeNestedScrollView.scrollTo(0, 0);
                 mBinding.ivShowUserInfo.setVisibility(View.GONE);
                 mBinding.homeSecondHeadView.getRoot().setVisibility(View.GONE);
                 mBinding.homeFirstHeadView.getRoot().setVisibility(View.VISIBLE);
 
-                mBinding.homeNestedScrollView.fullScroll(ScrollView.FOCUS_UP);
+
             }
         });
 

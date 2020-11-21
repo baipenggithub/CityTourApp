@@ -166,22 +166,23 @@
                         android:id="@+id/tv_spot_show_details"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/tab_dimens_10"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="@dimen/tab_dimens_10">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="查看详情"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/tv_size_15" />
+                            android:textSize="@dimen/tv_size_13" />
 
-                            <ImageView
-                                android:layout_width="@dimen/tab_dimens_20"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/tab_dimens_06"
-                                android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/ic_down"/>
+                        <ImageView
+                            android:layout_width="@dimen/tab_dimens_18"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/tab_dimens_06"
+                            android:src="@mipmap/ic_down" />
 
                     </LinearLayout>
 

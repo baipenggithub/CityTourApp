@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.bean.SubCardsTabTitleBean;
 import com.bp.hmi.citytour.databinding.ActivitySportsBinding;
 import com.bp.hmi.citytour.ui.adapter.HomeCentreTabAdapter;
 import com.bp.hmi.citytour.ui.adapter.SubTabTitleAdapter;
@@ -33,7 +34,7 @@ public class SportsActivity extends BaseActivity<ActivitySportsBinding, HomeCent
         super.initData();
         showProgress();
         mViewModel.getSubCardsTitle();
-        mViewModel.requestActivityInfo();
+        mViewModel.requestActivityInfo("0");
     }
 
     @Override
@@ -73,8 +74,13 @@ public class SportsActivity extends BaseActivity<ActivitySportsBinding, HomeCent
             mBinding.subRecyclerView.setAdapter(mSubTabTitleAdapter);
             mSubTabTitleAdapter.setSelectedIndex(0);
 
-            mSubTabTitleAdapter.addOnItemClickListener((resultBean, position) -> mSubTabTitleAdapter.setSelectedIndex(position));
-        });
+            mSubTabTitleAdapter.addOnItemClickListener(new SubTabTitleAdapter.OnItemClickListener() {
+                @Override
+                public void onItemListener(SubCardsTabTitleBean resultBean, int position, View view) {
+                    mSubTabTitleAdapter.setSelectedIndex(position);
+
+                }
+            });        });
 
         mViewModel.mActivityData.observe(this, activityTabBean -> {
             hideProgress();

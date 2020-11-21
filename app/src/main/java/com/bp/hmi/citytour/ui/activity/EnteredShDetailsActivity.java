@@ -113,7 +113,7 @@ public class EnteredShDetailsActivity extends BaseActivity<ActivityJoinTripBindi
             }
         });
 
-        mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData));
+        mBinding.joinTripDetailsView.banner.setAdapter(new HomeBannerAdapter(mBannerData,true));
         mBinding.joinTripDetailsView.banner.setIndicator(new CircleIndicator(this));
         mBinding.joinTripDetailsView.banner.setIndicatorGravity(IndicatorConfig.Direction.CENTER);
         mBinding.joinTripDetailsView.banner.setIndicatorMargins(new IndicatorConfig.Margins(0, 0,

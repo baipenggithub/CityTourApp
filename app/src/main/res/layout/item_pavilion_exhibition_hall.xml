@@ -19,6 +19,7 @@
         app:rightTopRadius="@dimen/tab_dimens_10" />
 
     <ImageView
+        android:id="@+id/iv_virtual_showrooms"
         android:layout_width="@dimen/tab_dimens_100"
         android:layout_height="@dimen/tab_dimens_25"
         android:layout_alignParentRight="true"

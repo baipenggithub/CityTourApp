@@ -38,10 +38,13 @@ public class PavilionAdapter extends BaseRecyclerAdapter<PavilionBean, BaseRecyc
         int min = 1;
         int index = random.nextInt(max) % (max - min + 1) + min;
         if (index == 1) {
+            helper.setGone(R.id.iv_virtual_showrooms,false);
             helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_green);
         } else if (index == 2) {
+            helper.setGone(R.id.iv_virtual_showrooms,true);
             helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_red);
         } else if (index == 3) {
+            helper.setGone(R.id.iv_virtual_showrooms,false);
             helper.setBackgroundRes(R.id.item_dot, R.drawable.base_round_10_ff9900);
         }
     }

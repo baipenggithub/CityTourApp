@@ -72,7 +72,9 @@
             android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/tab_dimens_10"
             android:layout_marginTop="@dimen/tab_dimens_10"
+            android:layout_marginEnd="@dimen/tab_dimens_10"
             android:overScrollMode="never"
             android:scrollbars="none" />
     </LinearLayout>

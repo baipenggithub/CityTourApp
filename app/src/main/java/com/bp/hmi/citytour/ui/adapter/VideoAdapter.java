@@ -23,8 +23,6 @@ import java.util.List;
  * </pre>
  */
 public class VideoAdapter extends BaseRecyclerAdapter<HomeVideoBean.ResultBean.ItemsBean, BaseRecyclerHolder> {
-
-
     /**
      * Initialization data.
      *
@@ -37,11 +35,10 @@ public class VideoAdapter extends BaseRecyclerAdapter<HomeVideoBean.ResultBean.I
 
     @Override
     protected void convert(BaseRecyclerHolder helper, HomeVideoBean.ResultBean.ItemsBean item) {
-        //        Random random = new Random();
-        //        ViewGroup.LayoutParams layoutParams = helper.getView(R.id.iv_video_pic).getLayoutParams();
-        //        layoutParams.height = random.nextInt(400) + 400;
-        //        helper.getView(R.id.iv_video_pic).setLayoutParams(layoutParams);
-
+//        Random random = new Random();
+//        ViewGroup.LayoutParams layoutParams = helper.getView(R.id.iv_video_pic).getLayoutParams();
+//        layoutParams.height = random.nextInt(400) + 400;
+//        helper.getView(R.id.iv_video_pic).setLayoutParams(layoutParams);
         helper.setText(R.id.tv_video_title, item.getName());
         helper.setText(R.id.tv_video_like, item.getCollectQty() + "w");
         helper.setText(R.id.tv_video_favorite, item.getCommentQty() + "w");

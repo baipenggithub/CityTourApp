@@ -4,20 +4,64 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="敬请期待!"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/tv_size_20"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@mipmap/city_my_bac"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_book_head"
+                style="@style/MatchMatch.Horizontal"
+                android:layout_height="@dimen/tab_dimens_90"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="@dimen/tab_dimens_20"
+                    android:layout_height="@dimen/tab_dimens_20"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/tab_dimens_20"
+                    android:layout_marginBottom="@dimen/tab_dimens_20"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/tour_home_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/tab_dimens_20"
+                    android:text="个人中心"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_20" />
+            </RelativeLayout>
+
+            <com.bp.hmi.citytour.widget.NiceImageView
+                android:layout_width="@dimen/tab_dimens_90"
+                android:layout_height="@dimen/tab_dimens_90"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/tab_dimens_20"
+                android:src="@mipmap/city_my_icon"
+                app:is_circle="true" />
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bp.hmi.citytour.ui.viewmodel.MyViewModel" />
+    </data>
 </layout>
