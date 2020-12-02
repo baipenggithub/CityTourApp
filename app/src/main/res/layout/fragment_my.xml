@@ -2,14 +2,19 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_dimens_400"
+            android:background="@mipmap/city_my_bac" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@mipmap/city_my_bac"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -18,45 +23,378 @@
             <RelativeLayout
                 android:id="@+id/rl_book_head"
                 style="@style/MatchMatch.Horizontal"
-                android:layout_height="@dimen/tab_dimens_90"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="@dimen/tab_dimens_50"
+                android:layout_marginTop="@dimen/tab_dimens_20">
 
                 <ImageView
                     android:id="@+id/ivBack"
                     android:layout_width="@dimen/tab_dimens_20"
                     android:layout_height="@dimen/tab_dimens_20"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="@dimen/tab_dimens_20"
-                    android:layout_marginBottom="@dimen/tab_dimens_20"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/tab_dimens_16"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/tour_home_back" />
+                    android:src="@mipmap/tour_home_back"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/tab_dimens_20"
+                    android:layout_centerInParent="true"
                     android:text="个人中心"
                     android:textColor="@color/white"
                     android:textSize="@dimen/tv_size_20" />
             </RelativeLayout>
 
-            <com.bp.hmi.citytour.widget.NiceImageView
-                android:layout_width="@dimen/tab_dimens_90"
-                android:layout_height="@dimen/tab_dimens_90"
-                android:layout_gravity="center_horizontal"
+            <RelativeLayout style="@style/MatchWrap">
+
+                <RelativeLayout
+
+                    android:id="@+id/rl_head_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tab_dimens_20">
+
+
+                    <ImageView
+                        android:id="@+id/iv_my_head"
+                        android:layout_width="@dimen/tab_dimens_90"
+                        android:layout_height="@dimen/tab_dimens_90"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/city_my_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/tab_dimens_25"
+                        android:background="@drawable/base_frame_white_1_round_30_transparent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/tab_dimens_10"
+                        android:paddingRight="@dimen/tab_dimens_10">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/tab_dimens_16"
+                            android:layout_height="@dimen/tab_dimens_16"
+                            android:layout_marginRight="@dimen/tab_dimens_05">
+
+                            <ImageView
+                                style="@style/MatchMatch"
+                                android:src="@mipmap/my_user_vip" />
+
+                            <TextView
+                                style="@style/WrapWrap"
+                                android:layout_centerInParent="true"
+                                android:text="V"
+                                android:textColor="@color/home_color_09"
+                                android:textSize="@dimen/tab_dimens_08" />
+                        </RelativeLayout>
+
+                        <TextView
+                            style="@style/WrapWrap"
+                            android:text="已实名"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/tv_size_10" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/setting"
+                    android:layout_width="@dimen/tab_dimens_25"
+                    android:layout_height="@dimen/tab_dimens_25"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:layout_marginRight="@dimen/tab_dimens_25"
+                    android:src="@mipmap/my_user_setting" />
+
+                <TextView
+                    android:id="@+id/tv_my_name"
+                    style="@style/WrapWrap"
+                    android:layout_below="@+id/rl_head_page"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:text="石*英"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/tv_size_18" />
+
+                <LinearLayout
+                    style="@style/WrapWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_30"
+                    android:layout_below="@+id/tv_my_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/tab_dimens_10"
+                    android:background="@drawable/base_round_30_000"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/tab_dimens_05"
+                    android:paddingRight="@dimen/tab_dimens_05">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_13"
+                        android:layout_height="@dimen/tab_dimens_13"
+                        android:layout_marginLeft="@dimen/tab_dimens_02"
+                        android:src="@mipmap/my_user_grade" />
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_13"
+                        android:layout_height="@dimen/tab_dimens_13"
+                        android:layout_marginLeft="@dimen/tab_dimens_02"
+                        android:src="@mipmap/my_user_grade" />
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_13"
+                        android:layout_height="@dimen/tab_dimens_13"
+                        android:layout_marginLeft="@dimen/tab_dimens_02"
+                        android:src="@mipmap/my_user_grade" />
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_13"
+                        android:layout_height="@dimen/tab_dimens_13"
+                        android:layout_marginLeft="@dimen/tab_dimens_02"
+                        android:src="@mipmap/my_user_grade" />
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_13"
+                        android:layout_height="@dimen/tab_dimens_13"
+                        android:layout_marginLeft="@dimen/tab_dimens_02"
+                        android:src="@mipmap/my_user_grade" />
+
+                    <View
+                        android:layout_width="@dimen/tab_dimens_05"
+                        android:layout_height="@dimen/tab_dimens_05" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:text="5星会员 2020/02/05"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tv_size_12" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                style="@style/MatchMatch.Vertical"
                 android:layout_marginTop="@dimen/tab_dimens_20"
-                android:src="@mipmap/city_my_icon"
-                app:is_circle="true" />
+                android:background="@drawable/base_round_36_white"
+                android:paddingLeft="@dimen/tab_dimens_30"
+                android:paddingRight="@dimen/tab_dimens_30">
 
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginTop="@dimen/tab_dimens_20"
+                    android:layout_marginBottom="@dimen/tab_dimens_20"
+                    android:text="我的城市游俱乐部"
+                    android:textColor="@color/home_color_18"
+                    android:textSize="@dimen/tv_size_12" />
+
+                <LinearLayout
+                    android:id="@+id/menu_1"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/my_menu_1" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的订单"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_0_4"
+                    android:background="@color/home_color_16" />
+
+                <LinearLayout
+                    android:id="@+id/menu_2"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:padding="@dimen/tab_dimens_02"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/my_menu_2" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的卡包"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="共 3 张"
+                        android:textColor="@color/home_color_18"
+                        android:textSize="@dimen/tv_size_12" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_0_4"
+                    android:background="@color/home_color_16" />
+
+                <LinearLayout
+                    android:id="@+id/menu_3"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/my_menu_3" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的消费券"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="共 5 张"
+                        android:textColor="@color/home_color_18"
+                        android:textSize="@dimen/tv_size_12" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_0_4"
+                    android:background="@color/home_color_16" />
+
+                <LinearLayout
+                    android:id="@+id/menu_4"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:padding="@dimen/tab_dimens_02"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/my_menu_4" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的行程"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="共 2 个"
+                        android:textColor="@color/home_color_18"
+                        android:textSize="@dimen/tv_size_12" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_0_4"
+                    android:background="@color/home_color_16" />
+
+                <LinearLayout
+                    android:id="@+id/menu_5"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:padding="@dimen/tab_dimens_02"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/my_menu_5" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的关注"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/tab_dimens_20"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="共 37 个"
+                        android:textColor="@color/home_color_18"
+                        android:textSize="@dimen/tv_size_12" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_dimens_0_4"
+                    android:background="@color/home_color_16" />
+
+                <LinearLayout
+                    android:id="@+id/menu_6"
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_height="@dimen/tab_dimens_50">
+
+                    <ImageView
+                        android:layout_width="@dimen/tab_dimens_25"
+                        android:layout_height="@dimen/tab_dimens_25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/tab_dimens_20"
+                        android:padding="@dimen/tab_dimens_02"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/my_menu_6" />
+
+                    <TextView
+                        style="@style/WrapWrap"
+                        android:layout_gravity="center_vertical"
+                        android:text="帮助与反馈"
+                        android:textColor="@color/home_color_19"
+                        android:textSize="@dimen/tv_size_17" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </RelativeLayout>
 
     <data>
 

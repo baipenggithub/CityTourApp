@@ -32,7 +32,6 @@ public class CardsViewModel extends BaseViewModel {
     public CardsViewModel(@NonNull Application application) {
         super(application);
         initData();
-        createRepository();
     }
 
 
@@ -41,36 +40,59 @@ public class CardsViewModel extends BaseViewModel {
         mCardsBeanList = new SingleLiveEvent<>();
     }
 
-    protected void createRepository() {
-        getSubCardsTitle();
-    }
 
-    public void getSubCardsTitle() {
+    public void getSubCardsTitle(int tyep) {
         List<SubCardsTabTitleBean> subCardsList = new ArrayList<>();
 
         SubCardsTabTitleBean subCardsTitle1 = new SubCardsTabTitleBean();
-        subCardsTitle1.setTitle("全部");
+        if (tyep == 0) {
+            subCardsTitle1.setTitle("全部");
+        } else {
+            subCardsTitle1.setTitle("全部 (16)");
+        }
+
         subCardsList.add(subCardsTitle1);
 
         SubCardsTabTitleBean subCardsTitle2 = new SubCardsTabTitleBean();
-        subCardsTitle2.setTitle("折扣券");
+        if (tyep == 0) {
+            subCardsTitle2.setTitle("折扣券");
+        } else {
+            subCardsTitle2.setTitle("会员 (2)");
+        }
+
         subCardsList.add(subCardsTitle2);
 
         SubCardsTabTitleBean subCardsTitle3 = new SubCardsTabTitleBean();
-        subCardsTitle3.setTitle("礼品券");
+        if (tyep == 0) {
+            subCardsTitle3.setTitle("礼品券");
+        } else {
+            subCardsTitle3.setTitle("景点 (6)");
+        }
+
         subCardsList.add(subCardsTitle3);
 
         SubCardsTabTitleBean subCardsTitle4 = new SubCardsTabTitleBean();
-        subCardsTitle4.setTitle("特价券");
+        if (tyep == 0) {
+            subCardsTitle4.setTitle("特价券");
+        } else {
+            subCardsTitle4.setTitle("购物 (1)");
+        }
+
         subCardsList.add(subCardsTitle4);
 
         SubCardsTabTitleBean subCardsTitle5 = new SubCardsTabTitleBean();
-        subCardsTitle5.setTitle("换购券");
+
+        if (tyep == 0) {
+            subCardsTitle5.setTitle("换购券");
+        } else {
+            subCardsTitle5.setTitle("展馆 (4)");
+        }
         subCardsList.add(subCardsTitle5);
 
         mSubCardsTabTitleBean.postValue(subCardsList);
 
     }
+
 
     /**
      * 获取消费券

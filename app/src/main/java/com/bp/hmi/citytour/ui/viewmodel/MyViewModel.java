@@ -15,8 +15,7 @@ import java.util.List;
 
 public class MyViewModel extends BaseViewModel {
     private static final String TAG = PavilionViewModel.class.getSimpleName();
-    public SingleLiveEvent<List<ScheduleEntity>> mBookData;
-    public ObservableField<String> mBookSum;
+
 
     /**
      * Constructor.
@@ -29,20 +28,11 @@ public class MyViewModel extends BaseViewModel {
     }
 
     protected void initData() {
-        mBookData = new SingleLiveEvent<>();
-        mBookSum = new ObservableField<>("1");
+
     }
 
 
     public BookViewModel.UiChangeObservable uiChangeObservable = new BookViewModel.UiChangeObservable();
 
-
-    public static class UiChangeObservable {
-        public SingleLiveEvent homeFragmentLivEvent = new SingleLiveEvent<>();
-
-    }
-
-    public BindingCommand homeFragmentCommand = new BindingCommand(()
-            -> uiChangeObservable.homeFragmentLivEvent.call());
 
 }

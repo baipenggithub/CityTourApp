@@ -21,6 +21,7 @@
 
     <!--基本间距-->
     <dimen name="tab_dimens_0">0dp</dimen>
+    <dimen name="tab_dimens_0_4">0.3dp</dimen>
     <dimen name="tab_dimens_1">1dp</dimen>
     <dimen name="tab_dimens_02">02dp</dimen>
     <dimen name="tab_dimens_03">03dp</dimen>
