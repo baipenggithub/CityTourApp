@@ -30,7 +30,7 @@
                 android:id="@+id/tv_home_activity_title"
                 style="@style/WrapWrap"
                 android:layout_marginLeft="@dimen/tab_dimens_30"
-                android:text="视频"
+                android:text="云探店"
                 android:textColor="@color/home_color_05"
                 android:textSize="@dimen/tv_size_18"
                 android:textStyle="bold" />

@@ -18,7 +18,6 @@ import com.bp.hmi.citytour.bean.ActivityTabBean;
 import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
-import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
 import com.bp.hmi.citytour.ui.activity.NewActivityDetailsActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
@@ -26,6 +25,7 @@ import com.bp.hmi.citytour.ui.activity.ShoppingActivity;
 import com.bp.hmi.citytour.ui.activity.SportsActivity;
 import com.bp.hmi.citytour.ui.activity.TravelActivity;
 import com.bp.hmi.citytour.ui.activity.VideoActivity;
+import com.bp.hmi.citytour.ui.activity.WebViewActivity;
 import com.bp.hmi.citytour.ui.adapter.HomeActItemAdapter;
 import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
@@ -131,7 +131,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
             @Override
             public void onChanged(Object o) {
                 //
-                Intent in = new Intent(getActivity(), EnteredShActivity.class);
+//                Intent in = new Intent(getActivity(), EnteredShActivity.class);
+//                startActivity(in);
+                Intent in = new Intent(getActivity(), WebViewActivity.class);
                 startActivity(in);
             }
         });

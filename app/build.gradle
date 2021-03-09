@@ -58,6 +58,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+    implementation files('libs/AMap3DMap_7.8.0_AMapSearch_7.7.0_20201231.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -106,6 +107,7 @@ dependencies {
     //如果需要启用前置摄像头录像镜像调整功能需要额外引用以下库
     implementation'com.github.MasayukiSuda:Mp4Composer-android:v0.3.2'
 
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
 
     api project(path: ':calendar')
 

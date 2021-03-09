@@ -193,12 +193,10 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, VideoViewM
                 String url1 = "android.resource://" + getPackageName() + "/" + R.raw.test_01;
                 String url2 = "android.resource://" + getPackageName() + "/" + R.raw.test_02;
                 String url3 = "android.resource://" + getPackageName() + "/" + R.raw.test_03;
-                String url4 = "android.resource://" + getPackageName() + "/" + R.raw.test_04;
 
                 mVideoList.add(url1);
                 mVideoList.add(url2);
                 mVideoList.add(url3);
-                mVideoList.add(url4);
     }
 
 
