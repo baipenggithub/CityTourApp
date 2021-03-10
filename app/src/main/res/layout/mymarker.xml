@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/map_marker_back"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/tab_dimens_05"
+    android:paddingTop="@dimen/tab_dimens_02"
+    android:paddingEnd="@dimen/tab_dimens_05"
+    android:paddingBottom="@dimen/tab_dimens_02">
+
+    <ImageView
+        android:id="@+id/iv_marker"
+        android:layout_width="@dimen/tab_dimens_20"
+        android:layout_height="@dimen/tab_dimens_20"
+        android:src="@mipmap/city_tour_home_ic_expo" />
+
+    <TextView
+        android:id="@+id/tv_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上海展馆"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tv_size_12" />
+
+</LinearLayout>

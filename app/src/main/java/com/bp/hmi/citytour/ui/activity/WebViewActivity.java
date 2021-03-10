@@ -3,7 +3,6 @@ package com.bp.hmi.citytour.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.databinding.library.baseAdapters.BR;
@@ -12,9 +11,7 @@ import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
 import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityWebViewBinding;
-import com.bp.hmi.citytour.ui.viewmodel.BookViewModel;
 import com.bp.hmi.citytour.ui.viewmodel.WebViewModel;
-import com.bp.hmi.citytour.utils.ToastUtils;
 import com.just.agentweb.AgentWeb;
 
 public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, WebViewModel> {
@@ -42,20 +39,24 @@ public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, WebVie
     }
 
     private String getUrl(String tag) {
-        mViewModel.mWebTitle.set(tag);
+
         String url = "";
         switch (tag) {
-            case "云展览":
-                url = "";
-                break;
             case "红色足迹":
+                mViewModel.mWebTitle.set(tag);
                 url = "";
                 break;
             case "节气民俗":
+                mViewModel.mWebTitle.set(tag);
                 url = "https://s.wcd.im/v/4injcZ3d/?slv=6&sid=b701&v=oosnVwrLCzRJVujZlORcJFMOH9ZU";
                 break;
             case "姓氏宗谱":
+                mViewModel.mWebTitle.set(tag);
                 url = "http://h5.genealogy.imadc.cn/";
+                break;
+            default:
+                mViewModel.mWebTitle.set("云展览");
+                url = tag;
                 break;
         }
         return url;
