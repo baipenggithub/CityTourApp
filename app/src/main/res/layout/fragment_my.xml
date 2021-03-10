@@ -184,7 +184,7 @@
                     style="@style/WrapWrap"
                     android:layout_marginTop="@dimen/tab_dimens_20"
                     android:layout_marginBottom="@dimen/tab_dimens_20"
-                    android:text="我的城市游俱乐部"
+                    android:text="我的惠生活俱乐部"
                     android:textColor="@color/home_color_18"
                     android:textSize="@dimen/tv_size_12" />
 

@@ -1,19 +1,25 @@
 package com.bp.hmi.citytour.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.databinding.library.baseAdapters.BR;
 
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
+import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityWebViewBinding;
 import com.bp.hmi.citytour.ui.viewmodel.BookViewModel;
+import com.bp.hmi.citytour.ui.viewmodel.WebViewModel;
+import com.bp.hmi.citytour.utils.ToastUtils;
 import com.just.agentweb.AgentWeb;
 
-public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, BookViewModel> {
+public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, WebViewModel> {
     private AgentWeb mAgentWeb;
+    private String mTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +34,40 @@ public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, BookVi
     @Override
     public void initLayout() {
         super.initLayout();
-        buildAgentWeb();
+        mBinding.ivBack.setOnClickListener(v -> finish());
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        mTag = bundle.getString(CityConstant.PARAMETER_PASSING_KEY);
+        buildAgentWeb(getUrl(mTag));
     }
 
-    protected void buildAgentWeb() {
+    private String getUrl(String tag) {
+        mViewModel.mWebTitle.set(tag);
+        String url = "";
+        switch (tag) {
+            case "云展览":
+                url = "";
+                break;
+            case "红色足迹":
+                url = "";
+                break;
+            case "节气民俗":
+                url = "https://s.wcd.im/v/4injcZ3d/?slv=6&sid=b701&v=oosnVwrLCzRJVujZlORcJFMOH9ZU";
+                break;
+            case "姓氏宗谱":
+                url = "http://h5.genealogy.imadc.cn/";
+                break;
+        }
+        return url;
+    }
+
+    protected void buildAgentWeb(String url) {
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(mBinding.container, new LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator()
                 .createAgentWeb()
                 .ready()
-                .go("http://h5.genealogy.imadc.cn/");
-
-
+                .go(url);
     }
 
     @Override
@@ -80,4 +108,6 @@ public class WebViewActivity extends BaseActivity<ActivityWebViewBinding, BookVi
     public int initVariableId() {
         return BR.viewModel;
     }
+
+
 }

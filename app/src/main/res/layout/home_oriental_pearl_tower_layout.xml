@@ -69,7 +69,7 @@
             <ImageView
                 onClickCommand="@{viewModel.intoShCommand}"
                 android:layout_width="@dimen/tab_dimens_160"
-                android:layout_height="@dimen/tab_dimens_30"
+                android:layout_height="24dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/tab_dimens_100"
                 android:gravity="center"

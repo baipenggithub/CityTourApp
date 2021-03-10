@@ -18,7 +18,9 @@ import com.bp.hmi.citytour.bean.ActivityTabBean;
 import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.FragmentHomeBinding;
 import com.bp.hmi.citytour.ui.activity.CardsActivity;
+import com.bp.hmi.citytour.ui.activity.EnteredShActivity;
 import com.bp.hmi.citytour.ui.activity.HomeActActivity;
+import com.bp.hmi.citytour.ui.activity.MapActivity;
 import com.bp.hmi.citytour.ui.activity.NewActivityDetailsActivity;
 import com.bp.hmi.citytour.ui.activity.PavilionActivity;
 import com.bp.hmi.citytour.ui.activity.ShoppingActivity;
@@ -31,6 +33,9 @@ import com.bp.hmi.citytour.ui.adapter.VideoAdapter;
 import com.bp.hmi.citytour.ui.viewmodel.HomeViewModel;
 import com.bp.hmi.citytour.utils.ToastUtils;
 import com.bp.hmi.citytour.widget.EnterAnimLayout;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 
@@ -90,30 +95,49 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         mViewModel.uiChangeObservable.homeTabEvent.observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
-                if (o.equals("消费券")) {
-                    Intent in = new Intent(getActivity(), CardsActivity.class);
+                if (o.equals("云展览")) {
+                    Intent in = new Intent(getActivity(), MapActivity.class);
                     startActivity(in);
-                } else if (o.equals("展览")) {
-                    Intent in = new Intent(getActivity(), PavilionActivity.class);
-                    startActivity(in);
-                } else if (o.equals("活动")) {
-                    Intent in = new Intent(getActivity(), HomeActActivity.class);
-                    startActivity(in);
-                } else if (o.equals("景点")) {
+                } else if (o.equals("云景点")) {
                     Intent in = new Intent(getActivity(), TravelActivity.class);
                     startActivity(in);
-                } else if (o.equals("体育")) {
+                } else if (o.equals("云探店")) {
                     Intent in = new Intent(getActivity(), SportsActivity.class);
                     startActivity(in);
-                } else if (o.equals("购物")) {
+                } else if (o.equals("云购物")) {
                     Intent in = new Intent(getActivity(), ShoppingActivity.class);
                     startActivity(in);
-                } else {
+                } else if (o.equals("守护生灵")) {
+                    gotoIWXAPI();
+                } else if (o.equals("红色足迹")) {
                     ToastUtils.showLong("敬请期待!");
+                } else if (o.equals("节气民俗")) {
+                    gotoWebView((String) o);
+                } else if (o.equals("姓氏宗谱")) {
+                    gotoWebView((String) o);
                 }
-
             }
         });
+    }
+
+    private void gotoIWXAPI() {
+        String appId = "wxa1fc1eb63bd1c06d";
+        IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), appId);
+        WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+        // 小程序原始id
+        req.userName = "gh_5822c1dbf5fc";
+        req.path = "";
+        req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;
+        api.sendReq(req);
+    }
+
+
+    private void gotoWebView(String o) {
+        Bundle bundle = new Bundle();
+        bundle.putString(CityConstant.PARAMETER_PASSING_KEY, o);
+        Intent in = new Intent(getActivity(), WebViewActivity.class);
+        in.putExtras(bundle);
+        startActivity(in);
     }
 
     @Override
@@ -130,10 +154,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         mViewModel.uiChangeObservable.intoShEvent.observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
-                //
-//                Intent in = new Intent(getActivity(), EnteredShActivity.class);
-//                startActivity(in);
-                Intent in = new Intent(getActivity(), WebViewActivity.class);
+
+                Intent in = new Intent(getActivity(), EnteredShActivity.class);
                 startActivity(in);
             }
         });

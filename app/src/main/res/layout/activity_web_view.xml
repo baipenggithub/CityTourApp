@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.bp.hmi.citytour.ui.viewmodel.BookViewModel" />
+            type="com.bp.hmi.citytour.ui.viewmodel.WebViewModel" />
 
     </data>
 
@@ -42,7 +42,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/tab_dimens_20"
-                android:text="走进上海-已选路线"
+                android:text="@{viewModel.mWebTitle}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tv_size_16" />
         </RelativeLayout>

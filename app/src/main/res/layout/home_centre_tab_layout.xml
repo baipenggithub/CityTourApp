@@ -16,7 +16,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="展览">
+                android:tag="云展览">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -39,7 +39,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="景点">
+                android:tag="云景点">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -62,7 +62,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="体育">
+                android:tag="云探店">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -84,7 +84,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="购物">
+                android:tag="云购物">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -115,7 +115,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="休闲">
+                android:tag="守护生灵">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -137,7 +137,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="活动">
+                android:tag="红色足迹">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -159,7 +159,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="夜市">
+                android:tag="节气民俗">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
@@ -182,7 +182,7 @@
                 onClickCommand="@{viewModel.ivHomeTabCommand}"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:tag="消费券">
+                android:tag="姓氏宗谱">
 
                 <ImageView
                     android:layout_width="@dimen/tab_dimens_50"
