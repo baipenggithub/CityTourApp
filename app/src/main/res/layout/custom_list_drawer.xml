@@ -2,7 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/tab_dimens_230"
     android:layout_height="wrap_content"
-    android:background="@drawable/base_frame_1_gray_round_10_white">
+    android:background="@drawable/base_frame_1_gray_round_10_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_drawer_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:gravity="center_horizontal"
+        android:text="上海航海博物馆"
+        android:textColor="@color/black"
+        android:textSize="@dimen/tv_size_15"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_dimens_0_4"
+        android:layout_marginTop="@dimen/tab_dimens_10"
+        android:background="@color/home_color_07" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/drawerRecyclerView"

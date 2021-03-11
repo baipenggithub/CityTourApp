@@ -1,42 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/tab_dimens_61"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingStart="@dimen/tab_dimens_10"
     android:paddingEnd="@dimen/tab_dimens_10">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_dimens_60"
+    <TextView
         android:gravity="center_vertical"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_drawer_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="上海航海博物馆"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_size_15"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_drawer_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/tab_dimens_05"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="上海航海博物馆"
-            android:textColor="@color/home_color_05"
-            android:textSize="@dimen/tv_size_12" />
-    </LinearLayout>
-
-    <View
+        android:id="@+id/tv_drawer_url"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_dimens_1"
-        android:layout_gravity="bottom"
-        android:background="@color/home_color_08" />
+        android:layout_height="@dimen/tab_dimens_40"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="上海航海博物馆"
+        android:textColor="@color/home_color_05"
+        android:textSize="@dimen/tv_size_12" />
 
 </LinearLayout>

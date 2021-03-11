@@ -3,6 +3,7 @@ package com.bp.hmi.citytour.widget;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,6 +35,8 @@ public class ListDrawerPopupView extends CenterPopupView {
 
     @Override
     protected void onCreate() {
+        TextView textView = findViewById(R.id.tv_drawer_title);
+        textView.setText(mMarkerListBeans.get(0).getTitle());
         RecyclerView recyclerView = findViewById(R.id.drawerRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         MarkerAdapter mMarkerAdapter = new MarkerAdapter(R.layout.custom_list_drawer_item, mMarkerListBeans);

@@ -29,8 +29,8 @@ public class MarkerAdapter extends BaseRecyclerAdapter<MarkerListBean, BaseRecyc
 
     @Override
     protected void convert(BaseRecyclerHolder helper, MarkerListBean item) {
-        helper.setText(R.id.tv_drawer_title, (helper.getAdapterPosition() + 1) + "、" + item.getTitle());
-        helper.setText(R.id.tv_drawer_url, "      " + item.getUrl());
+
+        helper.setText(R.id.tv_drawer_url, (helper.getAdapterPosition() + 1) + "、" + item.getSubTitle());
         helper.itemView.setOnClickListener(new ClickListener(item));
     }
 

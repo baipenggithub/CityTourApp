@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.databinding.library.baseAdapters.BR;
-
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
@@ -17,6 +15,7 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.bp.hmi.citytour.BR;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
 import com.bp.hmi.citytour.bean.MarkerBean;
@@ -26,8 +25,6 @@ import com.bp.hmi.citytour.databinding.ActivityMapBinding;
 import com.bp.hmi.citytour.ui.viewmodel.MapViewModel;
 import com.bp.hmi.citytour.widget.ListDrawerPopupView;
 import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.enums.PopupPosition;
-import com.lxj.xpopup.interfaces.OnSelectListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +35,9 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
     private MapView mMapView = null;
     private AMap mAMap;
     private final List<MarkerBean> markerBeanList = new ArrayList<>();
-    private List<MarkerListBean> mSHMarkerListBeanList = new ArrayList<>();
-    private List<MarkerListBean> mZHMarkerListBeanList = new ArrayList<>();
-    private List<MarkerListBean> mSZMarkerListBeanList = new ArrayList<>();
+    private final List<MarkerListBean> mSHMarkerListBeanList = new ArrayList<>();
+    private final List<MarkerListBean> mZHMarkerListBeanList = new ArrayList<>();
+    private final List<MarkerListBean> mSZMarkerListBeanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +97,6 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
                     // 珠海
                 } else if (Integer.parseInt(id) == 1) {
                     showPop(mZHMarkerListBeanList);
-
 
                     // 苏州
                 } else if (Integer.parseInt(id) == 4) {
@@ -206,7 +202,7 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
     private void addData() {
         MarkerBean shanghai = new MarkerBean();
         shanghai.setmId("0");
-        shanghai.setmTitle("上海展馆(6)");
+        shanghai.setmTitle("上海展馆(5)");
         shanghai.setmLat(31.098178);
         shanghai.setmLon(121.852686);
         markerBeanList.add(shanghai);
@@ -257,16 +253,13 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
                 "http://www.snhm.org.cn/xunidaolan/10/index.html",
                 "http://www.snhm.org.cn/xunidaolan/11/index.html",
                 "http://www.snhm.org.cn/xunidaolan/20/index.html",
-                "http://www.snhm.org.cn/xunidaolan/21/index.html",
-                "https://digital.shmmc.com.cn/xnzt/hanghai_web.html"};
+                "http://www.snhm.org.cn/xunidaolan/21/index.html"};
+        String[] mShangHaiTitle = {"起源之谜", "生命长河", "体验自然", "未来之路", "演化之道"};
         for (int i = 0; i < mShangHai.length; i++) {
             MarkerListBean markerListBean = new MarkerListBean();
-            if (i == 5) {
-                markerListBean.setTitle("上海自然博物馆");
-            } else {
-                markerListBean.setTitle("上海中国航海博物馆");
-            }
+            markerListBean.setTitle("上海自然博物馆");
             markerListBean.setUrl(mShangHai[i]);
+            markerListBean.setSubTitle(mShangHaiTitle[i]);
             mSHMarkerListBeanList.add(markerListBean);
         }
 
@@ -274,27 +267,30 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
                 "https://720yun.com/t/cbvkOhie017",
                 "https://720yun.com/t/7evkOhie0p7",
         };
+        String[] mZhuHaiTitle = {"重彩华章——广彩瓷器300年精华展览", "珠耀海--馆藏鲍俊、鲍少游书画作品展"};
 
-        for (String s : mZhuHai) {
+        for (int i = 0; i < mZhuHai.length; i++) {
             MarkerListBean markerListBean = new MarkerListBean();
             markerListBean.setTitle("珠海博物馆");
-            markerListBean.setUrl(s);
+            markerListBean.setSubTitle(mZhuHaiTitle[i]);
+            markerListBean.setUrl(mZhuHai[i]);
             mZHMarkerListBeanList.add(markerListBean);
         }
 
         String[] mJiangSu = {
-                "https://720yun.com/t/7avkcq2hp2q",
+                "https://720yun.com/t/7avkcq2hp2q?scene_id=65834737",
                 "https://720yun.com/t/c1vkcq2h5ie",
                 "https://720yun.com/t/f5vkcq2hr27",
                 "https://www.szmuseum.com/GoldShow/index.html",
                 "https://www.szmuseum.com/xyfy/index.html?scene_id=52837942"
         };
-        for (String s : mJiangSu) {
+        String[] mJiangSuTitle = {"苏韵●缤纷青年手工艺联展", "北京画院藏齐白石艺术精品展", "绝妙好辞●苏州博物馆藏对联精品展", "黄金为尚", "鲜虞风云--古中山国文物精品展"};
+        for (int i = 0; i < mJiangSu.length; i++) {
             MarkerListBean markerListBean = new MarkerListBean();
             markerListBean.setTitle("苏州博物馆");
-            markerListBean.setUrl(s);
+            markerListBean.setUrl(mJiangSu[i]);
+            markerListBean.setSubTitle(mJiangSuTitle[i]);
             mSZMarkerListBeanList.add(markerListBean);
         }
-
     }
 }

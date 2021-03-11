@@ -12,9 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/tab_dimens_05"
-        android:layout_marginEnd="@dimen/tab_dimens_05"
-        android:layout_marginBottom="@dimen/tab_dimens_18"
+        android:layout_marginStart="@dimen/tab_dimens_02"
+        android:layout_marginEnd="@dimen/tab_dimens_02"
+        android:layout_marginBottom="@dimen/tab_dimens_05"
         android:background="@drawable/shape_white_10"
         android:orientation="vertical"
         android:paddingStart="@dimen/tab_dimens_05"
@@ -23,8 +23,8 @@
         <ImageView
             android:id="@+id/iv_video_pic"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/tab_dimens_05"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_dimens_10"
             android:scaleType="centerCrop"
             android:src="@mipmap/test_pic" />
 
