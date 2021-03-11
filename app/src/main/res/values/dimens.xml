@@ -52,6 +52,7 @@
     <dimen name="tab_dimens_50">50dp</dimen>
     <dimen name="tab_dimens_56">56dp</dimen>
     <dimen name="tab_dimens_60">60dp</dimen>
+    <dimen name="tab_dimens_61">61dp</dimen>
     <dimen name="tab_dimens_65">65dp</dimen>
     <dimen name="tab_dimens_68">68dp</dimen>
     <dimen name="tab_dimens_70">70dp</dimen>

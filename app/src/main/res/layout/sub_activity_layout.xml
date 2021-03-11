@@ -32,7 +32,7 @@
                 style="@style/WrapWrap"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/tab_dimens_30"
-                android:text="云展览"
+                android:text="云购物"
                 android:textColor="@color/home_color_05"
                 android:textSize="@dimen/tv_size_18"
                 android:textStyle="bold" />

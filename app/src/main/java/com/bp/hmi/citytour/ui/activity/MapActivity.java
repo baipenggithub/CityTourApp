@@ -20,10 +20,13 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.bp.hmi.citytour.R;
 import com.bp.hmi.citytour.base.BaseActivity;
 import com.bp.hmi.citytour.bean.MarkerBean;
+import com.bp.hmi.citytour.bean.MarkerListBean;
 import com.bp.hmi.citytour.common.CityConstant;
 import com.bp.hmi.citytour.databinding.ActivityMapBinding;
 import com.bp.hmi.citytour.ui.viewmodel.MapViewModel;
+import com.bp.hmi.citytour.widget.ListDrawerPopupView;
 import com.lxj.xpopup.XPopup;
+import com.lxj.xpopup.enums.PopupPosition;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 
 import java.util.ArrayList;
@@ -33,30 +36,11 @@ import static com.amap.api.maps.AMap.MAP_TYPE_NORMAL;
 
 public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> {
     private MapView mMapView = null;
-    private UiSettings mUiSettings;//定义一个UiSettings对象
     private AMap mAMap;
-    private String[] mShangHai = {
-            "http://www.snhm.org.cn/xunidaolan/9/index.html",
-            "http://www.snhm.org.cn/xunidaolan/10/index.html",
-            "http://www.snhm.org.cn/xunidaolan/11/index.html",
-            "http://www.snhm.org.cn/xunidaolan/20/index.html",
-            "http://www.snhm.org.cn/xunidaolan/21/index.html",
-            "https://digital.shmmc.com.cn/xnzt/hanghai_web.html"};
-    ;
-    private String[] mZhuHai = {
-            "https://720yun.com/t/cbvkOhie017",
-            "https://720yun.com/t/7evkOhie0p7",
-    };
-
-    private String[] mJiangSu = {
-            "https://720yun.com/t/7avkcq2hp2q",
-            "https://720yun.com/t/c1vkcq2h5ie",
-            "https://720yun.com/t/f5vkcq2hr27",
-            "https://www.szmuseum.com/GoldShow/index.html",
-            "https://www.szmuseum.com/xyfy/index.html?scene_id=52837942"
-    };
-
-    private List<MarkerBean> markerBeanList = new ArrayList<>();
+    private final List<MarkerBean> markerBeanList = new ArrayList<>();
+    private List<MarkerListBean> mSHMarkerListBeanList = new ArrayList<>();
+    private List<MarkerListBean> mZHMarkerListBeanList = new ArrayList<>();
+    private List<MarkerListBean> mSZMarkerListBeanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +59,7 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
     public void initData() {
         super.initData();
         addData();
+        addMarkerUrl();
     }
 
     @Override
@@ -92,7 +77,8 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
         if (mAMap == null) {
             mAMap = mMapView.getMap();
         }
-        mUiSettings = mAMap.getUiSettings();//实例化UiSettings类对象
+        //定义一个UiSettings对象
+        UiSettings uiSettings = mAMap.getUiSettings();//实例化UiSettings类对象
         //可以显示世界地图
         MapsInitializer.loadWorldGridMap(true);
         //******************
@@ -110,46 +96,17 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
                 String id = marker.getSnippet();
                 //上海
                 if (Integer.parseInt(id) == 0) {
-                    new XPopup.Builder(MapActivity.this)
-                            .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                            .asCenterList("上海展馆", mShangHai,
-                                    null,
-                                    new OnSelectListener() {
-                                        @Override
-                                        public void onSelect(int position, String text) {
-                                            gotoWebView(text);
-                                        }
-                                    })
-                            .show();
+                    showPop(mSHMarkerListBeanList);
                     // 珠海
                 } else if (Integer.parseInt(id) == 1) {
-                    new XPopup.Builder(MapActivity.this)
-                            .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                            .asCenterList("珠海展馆", mZhuHai,
-                                    null,
-                                    new OnSelectListener() {
-                                        @Override
-                                        public void onSelect(int position, String text) {
-                                            gotoWebView(text);
-                                        }
-                                    })
-                            .show();
+                    showPop(mZHMarkerListBeanList);
+
 
                     // 苏州
                 } else if (Integer.parseInt(id) == 4) {
-                    new XPopup.Builder(MapActivity.this)
-                            .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
-                            .asCenterList("苏州展馆", mJiangSu,
-                                    null,
-                                    new OnSelectListener() {
-                                        @Override
-                                        public void onSelect(int position, String text) {
-                                            gotoWebView(text);
-                                        }
-                                    })
-                            .show();
+                    showPop(mSZMarkerListBeanList);
 
-                    // 重启
+                    // 重庆
                 } else if (Integer.parseInt(id) == 2) {
                     gotoWebView("http://www.scicity.cn/kjgv12/index.htm");
                     // 浙江
@@ -162,6 +119,12 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
                 return true;
             }
         });
+    }
+
+    private void showPop(List<MarkerListBean> shMarkerListBeanList) {
+        new XPopup.Builder(MapActivity.this)
+                .asCustom(new ListDrawerPopupView(MapActivity.this, shMarkerListBeanList))
+                .show();
     }
 
     private void gotoWebView(String o) {
@@ -243,14 +206,14 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
     private void addData() {
         MarkerBean shanghai = new MarkerBean();
         shanghai.setmId("0");
-        shanghai.setmTitle("上海展馆");
-        shanghai.setmLat(31.282032);
-        shanghai.setmLon(121.594508);
+        shanghai.setmTitle("上海展馆(6)");
+        shanghai.setmLat(31.098178);
+        shanghai.setmLon(121.852686);
         markerBeanList.add(shanghai);
 
         MarkerBean zhuhai = new MarkerBean();
         zhuhai.setmId("1");
-        zhuhai.setmTitle("珠海展馆");
+        zhuhai.setmTitle("珠海展馆(2)");
         zhuhai.setmLat(22.224979);
         zhuhai.setmLon(113.553986);
         markerBeanList.add(zhuhai);
@@ -266,16 +229,16 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
         MarkerBean zhejiang = new MarkerBean();
         zhejiang.setmId("3");
         zhejiang.setmTitle("浙江展馆");
-        zhejiang.setmLat(30.287459);
-        zhejiang.setmLon(120.153576);
+        zhejiang.setmLat(28.510172);
+        zhejiang.setmLon(118.812243);
         markerBeanList.add(zhejiang);
 
 
         MarkerBean jiangsu = new MarkerBean();
         jiangsu.setmId("4");
-        jiangsu.setmTitle("苏州展馆");
-        jiangsu.setmLat(31.275908);
-        jiangsu.setmLon(120.611345);
+        jiangsu.setmTitle("苏州展馆(5)");
+        jiangsu.setmLat(32.503646);
+        jiangsu.setmLon(118.042585);
         markerBeanList.add(jiangsu);
 
         MarkerBean shanxi = new MarkerBean();
@@ -284,6 +247,54 @@ public class MapActivity extends BaseActivity<ActivityMapBinding, MapViewModel> 
         shanxi.setmLat(37.857014);
         shanxi.setmLon(112.549248);
         markerBeanList.add(shanxi);
+
+    }
+
+    private void addMarkerUrl() {
+
+        String[] mShangHai = {
+                "http://www.snhm.org.cn/xunidaolan/9/index.html",
+                "http://www.snhm.org.cn/xunidaolan/10/index.html",
+                "http://www.snhm.org.cn/xunidaolan/11/index.html",
+                "http://www.snhm.org.cn/xunidaolan/20/index.html",
+                "http://www.snhm.org.cn/xunidaolan/21/index.html",
+                "https://digital.shmmc.com.cn/xnzt/hanghai_web.html"};
+        for (int i = 0; i < mShangHai.length; i++) {
+            MarkerListBean markerListBean = new MarkerListBean();
+            if (i == 5) {
+                markerListBean.setTitle("上海自然博物馆");
+            } else {
+                markerListBean.setTitle("上海中国航海博物馆");
+            }
+            markerListBean.setUrl(mShangHai[i]);
+            mSHMarkerListBeanList.add(markerListBean);
+        }
+
+        String[] mZhuHai = {
+                "https://720yun.com/t/cbvkOhie017",
+                "https://720yun.com/t/7evkOhie0p7",
+        };
+
+        for (String s : mZhuHai) {
+            MarkerListBean markerListBean = new MarkerListBean();
+            markerListBean.setTitle("珠海博物馆");
+            markerListBean.setUrl(s);
+            mZHMarkerListBeanList.add(markerListBean);
+        }
+
+        String[] mJiangSu = {
+                "https://720yun.com/t/7avkcq2hp2q",
+                "https://720yun.com/t/c1vkcq2h5ie",
+                "https://720yun.com/t/f5vkcq2hr27",
+                "https://www.szmuseum.com/GoldShow/index.html",
+                "https://www.szmuseum.com/xyfy/index.html?scene_id=52837942"
+        };
+        for (String s : mJiangSu) {
+            MarkerListBean markerListBean = new MarkerListBean();
+            markerListBean.setTitle("苏州博物馆");
+            markerListBean.setUrl(s);
+            mSZMarkerListBeanList.add(markerListBean);
+        }
 
     }
 }

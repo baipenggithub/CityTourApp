@@ -10,8 +10,7 @@
     </data>
 
     <LinearLayout
-        style="@style/MatchWrap.Vertical"
-        android:background="@drawable/base_round_36_white">
+        style="@style/MatchWrap.Vertical">
 
         <RelativeLayout
             style="@style/MatchWrap.Horizontal"
@@ -45,8 +44,8 @@
                 android:textSize="@dimen/tv_size_12" />
         </RelativeLayout>
 
-
         <androidx.recyclerview.widget.RecyclerView
+            android:background="@mipmap/home_bg_ac_01"
             android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

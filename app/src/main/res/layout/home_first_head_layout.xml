@@ -41,7 +41,8 @@
                     android:layout_marginEnd="@dimen/tab_dimens_50"
                     android:background="@mipmap/city_tour_home_ic_search_box">
 
-                    <EditText
+                    <TextView
+                        android:gravity="center_vertical"
                         android:id="@+id/et_music_search"
                         style="@style/AutoMatch"
                         android:layout_marginEnd="@dimen/tab_dimens_10"

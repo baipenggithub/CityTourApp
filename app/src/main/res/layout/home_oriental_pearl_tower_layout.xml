@@ -80,9 +80,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/tab_dimens_10"
                 android:gravity="center"
-                android:text="历史 · 人文 · 行程 · 玩乐"
+                android:text="历史 · 人文 · 行程"
                 android:textColor="@color/home_color_04"
-                android:textSize="@dimen/tv_size_12" />
+                android:textSize="@dimen/tv_size_14" />
         </LinearLayout>
     </RelativeLayout>
 

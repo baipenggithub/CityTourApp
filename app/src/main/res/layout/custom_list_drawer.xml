@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/tab_dimens_230"
+    android:layout_height="wrap_content"
+    android:background="@drawable/base_frame_1_gray_round_10_white">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawerRecyclerView"
+        style="@style/MatchWrap"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

@@ -37,7 +37,7 @@
             android:layout_height="@dimen/tab_dimens_70"
             android:layout_marginTop="@dimen/tab_dimens_20"
             android:gravity="center_vertical"
-            android:text="惠生活"
+            android:text="慧生活"
             android:textColor="@color/white"
             android:textSize="@dimen/tv_size_20"
             app:layout_constraintEnd_toEndOf="parent"

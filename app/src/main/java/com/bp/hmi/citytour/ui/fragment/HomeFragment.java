@@ -102,7 +102,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
                     Intent in = new Intent(getActivity(), TravelActivity.class);
                     startActivity(in);
                 } else if (o.equals("云探店")) {
-                    Intent in = new Intent(getActivity(), SportsActivity.class);
+//                    Intent in = new Intent(getActivity(), SportsActivity.class);
+//                    startActivity(in);
+                    Intent in = new Intent(getActivity(), VideoActivity.class);
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable(CityConstant.PARAMETER_PASSING_KEY, mViewModel.mVideoData.getValue());
+                    in.putExtras(mBundle);
                     startActivity(in);
                 } else if (o.equals("云购物")) {
                     Intent in = new Intent(getActivity(), ShoppingActivity.class);

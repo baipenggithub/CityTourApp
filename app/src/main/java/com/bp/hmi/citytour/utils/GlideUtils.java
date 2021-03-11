@@ -101,7 +101,6 @@ public class GlideUtils {
      */
     public static void loadCircleImage(Context context, String url, ImageView imageView) {
         RequestOptions mRequestOptions = new RequestOptions()
-                .centerInside()
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
 

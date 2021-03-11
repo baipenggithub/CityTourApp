@@ -99,7 +99,7 @@ public class HomeViewModel extends BaseViewModel {
                 mShowUserNameType = 1;
                 // 隐藏
             } else {
-                mUserName.set("惠生活");
+                mUserName.set("慧生活");
                 mShowUserNameType = 0;
             }
         }

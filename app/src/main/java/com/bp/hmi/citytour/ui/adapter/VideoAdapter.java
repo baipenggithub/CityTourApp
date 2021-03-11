@@ -1,5 +1,7 @@
 package com.bp.hmi.citytour.ui.adapter;
 
+import android.view.ViewGroup;
+
 import androidx.annotation.Nullable;
 
 import com.bp.hmi.citytour.R;
@@ -12,6 +14,7 @@ import com.bp.hmi.citytour.utils.GlideUtils;
 import com.bp.hmi.citytour.utils.ToolUtils;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * <pre>
@@ -35,10 +38,10 @@ public class VideoAdapter extends BaseRecyclerAdapter<HomeVideoBean.ResultBean.I
 
     @Override
     protected void convert(BaseRecyclerHolder helper, HomeVideoBean.ResultBean.ItemsBean item) {
-//        Random random = new Random();
-//        ViewGroup.LayoutParams layoutParams = helper.getView(R.id.iv_video_pic).getLayoutParams();
-//        layoutParams.height = random.nextInt(400) + 400;
-//        helper.getView(R.id.iv_video_pic).setLayoutParams(layoutParams);
+        Random random = new Random();
+        ViewGroup.LayoutParams layoutParams = helper.getView(R.id.iv_video_pic).getLayoutParams();
+        layoutParams.height = random.nextInt(400) + 400;
+        helper.getView(R.id.iv_video_pic).setLayoutParams(layoutParams);
         helper.setText(R.id.tv_video_title, item.getName());
         helper.setText(R.id.tv_video_like, item.getCollectQty() + "w");
         helper.setText(R.id.tv_video_favorite, item.getCommentQty() + "w");
